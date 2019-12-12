@@ -22,9 +22,9 @@ class InitialDataSeeder extends Seeder
         DB::table('users')->truncate();
 
         //users
-
+        $user_id = Str::orderedUuid();
         DB::table('users')->insert([
-            'id' => Str::orderedUuid(),
+            'id' => $user_id,
             'username' => 'bravod',
             'id_number' => '2017-00027',
             'type' => 'Employee',
@@ -35,6 +35,31 @@ class InitialDataSeeder extends Seeder
             'email' => 'bravod@apc.edu.ph',
             'password' => Hash::make('password'),
             'created_at' => Carbon::now()
+        ]);
+
+        //Role
+        $role_id = \Illuminate\Support\Str::orderedUuid();
+        DB::table('roles')->truncate();
+        DB::table('roles')->insert([
+            'id' => $role_id,
+            'name' => 'Super Admin',
+            'guard_name' => 'web',
+            'description' => 'Super administrator rights',
+            'created_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('roles')->insert([
+            'id' => \Illuminate\Support\Str::orderedUuid(),
+            'name' => 'Admin',
+            'guard_name' => 'web',
+            'description' => 'Administrator rights',
+            'created_at' => \Carbon\Carbon::now()
+        ]);
+
+        //User role
+        DB::table('model_hs_roles')->insert([
+            'role_id' => $role_id,
+            'model_type' => 'Modules\User\Entities\User',
+            'model_id' => $user_id
         ]);
 
         $app_id = Str::orderedUuid();
