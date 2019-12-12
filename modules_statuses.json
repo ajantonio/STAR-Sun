@@ -6,5 +6,6 @@
     "ServiceGroup": true,
     "Application": true,
     "System": true,
-    "ResourceGroup": true
+    "ResourceGroup": true,
+    "Student": true
 }

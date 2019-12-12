@@ -2,9 +2,13 @@
 
 namespace $NAMESPACE$;
 
-use Illuminate\Database\Eloquent\Model;
+use Modules\System\Entities\Model;
 
 class $CLASS$ extends Model
 {
+    protected $connection = '';
+    protected $table = '';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = $FILLABLE$;
 }

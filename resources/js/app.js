@@ -41,6 +41,7 @@ Vue.use(ElementUI, {ElementUI_Lang});
  */
 
 window.BootstrapVue = require('bootstrap-vue');
+Vue.use(BootstrapVue);
 
 /**
  * The following block of code may be used to automatically register your
@@ -49,9 +50,8 @@ window.BootstrapVue = require('bootstrap-vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context('../../Modules/', true, /\.vue$/i);
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 

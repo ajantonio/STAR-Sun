@@ -9,9 +9,7 @@
         <el-col :md="24">
             <el-card>
                 <div slot="header"><i class="fa fa-pencil-alt text-primary"></i> Edit Link</div>
-                <el-form>
-                    @include('link::components.form')
-                </el-form>
+                @include('link::components.form')
             </el-card>
         </el-col>
     </el-row>

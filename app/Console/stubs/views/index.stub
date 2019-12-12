@@ -1,6 +1,6 @@
 @extends('$LOWER_NAME$::layouts.master')
-@section('css')
-
+@section('content_header')
+    <h1>$STUDLY_NAME$</h1>
 @stop
 @section('content')
     <div class="card card-outline card-primary">
@@ -11,6 +11,6 @@
 @push('js')
     {!! $html->scripts() !!}
     <script>
-
+        applyHeaderSearch('$LOWER_NAME$');
     </script>
 @endpush

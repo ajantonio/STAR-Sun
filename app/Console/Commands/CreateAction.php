@@ -10,6 +10,8 @@ class CreateAction extends Command
     var $stub;
     var $filesystem;
 
+    protected $description = "Create module callable options.";
+
     protected $signature = 'module:make-action {action} {module}';
 
     public function __construct(Filesystem $filesystem)
@@ -28,10 +30,12 @@ class CreateAction extends Command
         $stub = $this->filesystem->get($this->stub);
 
         $module_path = config('modules.paths.modules');
-        $module_path .="/$module/Actions/$action.php";
+        $module_path .= "/$module/Actions/$action.php";
+        $file_path = $module_path . "/$module/Actions/$action.php";
 
-        $template = str_replace(['$MODULE$', '$ACTIONCLASS$'],[$module, $action], $stub);
+        $template = str_replace(['$MODULE$', '$ACTIONCLASS$'], [$module, $action], $stub);
 
-        $this->filesystem->put($module_path, $template);
+        $this->filesystem->makeDirectory($module_path, 0777, true, true);
+        $this->filesystem->put($file_path, $template);
     }
 }

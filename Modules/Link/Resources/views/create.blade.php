@@ -7,9 +7,7 @@
         <el-col :md="24">
             <el-card>
                 <div slot="header"><i class="fa fa-plus text-primary"></i> Create Link</div>
-                <el-form :model="form" :rules="rules" ref="link_form">
-                    @include('link::components.form')
-                </el-form>
+                @include('link::components.form')
             </el-card>
         </el-col>
     </el-row>
