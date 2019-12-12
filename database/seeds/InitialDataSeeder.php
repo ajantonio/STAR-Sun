@@ -47,6 +47,7 @@ class InitialDataSeeder extends Seeder
             'description' => 'Super administrator rights',
             'created_at' => \Carbon\Carbon::now()
         ]);
+
         DB::table('roles')->insert([
             'id' => \Illuminate\Support\Str::orderedUuid(),
             'name' => 'Admin',
@@ -56,7 +57,8 @@ class InitialDataSeeder extends Seeder
         ]);
 
         //User role
-        DB::table('model_hs_roles')->insert([
+        DB::table('model_has_roles')->truncate();
+        DB::table('model_has_roles')->insert([
             'role_id' => $role_id,
             'model_type' => 'Modules\User\Entities\User',
             'model_id' => $user_id
