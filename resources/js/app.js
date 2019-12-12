@@ -26,7 +26,6 @@ require('datatables.net-buttons/js/buttons.print.js')();
 /**
  * SweetAlert JS
  */
-
 require('sweetalert');
 
 
@@ -36,6 +35,12 @@ require('sweetalert');
 window.ElementUI = require('element-ui');
 window.ElementUI_Lang = require('element-ui/lib/locale/lang/en');
 Vue.use(ElementUI, {ElementUI_Lang});
+
+/**
+ * BootstrapVue
+ */
+
+window.BootstrapVue = require('bootstrap-vue');
 
 /**
  * The following block of code may be used to automatically register your
