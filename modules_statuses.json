@@ -1,0 +1,10 @@
+{
+    "User": true,
+    "Link": true,
+    "Role": true,
+    "Permission": true,
+    "ServiceGroup": true,
+    "Application": true,
+    "System": true,
+    "ResourceGroup": true
+}
