@@ -3,7 +3,9 @@
 /public/fonts
 /public/storage
 /storage/*.key
+/public/mix-manifest.json
 /vendor
+.rnd
 .env
 .env.backup
 .phpunit.result.cache
