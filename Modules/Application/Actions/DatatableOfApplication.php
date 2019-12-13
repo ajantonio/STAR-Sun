@@ -19,10 +19,13 @@ class DatatableOfApplication extends Action
             return datatables()->of(Application::query())
                 ->editColumn('action', function ($application) {
                     return view('application::components.actions', compact(['application']));
+                })->editColumn('url', function($application){
+                    return "<a target='_blank' href='{$application->url}'>{$application->url}</a>";
                 })
                 ->toJson();
         }
 
+        $builder->addColumn(['data' => 'id', 'title'=>'ID', 'class'=>'text-nowrap']);
         $builder->addColumn(['data' => 'name']);
         $builder->addColumn(['data' => 'description']);
         $builder->addColumn(['data' => 'icon']);
