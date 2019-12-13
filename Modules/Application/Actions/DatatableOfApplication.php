@@ -15,18 +15,20 @@ class DatatableOfApplication extends Action
 
     public function handle(DatatableBuilder $builder)
     {
-        if(request()->ajax()){
+        if (request()->ajax()) {
             return datatables()->of(Application::query())
-                ->editColumn('action', function($application){
-
+                ->editColumn('action', function ($application) {
+                    return view('application::components.actions', compact(['application']));
                 })
                 ->toJson();
         }
 
-        $builder->addColumn(['data'=>'name']);
-        $builder->addColumn(['data'=>'description']);
-        $builder->addColumn(['data'=>'icon']);
-        $builder->addColumn(['data'=>'url']);
+        $builder->addColumn(['data' => 'name']);
+        $builder->addColumn(['data' => 'description']);
+        $builder->addColumn(['data' => 'icon']);
+        $builder->addColumn(['data' => 'url']);
+
+
         $builder->addActionColumn();
         $builder->setTableId('applications');
 

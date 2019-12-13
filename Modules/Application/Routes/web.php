@@ -12,7 +12,11 @@
 */
 
 use Modules\Application\Actions\DatatableOfApplication;
+use Modules\Application\Actions\ShowCreateApplciationForm;
+use Modules\Application\Actions\ShowEditApplicationForm;
 
 Route::prefix('application')->group(function () {
     Route::get('/', DatatableOfApplication::class)->name('application.index');
+    Route::get('/create', ShowCreateApplciationForm::class)->name('application.create');
+    Route::get('/{application}/edit', ShowEditApplicationForm::class)->name('application.edit');
 });

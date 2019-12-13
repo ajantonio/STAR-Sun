@@ -11,7 +11,7 @@
                     <el-form :model="form" :rules="rules" ref="createForm" >
                         <h1>Form here</h1>
                         <el-form-item class="text-right">
-                            <el-button type="primary" @click="submitForm(createForm)"><i class="fa fa-check"></i> Save</el-button>
+                            <el-button type="primary" @click="submitForm('createForm')"><i class="fa fa-check"></i> Save</el-button>
                             <a href="{{route('$LOWER_NAME$.index')}}">
                                 <el-button><i class="fa fa-times"></i> Cancel</el-button>
                             </a>

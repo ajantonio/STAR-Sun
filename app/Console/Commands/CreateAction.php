@@ -30,8 +30,8 @@ class CreateAction extends Command
         $stub = $this->filesystem->get($this->stub);
 
         $module_path = config('modules.paths.modules');
-        $module_path .= "/$module/Actions/$action.php";
-        $file_path = $module_path . "/$module/Actions/$action.php";
+        $module_path .= "/$module/Actions";
+        $file_path = $module_path."/$action.php";
 
         $template = str_replace(['$MODULE$', '$ACTIONCLASS$'], [$module, $action], $stub);
 
