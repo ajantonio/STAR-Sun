@@ -18,6 +18,7 @@
         "cross-env": "^5.1",
         "datatables.net-bs4": "^1.10.20",
         "datatables.net-buttons-bs4": "^1.6.1",
+        "datatables.net-responsive-bs4": "^2.2.3",
         "element-ui": "^2.13.0",
         "icheck-bootstrap": "^3.0.1",
         "jquery": "^3.2",
