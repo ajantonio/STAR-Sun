@@ -96,7 +96,7 @@ class MenuServiceProvider extends ServiceProvider
                                 'url' => '#',
                                 'icon' => $link->icon,
                                 'active' => [$link->active_pattern],
-                                'submenu' => $sub_menus
+                                'submenu' => $sub_menus->all()
                             ]);
                         } else {
 
