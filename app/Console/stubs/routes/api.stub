@@ -17,7 +17,7 @@ use Modules\$STUDLY_NAME$\Actions\View$STUDLY_NAME$;
 */
 Route::middleware('auth:api')->prefix('$LOWER_NAME$')->group(function(){
     Route::post('/', Create$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.store');
-    Route::get('/{$STUDLY_NAME$}', View$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.show');
-    Route::put('/{$STUDLY_NAME$}', Edit$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.update');
-    Route::delete('/{$STUDLY_NAME$}', Delete$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.destroy');
+    Route::get('/{$LOWER_NAME$}', View$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.show');
+    Route::put('/{$LOWER_NAME$}', Edit$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.update');
+    Route::delete('/{$LOWER_NAME$}', Delete$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.destroy');
 });

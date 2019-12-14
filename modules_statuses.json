@@ -5,8 +5,8 @@
     "Application": true,
     "System": true,
     "ResourceGroup": true,
-    "Student": true,
     "Test": true,
     "Role": true,
-    "Permission": true
+    "Permission": true,
+    "Student": true
 }
