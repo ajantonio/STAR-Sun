@@ -34,6 +34,7 @@ return [
             'views/create' => 'Resources/views/create.blade.php',
             'views/edit' => 'Resources/views/edit.blade.php',
             'views/master' => 'Resources/views/layouts/master.blade.php',
+            'views/actions' => 'Resources/views/components/actions.blade.php',
             'scaffold/config' => 'Config/config.php',
             'composer' => 'composer.json',
             //'assets/js/app' => 'Resources/assets/js/app.js',
@@ -50,6 +51,7 @@ return [
             'views/master' => ['LOWER_NAME', 'STUDLY_NAME'],
             'views/create' => ['LOWER_NAME', 'STUDLY_NAME'],
             'views/edit' => ['LOWER_NAME', 'STUDLY_NAME'],
+            'views/actions' => ['LOWER_NAME'],
             'scaffold/config' => ['STUDLY_NAME'],
             'composer' => [
                 'LOWER_NAME',

@@ -45,6 +45,7 @@ class DatatableOfPermission extends Action
                 ->toJson();
         }
 
+        $builder->addColumn(['data'=>'id']);
         $builder->addActionColumn();
         $builder->setTableId('permissions');
 

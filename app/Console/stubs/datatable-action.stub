@@ -45,6 +45,7 @@ class $ACTIONCLASS$ extends Action
                 ->toJson();
         }
 
+        $builder->addColumn(['data'=>'id']);
         $builder->addActionColumn();
         $builder->setTableId('$MODEL_LOWER_CASE$s');
 

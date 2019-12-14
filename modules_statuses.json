@@ -1,12 +1,12 @@
 {
     "User": true,
     "Link": true,
-    "Permission": true,
     "ServiceGroup": true,
     "Application": true,
     "System": true,
     "ResourceGroup": true,
     "Student": true,
     "Test": true,
-    "Role": true
+    "Role": true,
+    "Permission": true
 }

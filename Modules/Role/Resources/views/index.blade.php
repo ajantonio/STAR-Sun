@@ -4,13 +4,13 @@
 @stop
 @section('content')
     <div class="card card-outline card-primary">
-        {!! $html->table() !!}
+        {!! $builder->table() !!}
     </div>
 @endsection
 
 @push('js')
-    {!! $html->scripts() !!}
+    {!! $builder->scripts() !!}
     <script>
-        applyHeaderSearch('role');
+        applyHeaderSearch('roles');
     </script>
 @endpush

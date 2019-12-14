@@ -45,6 +45,7 @@ class DatatableOfRole extends Action
                 ->toJson();
         }
 
+        $builder->addColumn(['data'=>'id']);
         $builder->addActionColumn();
         $builder->setTableId('roles');
 
