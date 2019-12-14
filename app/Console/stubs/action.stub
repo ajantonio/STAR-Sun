@@ -23,7 +23,9 @@ class $ACTIONCLASS$ extends Action
      */
     public function rules()
     {
-        return [];
+        if(request()->wantsJson()){
+            return [];
+        }
     }
 
     /**

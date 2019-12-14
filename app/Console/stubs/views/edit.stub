@@ -42,7 +42,7 @@
                 submitForm(formRefs){
                     this.$refs[formRefs].validate((valid) => {
                         if (valid) {
-                            axios.post('{{route('api.$LOWER_NAME$.update', $id)}}', this.form)
+                            axios.put('{{route('api.$LOWER_NAME$.update', $id)}}', this.form)
                                 .then(res => {
                                     swal('Success', 'Saved successfully!', 'success')
                                         .then(() => {
