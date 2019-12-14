@@ -11,6 +11,14 @@
 |
 */
 
-Route::prefix('role')->group(function() {
-    Route::get('/', 'RoleController@index');
+use Modules\Role\Actions\CreateRole;
+use Modules\Role\Actions\EditRole;
+use Modules\Role\Actions\ViewRole;
+use Modules\Role\Actions\DatatableOfRole;
+
+Route::prefix('role')->middleware('auth')->group(function() {
+    Route::get('/', DatatableOfRole::class)->name('role.index');
+    Route::get('/create', CreateRole::class)->name('role.create');
+    Route::get('/{Role}', ViewRole::class)->name('role.show');
+    Route::get('/{Role}/edit', EditRole::class)->name('role.edit');
 });

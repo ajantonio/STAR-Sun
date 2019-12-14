@@ -2,16 +2,11 @@
 
 namespace Modules\Permission\Entities;
 
-use \Spatie\Permission\Models\Permission as BasePermission;
-
-class Permission extends BasePermission
+class Permission extends \Spatie\Permission\Models\Permission
 {
-
+    protected $connection = '';
+    protected $table = '';
     public $incrementing = false;
     protected $keyType = 'string';
-
-    public function scopeActive($query)
-    {
-        return $query->where('active', 'Yes');
-    }
+    protected $fillable = [];
 }

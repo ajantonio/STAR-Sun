@@ -16,7 +16,7 @@ use Modules\Application\Actions\DeleteApplication;
 use Modules\Application\Actions\ShowCreateApplciationForm;
 use Modules\Application\Actions\EditApplication;
 
-Route::prefix('application')->group(function () {
+Route::prefix('application')->middleware('auth')->group(function () {
     Route::get('/', DatatableOfApplication::class)->name('application.index');
     Route::get('/create', ShowCreateApplciationForm::class)->name('application.create');
     Route::get('/{application}/edit', EditApplication::class)->name('application.edit');

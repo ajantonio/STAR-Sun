@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\$MODULE$\Actions;
+namespace Modules\Role\Actions;
 
 use Lorisleiva\Actions\Action;
 
-class $ACTIONCLASS$ extends Action
+class DeleteRole extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,7 +13,7 @@ class $ACTIONCLASS$ extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('$action$');
+        return $this->user()->can('delete-role');
     }
 
     /**

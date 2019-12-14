@@ -67,7 +67,7 @@
                 }
             },
             mounted() {
-                axios.get('/api/application/{{$id}}/edit/')
+                axios.get('/api/application/{{$id}}/show')
                     .then(res => {
                         this.form = res.data;
                     })

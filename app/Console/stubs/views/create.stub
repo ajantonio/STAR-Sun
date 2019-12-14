@@ -36,7 +36,7 @@
             mounted() {
                 //execute scripts on page ready
             },
-            computed(){
+            computed:{
             },
             methods: {
                 submitForm(formRefs){

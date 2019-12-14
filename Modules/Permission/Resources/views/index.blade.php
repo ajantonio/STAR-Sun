@@ -1,9 +1,16 @@
 @extends('permission::layouts.master')
-
+@section('content_header')
+    <h1>Permission</h1>
+@stop
 @section('content')
-    <h1>Hello World!</h1>
-
-    <p>
-        This view is loaded from module: {!! config('permission.name') !!}
-    </p>
+    <div class="card card-outline card-primary">
+        {!! $html->table() !!}
+    </div>
 @endsection
+
+@push('js')
+    {!! $html->scripts() !!}
+    <script>
+        applyHeaderSearch('permission');
+    </script>
+@endpush

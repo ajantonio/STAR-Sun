@@ -24,7 +24,7 @@ use Modules\Application\Http\Controllers\GetApplicationResourceController;
 Route::middleware('auth:api')->prefix('application')->group(function(){
     Route::get('/', GetAllApplications::class)->name('api.application.index');
     Route::post('/create', StoreNewApplication::class)->name('api.application.store');
-    Route::get('/{application}/edit', EditApplication::class)->name('api.application.edit');
+    Route::get('/{application}/show', EditApplication::class)->name('api.application.view');
     Route::put('/{application}/edit', UpdateApplication::class)->name('api.application.update');
     Route::delete('/{application}', DeleteApplication::class)->name('api.application.delete');
     Route::get('{application}/resources', GetApplicationResources::class)->name('api.application.resources');

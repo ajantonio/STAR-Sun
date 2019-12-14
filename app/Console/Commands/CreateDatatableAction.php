@@ -6,27 +6,24 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 
-class CreateAction extends Command
+class CreateDatatableAction extends Command
 {
-    var $stub;
-    var $filesystem;
+    protected $signature = 'module:make-datatable {module}';
 
-    protected $description = "Create module callable options.";
-
-    protected $signature = 'module:make-action {action} {module}';
+    protected $description = 'Create datatable action of module';
 
     public function __construct(Filesystem $filesystem)
     {
         parent::__construct();
 
-        $this->stub = base_path('app/Console/stubs/action.stub');
+        $this->stub = base_path('app/Console/stubs/datatable-action.stub');
         $this->filesystem = $filesystem;
     }
 
     public function handle()
     {
         $module = $this->argument('module');
-        $action = $this->argument('action');
+        $action = "DatatableOf$module";
 
         $stub = $this->filesystem->get($this->stub);
 
@@ -34,7 +31,7 @@ class CreateAction extends Command
         $module_path .= "/$module/Actions";
         $file_path = $module_path."/$action.php";
 
-        $template = str_replace(['$MODULE$', '$ACTIONCLASS$', '$action$'], [$module, $action, Str::kebab($action)], $stub);
+        $template = str_replace(['$MODULE$', '$ACTIONCLASS$', '$MODEL_LOWER_CASE$', '$MODEL$'], [$module, $action, Str::lower($module), $module], $stub);
 
         $this->filesystem->makeDirectory($module_path, 0777, true, true);
         $this->filesystem->put($file_path, $template);
