@@ -6,7 +6,7 @@
     "System": true,
     "ResourceGroup": true,
     "Test": true,
-    "Role": true,
     "Permission": true,
-    "Student": true
+    "Student": true,
+    "Role": true
 }

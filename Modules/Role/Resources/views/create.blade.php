@@ -8,8 +8,15 @@
             <el-card>
                 <div slot="header"><i class="fa fa-plus text-primary"></i> Create Role</div>
                 <div>
-                    <el-form :model="form" :rules="rules" ref="createForm" >
-                        <h1>Form here</h1>
+                    <el-form @submit.native.prevent :model="form" :rules="rules" ref="createForm">
+                        <el-form-item label="Name" prop="name">
+                            <el-input v-model="form.name"></el-input>
+                        </el-form-item>
+
+                        <el-form-item label="Description" prop="description">
+                            <el-input v-model="form.description" type="textarea"></el-input>
+                        </el-form-item>
+
                         <el-form-item class="text-right">
                             <el-button type="primary" @click="submitForm('createForm')"><i class="fa fa-check"></i> Save</el-button>
                             <a href="{{route('role.index')}}">
@@ -29,17 +36,21 @@
             el: '.content',
             data() {
                 return {
-                    form: {},
-                    rules:{}
+                    form: {
+                        name: null,
+                        description: null,
+                    },
+                    rules: {
+                        name: {required: true, message: 'Please input name.'}
+                    }
                 }
             },
             mounted() {
                 //execute scripts on page ready
             },
-            computed:{
-            },
+            computed: {},
             methods: {
-                submitForm(formRefs){
+                submitForm(formRefs) {
                     this.$refs[formRefs].validate((valid) => {
                         if (valid) {
                             axios.post('{{route('api.role.store')}}', this.form)

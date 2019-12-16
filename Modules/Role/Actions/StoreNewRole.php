@@ -2,9 +2,11 @@
 
 namespace Modules\Role\Actions;
 
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\Action;
+use Modules\Role\Entities\Role;
 
-class EditRole extends Action
+class StoreNewRole extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,7 +15,7 @@ class EditRole extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('edit-role');
+        return $this->user()->can('create-role');
     }
 
     /**
@@ -23,7 +25,10 @@ class EditRole extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'name' => 'required|unique:roles',
+            'description' => 'required'
+        ];
     }
 
     /**
@@ -33,20 +38,13 @@ class EditRole extends Action
      */
     public function handle()
     {
-        // Execute the action.
-    }
+        $role = new Role();
+        $role->id = Str::orderedUuid()->toString();
+        $role->name = $this->name;
+        $role->description = $this->description;
+        $role->guard_name = 'web';
+        $role->save();
 
-    /**
-    * Response for web request
-    */
-    public function htmlResponse($result, $request){
-
-    }
-
-    /**
-    * Response for API request
-    */
-    public function jsonResponse($result, $request){
-        return $result;
+        return $role;
     }
 }

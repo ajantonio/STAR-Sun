@@ -1,9 +1,9 @@
 <?php
 
-use Modules\Role\Actions\CreateRole;
+use Modules\Role\Actions\StoreNewRole;
 use Modules\Role\Actions\DeleteRole;
-use Modules\Role\Actions\EditRole;
-use Modules\Role\Actions\ViewRole;
+use Modules\Role\Actions\UpdateRole;
+use Modules\Role\Actions\FindRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,8 @@ use Modules\Role\Actions\ViewRole;
 |
 */
 Route::middleware('auth:api')->prefix('role')->group(function(){
-    Route::post('/', CreateRole::class)->name('api.role.store');
-    Route::get('/{Role}', ViewRole::class)->name('api.role.show');
-    Route::put('/{Role}', EditRole::class)->name('api.role.update');
-    Route::delete('/{Role}', DeleteRole::class)->name('api.role.destroy');
+    Route::post('/', StoreNewRole::class)->name('api.role.store');
+    Route::get('/{role}', FindRole::class)->name('api.role.find');
+    Route::put('/{role}', UpdateRole::class)->name('api.role.update');
+    Route::delete('/{role}', DeleteRole::class)->name('api.role.destroy');
 });

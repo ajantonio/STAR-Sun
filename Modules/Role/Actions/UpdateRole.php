@@ -2,28 +2,21 @@
 
 namespace Modules\Role\Actions;
 
+use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\Action;
 
-class ViewRole extends Action
+class UpdateRole extends Action
 {
-    /**
-     * Determine if the user is authorized to make this action.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return $this->user()->can('view-role');
+        return $this->user()->can('update-role');
     }
 
-    /**
-     * Get the validation rules that apply to the action.
-     *
-     * @return array
-     */
     public function rules()
     {
-        return [];
+        return [
+            'name' => 'required|' . Rule::unique('roles')->ignore($this->id)
+        ];
     }
 
     /**

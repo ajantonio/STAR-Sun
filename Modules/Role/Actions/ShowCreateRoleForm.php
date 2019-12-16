@@ -4,7 +4,7 @@ namespace Modules\Role\Actions;
 
 use Lorisleiva\Actions\Action;
 
-class ViewRole extends Action
+class ShowCreateRoleForm extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,17 +13,7 @@ class ViewRole extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-role');
-    }
-
-    /**
-     * Get the validation rules that apply to the action.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [];
+        return $this->user()->can('create-role');
     }
 
     /**
@@ -33,6 +23,6 @@ class ViewRole extends Action
      */
     public function handle()
     {
-        // Execute the action.
+        return view('role::create');
     }
 }

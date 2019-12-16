@@ -11,14 +11,14 @@
 |
 */
 
-use Modules\$STUDLY_NAME$\Actions\Create$STUDLY_NAME$;
-use Modules\$STUDLY_NAME$\Actions\Edit$STUDLY_NAME$;
+use Modules\$STUDLY_NAME$\Actions\ShowCreate$STUDLY_NAME$Form;
+use Modules\$STUDLY_NAME$\Actions\ShowEdit$STUDLY_NAME$Form;
 use Modules\$STUDLY_NAME$\Actions\View$STUDLY_NAME$;
-use Modules\$STUDLY_NAME$\Actions\DatatableOf$STUDLY_NAME$;
+use Modules\$STUDLY_NAME$\Actions\DataTableOf$STUDLY_NAME$;
 
 Route::prefix('$LOWER_NAME$')->middleware('auth')->group(function() {
-    Route::get('/', DatatableOf$STUDLY_NAME$::class)->name('$LOWER_NAME$.index');
-    Route::get('/create', Create$STUDLY_NAME$::class)->name('$LOWER_NAME$.create');
+    Route::get('/', DataTableOf$STUDLY_NAME$::class)->name('$LOWER_NAME$.index');
+    Route::get('/create', ShowCreate$STUDLY_NAME$Form::class)->name('$LOWER_NAME$.create');
     Route::get('/{$LOWER_NAME$}', View$STUDLY_NAME$::class)->name('$LOWER_NAME$.show');
-    Route::get('/{$LOWER_NAME$}/edit', Edit$STUDLY_NAME$::class)->name('$LOWER_NAME$.edit');
+    Route::get('/{$LOWER_NAME$}/edit', ShowEdit$STUDLY_NAME$Form::class)->name('$LOWER_NAME$.edit');
 });

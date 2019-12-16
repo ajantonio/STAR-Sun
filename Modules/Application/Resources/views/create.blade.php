@@ -2,7 +2,6 @@
 @section('content_header')
     <h1>Application</h1>
 @stop
-{{-- Extend @section from parent --}}
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">

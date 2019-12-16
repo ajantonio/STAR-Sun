@@ -6,26 +6,11 @@ use Lorisleiva\Actions\Action;
 use Modules\Role\Entities\Role;
 use Modules\System\Entities\DatatableBuilder;
 
-class DatatableOfRole extends Action
+class DataTableOfRole extends Action
 {
-    /**
-     * Determine if the user is authorized to make this action.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return $this->user()->can('view-any-role');
-    }
-
-    /**
-     * Get the validation rules that apply to the action.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [];
     }
 
     /**
@@ -45,7 +30,8 @@ class DatatableOfRole extends Action
                 ->toJson();
         }
 
-        $builder->addColumn(['data'=>'id']);
+        $builder->addColumn(['data'=>'name']);
+        $builder->addColumn(['data'=>'description']);
         $builder->addActionColumn();
         $builder->setTableId('roles');
 

@@ -1,9 +1,9 @@
 <?php
 
-use Modules\$STUDLY_NAME$\Actions\Create$STUDLY_NAME$;
+use Modules\$STUDLY_NAME$\Actions\StoreNew$STUDLY_NAME$;
 use Modules\$STUDLY_NAME$\Actions\Delete$STUDLY_NAME$;
-use Modules\$STUDLY_NAME$\Actions\Edit$STUDLY_NAME$;
-use Modules\$STUDLY_NAME$\Actions\View$STUDLY_NAME$;
+use Modules\$STUDLY_NAME$\Actions\Update$STUDLY_NAME$;
+use Modules\$STUDLY_NAME$\Actions\Find$STUDLY_NAME$;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,8 @@ use Modules\$STUDLY_NAME$\Actions\View$STUDLY_NAME$;
 |
 */
 Route::middleware('auth:api')->prefix('$LOWER_NAME$')->group(function(){
-    Route::post('/', Create$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.store');
-    Route::get('/{$LOWER_NAME$}', View$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.show');
-    Route::put('/{$LOWER_NAME$}', Edit$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.update');
+    Route::post('/', StoreNew$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.store');
+    Route::get('/{$LOWER_NAME$}', Find$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.find');
+    Route::put('/{$LOWER_NAME$}', Update$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.update');
     Route::delete('/{$LOWER_NAME$}', Delete$STUDLY_NAME$::class)->name('api.$LOWER_NAME$.destroy');
 });

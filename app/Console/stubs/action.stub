@@ -23,9 +23,7 @@ class $ACTIONCLASS$ extends Action
      */
     public function rules()
     {
-        if(request()->wantsJson()){
-            return [];
-        }
+        return [];
     }
 
     /**
@@ -36,19 +34,5 @@ class $ACTIONCLASS$ extends Action
     public function handle()
     {
         // Execute the action.
-    }
-
-    /**
-    * Response for web request
-    */
-    public function htmlResponse($result, $request){
-
-    }
-
-    /**
-    * Response for API request
-    */
-    public function jsonResponse($result, $request){
-        return $result;
     }
 }

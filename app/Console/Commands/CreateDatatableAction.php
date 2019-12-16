@@ -23,7 +23,7 @@ class CreateDatatableAction extends Command
     public function handle()
     {
         $module = $this->argument('module');
-        $action = "DatatableOf$module";
+        $action = "DataTableOf$module";
 
         $stub = $this->filesystem->get($this->stub);
 
