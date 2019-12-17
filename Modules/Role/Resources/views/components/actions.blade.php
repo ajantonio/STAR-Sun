@@ -5,5 +5,5 @@
 @endcan()
 
 @can('delete-role')
-    <button class="btn btn-xs btn-outline-danger"><i class="fa fa-trash"></i></button>
+    <button class="btn btn-xs btn-outline-danger" onclick="deleteRole('{{$role->id}}', '{{$role->name}}')"><i class="fa fa-trash"></i></button>
 @endcan

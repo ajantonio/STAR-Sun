@@ -3,36 +3,19 @@
 namespace Modules\Role\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Role\Entities\Role;
 
 class DeleteRole extends Action
 {
-    /**
-     * Determine if the user is authorized to make this action.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return $this->user()->can('delete-role');
     }
 
-    /**
-     * Get the validation rules that apply to the action.
-     *
-     * @return array
-     */
-    public function rules()
+    public function handle(Role $role)
     {
-        return [];
-    }
+        $role->delete();
 
-    /**
-     * Execute the action and return a result.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
-        // Execute the action.
+        return $role;
     }
 }

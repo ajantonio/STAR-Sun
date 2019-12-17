@@ -4,6 +4,7 @@ namespace Modules\Role\Actions;
 
 use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\Action;
+use Modules\Role\Entities\Role;
 
 class UpdateRole extends Action
 {
@@ -22,10 +23,15 @@ class UpdateRole extends Action
     /**
      * Execute the action and return a result.
      *
+     * @param Role $role
      * @return mixed
      */
-    public function handle()
+    public function handle(Role $role)
     {
-        // Execute the action.
+        $role->name = $this->name;
+        $role->description = $this->description;
+        $role->save();
+
+        return $role;
     }
 }

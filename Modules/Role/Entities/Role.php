@@ -2,13 +2,12 @@
 
 namespace Modules\Role\Entities;
 
-use Modules\System\Entities\Model;
+use Spatie\Permission\Models\Role as BaseRole;
 
-class Role extends Model
+class Role extends BaseRole
 {
     //protected $connection = '';
     //protected $table = '';
     public $incrementing = false;
     protected $keyType = 'string';
-    protected $fillable = [];
 }

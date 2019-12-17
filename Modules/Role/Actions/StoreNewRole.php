@@ -27,7 +27,6 @@ class StoreNewRole extends Action
     {
         return [
             'name' => 'required|unique:roles',
-            'description' => 'required'
         ];
     }
 

@@ -25,14 +25,14 @@ class InitialDataSeeder extends Seeder
         $user_id = Str::orderedUuid();
         DB::table('users')->insert([
             'id' => $user_id,
-            'username' => 'bravod',
-            'id_number' => '2017-00027',
+            'username' => 'admin',
+            'id_number' => '0000-00000',
             'type' => 'Employee',
-            'name' => 'Heremias Delos Santos',
-            'first_name' => 'Heremias III',
-            'middle_name' => 'Oczon',
-            'last_name' => 'Delos Santos',
-            'email' => 'bravod@apc.edu.ph',
+            'name' => 'Super Admin',
+            'first_name' => 'Super',
+            'middle_name' => '',
+            'last_name' => 'Admin',
+            'email' => 'admin@apc.edu.ph',
             'password' => Hash::make('password'),
             'created_at' => Carbon::now()
         ]);
