@@ -34,8 +34,11 @@
                     </el-checkbox-group>
                 </el-card>
 
-                <el-row class="pt-2">
+                <el-row class="pt-2 text-right">
                     <el-button type="primary" icon="el-icon-check">Submit</el-button>
+                    <a href="{{route('user.index')}}">
+                        <el-button type="default" icon="el-icon-close">Cancel</el-button>
+                    </a>
                 </el-row>
             </el-form>
         </el-col>
@@ -48,7 +51,7 @@
             data() {
                 return {
                     form: {
-                        roles: []
+                        roles: {!! $user->roles->pluck('id') !!}
                     }
                 }
             }
