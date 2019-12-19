@@ -22,24 +22,23 @@
                     <el-form-item label="Type">
                         <el-input readonly value="{{$user->type}}"></el-input>
                     </el-form-item>
-                </el-card>
-                <el-card>
-                    <template slot="header">
+                    
+                    <template>
                         <i class="el-icon-collection-tag text-primary"></i> Roles
+                        <hr>
                     </template>
                     <el-checkbox-group v-model="form.roles">
                         @foreach ($roles as $role)
                             <el-checkbox label="{{$role->id}}">{{$role->name}}</el-checkbox>
                         @endforeach
                     </el-checkbox-group>
+                    <el-row class="pt-2 text-right">
+                        <el-button type="primary" icon="el-icon-check">Submit</el-button>
+                        <a href="{{route('user.index')}}">
+                            <el-button type="default" icon="el-icon-close">Cancel</el-button>
+                        </a>
+                    </el-row>
                 </el-card>
-
-                <el-row class="pt-2 text-right">
-                    <el-button type="primary" icon="el-icon-check">Submit</el-button>
-                    <a href="{{route('user.index')}}">
-                        <el-button type="default" icon="el-icon-close">Cancel</el-button>
-                    </a>
-                </el-row>
             </el-form>
         </el-col>
     </el-row>
