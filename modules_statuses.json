@@ -4,9 +4,9 @@
     "ServiceGroup": true,
     "Application": true,
     "System": true,
-    "ResourceGroup": true,
-    "Test": true,
-    "Permission": true,
     "Student": true,
-    "Role": true
+    "Role": true,
+    "Permission": true,
+    "ResourceGroup": true,
+    "Test": true
 }

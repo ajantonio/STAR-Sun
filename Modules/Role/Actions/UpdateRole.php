@@ -16,7 +16,7 @@ class UpdateRole extends Action
     public function rules()
     {
         return [
-            'name' => 'required|' . Rule::unique('roles')->ignore($this->id)
+            'name' => 'required|' . Rule::unique('roles')->ignore($this->role)
         ];
     }
 
@@ -31,6 +31,10 @@ class UpdateRole extends Action
         $role->name = $this->name;
         $role->description = $this->description;
         $role->save();
+
+        $role->permissions()->detach();
+        $role->permissions()->attach($this->permissions);
+        $role->forgetCachedPermissions();
 
         return $role;
     }

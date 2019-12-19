@@ -3,6 +3,7 @@
 namespace Modules\Role\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Role\Entities\Role;
 
 class ShowEditRoleForm extends Action
 {
@@ -13,6 +14,7 @@ class ShowEditRoleForm extends Action
 
     public function handle($role)
     {
-        return view('role::edit')->with('id', $role);
+        $permissions = (new AllApplicationResourcePermissions())->run();
+        return view('role::edit', compact(['permissions']))->with('id', $role);
     }
 }

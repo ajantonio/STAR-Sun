@@ -15,7 +15,7 @@ class $ACTIONCLASS$ extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-any-$MODEL_LOWER_CASE$');
+        return $this->user()->can('view-$MODEL_LOWER_CASE$');
     }
 
     /**

@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use Modules\User\Actions\StoreNewUser;
+use Modules\User\Actions\DeleteUser;
+use Modules\User\Actions\UpdateUser;
+use Modules\User\Actions\FindUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +15,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware('auth:api')->prefix('user')->group(function(){
-
+    Route::get('/{user}', FindUser::class)->name('api.user.find');
 });

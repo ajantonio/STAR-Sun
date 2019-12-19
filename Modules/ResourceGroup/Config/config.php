@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'name' => 'ResourceGroup'
+    'name' => 'Resource Group'
 ];

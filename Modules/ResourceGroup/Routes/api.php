@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
-use Modules\ResourceGroup\Http\Controllers\GetApplicationResourceController;
+use Modules\ResourceGroup\Actions\StoreNewResourceGroup;
+use Modules\ResourceGroup\Actions\DeleteResourceGroup;
+use Modules\ResourceGroup\Actions\UpdateResourceGroup;
+use Modules\ResourceGroup\Actions\FindResourceGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,8 @@ use Modules\ResourceGroup\Http\Controllers\GetApplicationResourceController;
 |
 */
 Route::middleware('auth:api')->prefix('resourcegroup')->group(function(){
-
+    Route::post('/', StoreNewResourceGroup::class)->name('api.resourcegroup.store');
+    Route::get('/{resourcegroup}', FindResourceGroup::class)->name('api.resourcegroup.find');
+    Route::put('/{resourcegroup}', UpdateResourceGroup::class)->name('api.resourcegroup.update');
+    Route::delete('/{resourcegroup}', DeleteResourceGroup::class)->name('api.resourcegroup.destroy');
 });

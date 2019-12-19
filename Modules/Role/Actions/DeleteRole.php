@@ -15,6 +15,7 @@ class DeleteRole extends Action
     public function handle(Role $role)
     {
         $role->delete();
+        $role->forgetCachedPermissions();
 
         return $role;
     }

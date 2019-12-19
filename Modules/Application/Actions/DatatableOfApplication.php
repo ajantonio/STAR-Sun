@@ -25,7 +25,6 @@ class DatatableOfApplication extends Action
                 ->toJson();
         }
 
-        $builder->addColumn(['data' => 'id', 'title'=>'ID', 'class'=>'text-nowrap']);
         $builder->addColumn(['data' => 'name']);
         $builder->addColumn(['data' => 'description']);
         $builder->addColumn(['data' => 'icon']);

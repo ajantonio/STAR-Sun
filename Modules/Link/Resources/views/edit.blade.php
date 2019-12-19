@@ -1,14 +1,14 @@
 @extends('link::layouts.master')
 
 @section('content_header')
-    <h1>Link</h1>
+    <h1><i class="fas fa-link"></i> {{plural(config('link.name'))}}</h1>
 @stop
 
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">
             <el-card>
-                <div slot="header"><i class="fa fa-pencil-alt text-primary"></i> Edit Link</div>
+                <div slot="header"><i class="el-icon-edit text-primary"></i> Edit Link</div>
                 @include('link::components.form')
             </el-card>
         </el-col>

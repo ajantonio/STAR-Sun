@@ -47,7 +47,7 @@
         {{--Permission--}}
         <el-col :md="12">
             <el-form-item label="Permission">
-                <el-select v-model="form.permission" placeholder="Allowed All" clearable filterable class="w-100">
+                <el-select v-model="form.permission" value-key="id" placeholder="Allowed All" clearable filterable class="w-100">
                     <el-option v-for="item in permissions"
                                :value="item"
                                :label="item.name"
@@ -101,9 +101,9 @@
     </el-row>
 
     <el-form-item class="text-right">
-        <el-button type="primary" @click="submitForm('link_form')"><i class="fa fa-check"></i> Save</el-button>
+        <el-button type="primary" @click="submitForm('link_form')" icon="el-icon-check"> Save</el-button>
         <a href="{{ route('link.index') }}">
-            <el-button><i class="fa fa-times"></i> Cancel</el-button>
+            <el-button type="default" icon="el-icon-close">Cancel</el-button>
         </a>
     </el-form-item>
 </el-form>

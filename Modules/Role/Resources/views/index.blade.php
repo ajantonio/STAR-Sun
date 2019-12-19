@@ -1,6 +1,6 @@
 @extends('role::layouts.master')
 @section('content_header')
-    <h1>Role</h1>
+    <h1><i class="fas fa-user-tag"></i> {{plural(config('role.name'))}}</h1>
 @stop
 @section('content')
     <div class="card card-outline card-primary">

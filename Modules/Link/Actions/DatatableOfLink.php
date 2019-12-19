@@ -30,7 +30,7 @@ class DatatableOfLink extends Action
                     return "<a target='_blank' href='{$path}'>{$link->title}</a>";
                 })
                 ->addColumn('permission', function ($link) {
-                    return $link->permission;
+                    return $link->permission->name ?? '';
                 })
                 ->editColumn('action', function ($link) {
                     return view('link::components.actions', compact('link'));

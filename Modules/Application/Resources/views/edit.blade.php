@@ -1,13 +1,13 @@
 @extends('application::layouts.master')
 @section('content_header')
-    <h1>Application</h1>
+    <h1><i class="fas fa-list"></i> {{plural(config('application.name'))}}</h1>
 @stop
 {{-- Extend @section from parent --}}
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">
             <el-card>
-                <div slot="header"><i class="fa fa-pencil-alt text-primary"></i> Edit Application</div>
+                <div slot="header"><i class="el-icon-edit text-primary"></i> Edit Application</div>
                 <div>
                     <el-form :model="form" :rules="rules" ref="createForm">
                         <el-row :gutter="10">
@@ -33,9 +33,9 @@
                             </el-form-item>
 
                             <el-form-item class="text-right">
-                                <el-button type="primary" @click="submitForm('createForm')"><i class="fa fa-check"></i> Save</el-button>
+                                <el-button type="primary" @click="submitForm('createForm')" icon="el-icon-check"> Save</el-button>
                                 <a href="{{route('application.index')}}">
-                                    <el-button><i class="fa fa-times"></i> Cancel</el-button>
+                                    <el-button type="default" icon="el-icon-close">Cancel</el-button>
                                 </a>
                             </el-form-item>
                         </el-row>

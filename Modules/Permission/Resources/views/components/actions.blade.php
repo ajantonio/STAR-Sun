@@ -5,5 +5,5 @@
 @endcan()
 
 @can('delete-permission')
-    <button class="btn btn-xs btn-outline-danger"><i class="fa fa-trash"></i></button>
+    <button class="btn btn-xs btn-outline-danger" onclick="deletePermission('{{$permission->id}}', '{{$permission->name}}')"><i class="fa fa-trash"></i></button>
 @endcan

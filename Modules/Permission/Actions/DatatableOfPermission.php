@@ -2,31 +2,19 @@
 
 namespace Modules\Permission\Actions;
 
+use Illuminate\Support\Facades\DB;
 use Lorisleiva\Actions\Action;
 use Modules\Permission\Entities\Permission;
 use Modules\System\Entities\DatatableBuilder;
 
-class DatatableOfPermission extends Action
+class DataTableOfPermission extends Action
 {
-    /**
-     * Determine if the user is authorized to make this action.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return $this->user()->can('view-any-permission');
     }
 
-    /**
-     * Get the validation rules that apply to the action.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [];
-    }
 
     /**
      * Execute the action and return a result.
@@ -38,14 +26,16 @@ class DatatableOfPermission extends Action
     public function handle(DatatableBuilder $builder)
     {
         if (request()->ajax()) {
-            return datatables()->of(Permission::query())
+            return datatables()->of(Permission::with(['application', 'resource_group', 'parent_permission']))
                 ->editColumn('action', function ($permission) {
                     return view('permission::components.actions', compact(['permission']));
                 })
                 ->toJson();
         }
 
-        $builder->addColumn(['data'=>'id']);
+        $builder->addColumn(['data' => 'name']);
+        $builder->addColumn(['data' => 'title']);
+        $builder->addColumn(['data' => 'active']);
         $builder->addActionColumn();
         $builder->setTableId('permissions');
 

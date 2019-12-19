@@ -1,6 +1,6 @@
 @extends('application::layouts.master')
 @section('content_header')
-    <h1>Applications</h1>
+    <h1><i class="fas fa-list"></i> {{plural(config('application.name'))}}</h1>
 @stop
 @section('content')
     <div class="card card-outline card-primary">

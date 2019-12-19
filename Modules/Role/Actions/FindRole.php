@@ -7,8 +7,8 @@ use Modules\Role\Entities\Role;
 
 class FindRole extends Action
 {
-    public function handle(Role $role)
+    public function handle($role)
     {
-        return $role;
+        return Role::with('permissions')->find($role);
     }
 }

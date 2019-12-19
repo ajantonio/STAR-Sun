@@ -35,18 +35,4 @@ class ViewPermission extends Action
     {
         // Execute the action.
     }
-
-    /**
-    * Response for web request
-    */
-    public function htmlResponse($result, $request){
-
-    }
-
-    /**
-    * Response for API request
-    */
-    public function jsonResponse($result, $request){
-        return $result;
-    }
 }

@@ -1,9 +1,16 @@
 @extends('user::layouts.master')
-
+@section('content_header')
+    <h1><i class="fas fa-users"></i> {{plural(config('user.name'))}}</h1>
+@stop
 @section('content')
-    <h1>Hello World!</h1>
-
-    <p>
-        This view is loaded from module: {!! config('user.name') !!}
-    </p>
+    <div class="card card-outline card-primary">
+        {!! $builder->table() !!}
+    </div>
 @endsection
+
+@push('js')
+    {!! $builder->scripts() !!}
+    <script>
+        applyHeaderSearch('users');
+    </script>
+@endpush

@@ -11,14 +11,14 @@
 |
 */
 
-use Modules\Permission\Actions\CreatePermission;
-use Modules\Permission\Actions\EditPermission;
+use Modules\Permission\Actions\ShowCreatePermissionForm;
+use Modules\Permission\Actions\ShowEditPermissionForm;
 use Modules\Permission\Actions\ViewPermission;
-use Modules\Permission\Actions\DatatableOfPermission;
+use Modules\Permission\Actions\DataTableOfPermission;
 
 Route::prefix('permission')->middleware('auth')->group(function() {
-    Route::get('/', DatatableOfPermission::class)->name('permission.index');
-    Route::get('/create', CreatePermission::class)->name('permission.create');
-    Route::get('/{Permission}', ViewPermission::class)->name('permission.show');
-    Route::get('/{Permission}/edit', EditPermission::class)->name('permission.edit');
+    Route::get('/', DataTableOfPermission::class)->name('permission.index');
+    Route::get('/create', ShowCreatePermissionForm::class)->name('permission.create');
+    Route::get('/{permission}', ViewPermission::class)->name('permission.show');
+    Route::get('/{permission}/edit', ShowEditPermissionForm::class)->name('permission.edit');
 });

@@ -23,6 +23,7 @@ class ShowCreateRoleForm extends Action
      */
     public function handle()
     {
-        return view('role::create');
+        $permissions = (new AllApplicationResourcePermissions())->run();
+        return view('role::create', compact('permissions'));
     }
 }
