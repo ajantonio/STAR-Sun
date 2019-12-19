@@ -11,6 +11,7 @@
 |
 */
 
+use Modules\User\Actions\ShowAssignUserRoleForm;
 use Modules\User\Actions\ShowCreateUserForm;
 use Modules\User\Actions\ShowEditUserForm;
 use Modules\User\Actions\ViewUser;
@@ -18,4 +19,5 @@ use Modules\User\Actions\DataTableOfUser;
 
 Route::prefix('user')->middleware('auth')->group(function() {
     Route::get('/', DataTableOfUser::class)->name('user.index');
+    Route::get('/{user}/roles', ShowAssignUserRoleForm::class)->name('user.assign.roles');
 });
