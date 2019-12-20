@@ -16,8 +16,7 @@ class SetUserRole extends Action
 
     public function handle(User $user)
     {
-        $user->roles()->detach();
-        $user->roles()->attach($this->roles);
+        $user->roles()->sync($this->roles);
         $user->forgetCachedPermissions();
 
         return $user;

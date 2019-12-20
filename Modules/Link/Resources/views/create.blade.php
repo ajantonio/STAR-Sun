@@ -35,7 +35,8 @@
                     applications: null,
                     resource_groups: null,
                     parent_links: null,
-                    permissions: null,
+                    permissions: [],
+                    dialogCreatePermissionVisible: false,
 
                     rules: {
                         application: [{required: true, message: 'Please select application group.'}],
@@ -111,6 +112,11 @@
                         }
                     });
                 },
+                permissionCreated(data) {
+                    this.permissions.push(data);
+                    this.form.permission = data;
+                    this.dialogCreatePermissionVisible = false;
+                }
             },
         });
     </script>

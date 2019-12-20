@@ -31,9 +31,7 @@ class UpdateRole extends Action
         $role->name = $this->name;
         $role->description = $this->description;
         $role->save();
-
-        $role->permissions()->detach();
-        $role->permissions()->attach($this->permissions);
+        $role->permissions()->sync($this->permissions);
         $role->forgetCachedPermissions();
 
         return $role;

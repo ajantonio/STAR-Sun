@@ -4,10 +4,14 @@ namespace Modules\Permission\Entities;
 
 use Modules\Application\Entities\Application;
 use Modules\ResourceGroup\Entities\ResourceGroup;
+use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Models\Permission as BasePermission;
 
-class Permission extends BasePermission
+class Permission extends BasePermission implements Auditable
 {
+
+    use \OwenIt\Auditing\Auditable;
+
     //protected $connection = '';
     //protected $table = '';
     public $incrementing = false;

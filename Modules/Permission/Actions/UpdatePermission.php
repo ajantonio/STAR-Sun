@@ -39,8 +39,7 @@ class UpdatePermission extends Action
         $permission->description = $this->description;
         $permission->save();
 
-        $permission->roles()->detach();
-        $permission->roles()->attach($this->roles);
+        $permission->roles()->sync($this->roles);
         $permission->forgetCachedPermissions();
 
         return $permission;
