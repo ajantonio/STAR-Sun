@@ -79,9 +79,7 @@
 
 <script>
     export default {
-        props: [
-            'modal'
-        ],
+        props: ['modal', 'attrs'],
         data() {
             return {
                 form: {
@@ -120,6 +118,14 @@
                 .then(res => {
                     this.roles = res.data;
                 }).catch(err => new ErrorHandler().handle(err.response));
+
+            if(this.modal){
+                if(this.attrs){
+                    this.form.application = this.attrs.application;
+                    this.applicationChange();
+                    this.form.group = this.attrs.resource_group;
+                }
+            }
         },
         computed: {},
         methods: {

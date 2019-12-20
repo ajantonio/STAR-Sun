@@ -123,6 +123,7 @@
     <template slot="title">
         <i class="el-icon-plus text-primary"></i> Create Permission
     </template>
-    <create-permission modal="true" @cancelled="dialogCreatePermissionVisible = false"
+
+    <create-permission :attrs="form" modal="true" @cancelled="dialogCreatePermissionVisible = false"
                        @created="permissionCreated"></create-permission>
 </el-dialog>
