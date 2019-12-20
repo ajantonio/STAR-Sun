@@ -5,7 +5,7 @@
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">
-            <el-form label-width="120px" label-position="left">
+            <el-form label-width="120px" label-position="left" @submit.native.prevent="submitForm">
                 <el-card>
                     <template slot="header">
                         <i class="el-icon-plus text-primary"></i> Assign Role(s)
@@ -22,7 +22,7 @@
                     <el-form-item label="Type">
                         <el-input readonly value="{{$user->type}}"></el-input>
                     </el-form-item>
-                    
+
                     <template>
                         <i class="el-icon-collection-tag text-primary"></i> Roles
                         <hr>
@@ -33,7 +33,7 @@
                         @endforeach
                     </el-checkbox-group>
                     <el-row class="pt-2 text-right">
-                        <el-button type="primary" icon="el-icon-check">Submit</el-button>
+                        <el-button native-type="submit" type="primary" icon="el-icon-check">Submit</el-button>
                         <a href="{{route('user.index')}}">
                             <el-button type="default" icon="el-icon-close">Cancel</el-button>
                         </a>
@@ -51,6 +51,21 @@
                 return {
                     form: {
                         roles: {!! $user->roles->pluck('id') !!}
+                    }
+                }
+            },
+            methods: {
+                submitForm() {
+                    if (this.form.roles.length < 1) {
+                        ElementUI.Notification.error('Please select role(s) to assign.');
+                    } else {
+                        axios.put('{{route('api.user.assign.roles', $user)}}', this.form)
+                            .then(res => {
+                                swal('Success', '{{$user->name}} role(s) updated!', 'success')
+                                    .then(val => {
+                                        window.location = '/user';
+                                    });
+                            }).catch(err => new ErrorHandler().handle(err.response));
                     }
                 }
             }

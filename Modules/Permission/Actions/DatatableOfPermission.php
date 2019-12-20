@@ -26,13 +26,14 @@ class DataTableOfPermission extends Action
     public function handle(DatatableBuilder $builder)
     {
         if (request()->ajax()) {
-            return datatables()->of(Permission::with(['application', 'resource_group', 'parent_permission']))
+            return datatables()->of(Permission::with(['application'])->get())
                 ->editColumn('action', function ($permission) {
                     return view('permission::components.actions', compact(['permission']));
                 })
                 ->toJson();
         }
 
+        $builder->addColumn(['data' => 'application.name', 'title'=>'Application']);
         $builder->addColumn(['data' => 'name']);
         $builder->addColumn(['data' => 'title']);
         $builder->addColumn(['data' => 'active']);

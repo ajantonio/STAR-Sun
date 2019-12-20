@@ -20,27 +20,12 @@ class User extends Authenticatable implements Auditable
 
     protected $guard_name = 'web';
     protected $guarded = ['password'];
+    protected $hidden = ['password'];
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 
     public function getCanImpersonateAttribute(): bool
     {
         return $this->can('impersonate-user');
-    }
-
-    public function syncAccessRoles($roles)
-    {
-        $this->syncRoles($roles);
-
-        $permissions = collect([]);
-        foreach ($roles as $role) {
-            $role = Role::find($role);
-            $permissions = $permissions->merge($role->permissions);
-        }
-
-        $this->syncPermissions($permissions->all());
-        $this->forgetCachedPermissions();
-
-        return $this;
     }
 }
 

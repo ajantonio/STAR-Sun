@@ -3,6 +3,7 @@
 namespace Modules\Permission\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Permission\Entities\Permission;
 
 class ViewPermission extends Action
 {
@@ -17,22 +18,13 @@ class ViewPermission extends Action
     }
 
     /**
-     * Get the validation rules that apply to the action.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [];
-    }
-
-    /**
      * Execute the action and return a result.
      *
+     * @param Permission $permission
      * @return mixed
      */
-    public function handle()
+    public function handle(Permission $permission)
     {
-        // Execute the action.
+        return view('permission::view', compact('permission'));
     }
 }

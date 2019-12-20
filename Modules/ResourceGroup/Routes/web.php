@@ -19,6 +19,5 @@ use Modules\ResourceGroup\Actions\DataTableOfResourceGroup;
 Route::prefix('resourcegroup')->middleware('auth')->group(function() {
     Route::get('/', DataTableOfResourceGroup::class)->name('resourcegroup.index');
     Route::get('/create', ShowCreateResourceGroupForm::class)->name('resourcegroup.create');
-    Route::get('/{resourcegroup}', ViewResourceGroup::class)->name('resourcegroup.show');
     Route::get('/{resourcegroup}/edit', ShowEditResourceGroupForm::class)->name('resourcegroup.edit');
 });

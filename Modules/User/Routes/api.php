@@ -1,8 +1,6 @@
 <?php
 
-use Modules\User\Actions\StoreNewUser;
-use Modules\User\Actions\DeleteUser;
-use Modules\User\Actions\UpdateUser;
+use Modules\User\Actions\SetUserRole;
 use Modules\User\Actions\FindUser;
 
 /*
@@ -15,6 +13,7 @@ use Modules\User\Actions\FindUser;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('user')->group(function(){
+Route::middleware('auth:api')->prefix('user')->group(function () {
     Route::get('/{user}', FindUser::class)->name('api.user.find');
+    Route::put('/{user}/roles', SetUserRole::class)->name('api.user.assign.roles');
 });
