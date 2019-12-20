@@ -11,11 +11,13 @@ You are free to used standard laravel MVC concept as you wish.
 - Create new database
 - Copy .env.example to .env and configure according to your needs
 - Import sql file from database folder of this project to populate initial data for system tables
+- Run this commands to install required packages "composer install && php artisan passport:keys && npm install && npm run dev"
 
 ##Important
 
 - Don't forget to change "APP_ID" in .env, open your applications table and copy the "id" value of your application
 - Put 1 value on "ADMIN_APP" in .env file to specify this project as your main application or dashboard of apps
+- Make sure your APP_URL value in .env matches the browser url you access the application
 
 ##Commands to Remember
 
