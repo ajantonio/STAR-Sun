@@ -1,7 +1,15 @@
-<a href="{{ route('link.edit', $link) }}" class="btn btn-xs btn-outline-primary mr-1"><i class="fa fa-pencil-alt"></i></a>
+@can('view-link')
+    <a href="{{route('link.show', $link)}}" class="btn btn-xs btn-outline-info"><i class="fas fa-eye"></i></a>
+@endcan
+
+@can('edit-link')
+    <a href="{{ route('link.edit', $link) }}" class="btn btn-xs btn-outline-primary mr-1"><i class="fa fa-pencil-alt"></i></a>
+@endcan
+
 @can('delete-link')
-    <button onclick="deleteLink('{{$link->id}}')" class="btn btn-xs btn-outline-danger" data-toggle="modal" data-target="#modal-delete-link-{{$link->id}}"><i
-                class="fa fa-trash"></i>
+    <button onclick="deleteLink('{{$link->id}}')" class="btn btn-xs btn-outline-danger" data-toggle="modal"
+            data-target="#modal-delete-link-{{$link->id}}"><i
+            class="fa fa-trash"></i>
     </button>
     <!-- Modal -->
     <div class="modal" id="modal-delete-link-{{$link->id}}" tabindex="-1" role="dialog" aria-hidden="true">
