@@ -124,6 +124,7 @@
                     this.form.application = this.attrs.application;
                     this.applicationChange();
                     this.form.group = this.attrs.resource_group;
+                    this.resourceGroupChange();
                 }
             }
         },
