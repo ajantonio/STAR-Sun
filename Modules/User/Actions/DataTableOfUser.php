@@ -25,9 +25,18 @@ class DataTableOfUser extends Action
     {
         if (request()->ajax()) {
             return datatables()->of(User::query())
+                ->editColumn('roles', function ($user) {
+                    $roles = '';
+                    foreach ($user->roles->pluck('name') as $role){
+                        $roles .= "<span class='badge badge-primary mr-1'>{$role}</span>";
+                    }
+
+                    return $roles;
+                })
                 ->editColumn('action', function ($user) {
                     return view('user::components.actions', compact(['user']));
                 })
+                ->rawColumns(['action', 'roles'])
                 ->toJson();
         }
 
@@ -35,6 +44,7 @@ class DataTableOfUser extends Action
         $builder->addColumn(['data'=>'name']);
         $builder->addColumn(['data'=>'email']);
         $builder->addColumn(['data'=>'type']);
+        $builder->addColumn(['data'=>'roles', 'sortable'=>false, 'searchable'=>false]);
         $builder->addActionColumn();
         $builder->buttons(['reload', 'reset']);
         $builder->setTableId('users');
