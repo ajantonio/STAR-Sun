@@ -17,7 +17,7 @@
             <el-row :gutter="10">
                 @foreach ($apps as $app)
                     <a href="{{$app->url}}" target="_blank">
-                        <el-col :md="4" :sm="8" class="mb-2">
+                        <el-col :lg="4" :md="6" :sm="8" class="mb-2">
                             <el-card shadow="hover" class="text-center">
                                 <i class="{{$app->icon}} fa-2x"></i>
                                 <p class="mt-3">{{$app->name}}</p>
