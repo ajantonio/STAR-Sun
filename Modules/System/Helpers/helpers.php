@@ -13,7 +13,7 @@ function datetimeGreeting()
 
     $greeting = '';
 
-    if ($now > date('H:i:s', strtotime('23:59:59'))) $greeting = "morning";
+    if ($now >= date('H:i:s', strtotime('00:00:00'))) $greeting = "morning";
     if ($now >= date('H:i:s', strtotime('12:00:00'))) $greeting = "afternoon";
     if ($now >= date('H:i:s', strtotime('18:00:00'))) $greeting = "evening";
 
