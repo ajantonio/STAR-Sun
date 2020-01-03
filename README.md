@@ -22,7 +22,7 @@ You are free to used standard laravel MVC concept as you wish.
 ##Commands to Remember
 
 #### Generate Module Scaffolding
-- php artisan module:generate ModuleName
+- php artisan generate:module ModuleName
 
 ## Other commands
 Refer to package laravel module package documentation <a href="https://nwidart.com/laravel-modules/v6/introduction">Laravel Modules</a>.

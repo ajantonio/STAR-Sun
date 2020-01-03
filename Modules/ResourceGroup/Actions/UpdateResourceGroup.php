@@ -3,6 +3,7 @@
 namespace Modules\ResourceGroup\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\ResourceGroup\Entities\ResourceGroup;
 
 class UpdateResourceGroup extends Action
 {
@@ -23,7 +24,11 @@ class UpdateResourceGroup extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'application' => 'required',
+            'name' => 'required|unique:resource_groups,name,' . $this->id . ',id,application_id,' . $this->application['id'],
+            'icon' => 'required'
+        ];
     }
 
     /**
@@ -31,8 +36,14 @@ class UpdateResourceGroup extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(ResourceGroup $resourcegroup)
     {
-        // Execute the action.
+        $resourcegroup->application_id = $this->application['id'];
+        $resourcegroup->name = $this->name;
+        $resourcegroup->description = $this->description;
+        $resourcegroup->icon = $this->icon;
+        $resourcegroup->save();
+
+        return $resourcegroup;
     }
 }

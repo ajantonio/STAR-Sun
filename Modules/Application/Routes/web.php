@@ -13,6 +13,7 @@
 
 use Modules\Application\Actions\DatatableOfApplication;
 use Modules\Application\Actions\DeleteApplication;
+use Modules\Application\Actions\ShowApplicationDashboardPage;
 use Modules\Application\Actions\ShowCreateApplciationForm;
 use Modules\Application\Actions\EditApplication;
 
@@ -21,4 +22,9 @@ Route::prefix('application')->middleware('auth')->group(function () {
     Route::get('/create', ShowCreateApplciationForm::class)->name('application.create');
     Route::get('/{application}/edit', EditApplication::class)->name('application.edit');
     Route::delete('/{application}', DeleteApplication::class)->name('application.delete');
+});
+
+Route::middleware('auth')->group(function (){
+    Route::get('/', ShowApplicationDashboardPage::class);
+    Route::get('/home', ShowApplicationDashboardPage::class)->name('home');
 });
