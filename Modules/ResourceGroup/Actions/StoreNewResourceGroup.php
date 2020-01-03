@@ -18,7 +18,7 @@ class StoreNewResourceGroup extends Action
     {
         return [
             'application' => 'required',
-            'name' => 'required|unique:resource_groups',
+            'name' => 'required|unique:resource_groups,name,NULL,id,application_id,'.$this->application['id'],
             'icon' => 'required'
         ];
     }

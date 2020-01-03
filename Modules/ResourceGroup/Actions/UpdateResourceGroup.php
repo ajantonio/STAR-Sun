@@ -2,7 +2,6 @@
 
 namespace Modules\ResourceGroup\Actions;
 
-use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\Action;
 use Modules\ResourceGroup\Entities\ResourceGroup;
 
@@ -27,7 +26,7 @@ class UpdateResourceGroup extends Action
     {
         return [
             'application' => 'required',
-            'name' => 'required|'.Rule::unique('resource_groups')->ignore($this->id),
+            'name' => 'required|unique:resource_groups,name,' . $this->id . ',id,application_id,' . $this->application['id'],
             'icon' => 'required'
         ];
     }
