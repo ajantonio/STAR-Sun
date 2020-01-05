@@ -1,0 +1,13 @@
+{
+    "name": "FamilyRelationship",
+    "alias": "familyrelationship",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\FamilyRelationship\\Providers\\FamilyRelationshipServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

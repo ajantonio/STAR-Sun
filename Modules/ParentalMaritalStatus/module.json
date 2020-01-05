@@ -1,0 +1,13 @@
+{
+    "name": "ParentalMaritalStatus",
+    "alias": "parentalmaritalstatus",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\ParentalMaritalStatus\\Providers\\ParentalMaritalStatusServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

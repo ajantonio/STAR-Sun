@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/parentalmaritalstatus",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ParentalMaritalStatus\\Providers\\ParentalMaritalStatusServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ParentalMaritalStatus\\": ""
+        }
+    }
+}

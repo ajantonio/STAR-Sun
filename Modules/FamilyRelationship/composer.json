@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/familyrelationship",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\FamilyRelationship\\Providers\\FamilyRelationshipServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\FamilyRelationship\\": ""
+        }
+    }
+}

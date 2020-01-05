@@ -1,0 +1,13 @@
+{
+    "name": "Indigenous",
+    "alias": "indigenous",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Indigenous\\Providers\\IndigenousServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

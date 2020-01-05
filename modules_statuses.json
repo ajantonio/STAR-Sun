@@ -8,5 +8,12 @@
     "Role": true,
     "Permission": true,
     "ResourceGroup": true,
-    "Test": true
+    "Test": true,
+    "Campus": true,
+    "Country": true,
+    "Religion": true,
+    "Attribute": true,
+    "FamilyRelationship": true,
+    "ParentalMaritalStatus": true,
+    "Indigenous": true
 }
