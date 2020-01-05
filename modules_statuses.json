@@ -9,5 +9,12 @@
     "Permission": true,
     "ResourceGroup": true,
     "Generator": true,
-    "Passport": true
+    "Passport": true,
+    "Campus": true,
+    "Country": true,
+    "Religion": true,
+    "Attribute": true,
+    "FamilyRelationship": true,
+    "ParentalMaritalStatus": true,
+    "Indigenous": true
 }
