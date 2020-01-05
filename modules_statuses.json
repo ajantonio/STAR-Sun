@@ -8,5 +8,6 @@
     "Role": true,
     "Permission": true,
     "ResourceGroup": true,
-    "Test": true
+    "Generator": true,
+    "Passport": true
 }
