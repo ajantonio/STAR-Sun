@@ -33,6 +33,6 @@ class ShowCreateIndigenousForm extends Action
      */
     public function handle()
     {
-        view('indigenous::create');
+        return view('indigenous::create');
     }
 }

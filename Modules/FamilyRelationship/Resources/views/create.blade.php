@@ -1,7 +1,9 @@
 @extends('familyrelationship::layouts.master')
+
 @section('content_header')
     <h1><i class="fas fa-list"></i> {{plural(config('familyrelationship.name'))}}</h1>
 @stop
+
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">

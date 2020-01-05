@@ -47,7 +47,7 @@ class DataTableOfIndigenous extends Action
 
         $builder->addColumn(['data'=>'name']);
         $builder->addColumn(['data'=>'description']);
-        
+
         $builder->addActionColumn();
         $builder->setTableId('indigenouss');
 
