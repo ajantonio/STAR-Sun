@@ -17,7 +17,8 @@ use Modules\Campus\Actions\GetCampusDetails;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('campus')->group(function(){
+// Route::middleware('auth:api')->prefix('campus')->group(function(){
+Route::prefix('campus')->group(function(){
     Route::post('/', StoreNewCampus::class)->name('api.campus.store');
     Route::get('/', GetAllCampuses::class)->name('api.campus.index');
     Route::get('/{campus}', FindCampus::class)->name('api.campus.find');
