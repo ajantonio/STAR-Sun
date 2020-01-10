@@ -9,7 +9,7 @@ class GetApplicationResources extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('view-application') && config('app.admin_ap');
+        return $this->user()->can('view-application') && config('app.admin_app');
     }
     public function handle()
     {
