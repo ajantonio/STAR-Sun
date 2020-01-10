@@ -2,7 +2,6 @@
 /public/hot
 /public/fonts
 /public/storage
-/storage/*.key
 /public/mix-manifest.json
 /vendor
 .rnd
