@@ -112,6 +112,9 @@ class LoginController extends Controller
             return $this->sendNoIDNumberResponse($request);
         }
 
+        $access_token = $user->createToken('My Access Token')->accessToken;
+        session()->put('access_token', $access_token);
+
         return redirect(route('home'));
     }
 
