@@ -14,7 +14,8 @@ class GetAllCampuses extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-campus');        
+        // return $this->user()->can('view-campus');        
+        return true;        
     }
 
     /**
