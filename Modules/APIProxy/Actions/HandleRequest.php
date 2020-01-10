@@ -24,7 +24,7 @@ class HandleRequest extends Action
     public function handle()
     {
         $service = config("applications.$this->service");
-        $url = "http://" . $service['url'] . "/" . $this->path;
+        $url = $service['url'] . "/" . $this->path;
 
         try {
             $client = new Client();
@@ -46,7 +46,7 @@ class HandleRequest extends Action
                 }
             }
 
-            return response($ex->getMessage(), $ex->getCode());
+            return response($ex->getMessage(), $ex->getCode() ?? 500);
         }
     }
 }
