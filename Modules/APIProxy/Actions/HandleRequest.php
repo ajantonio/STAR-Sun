@@ -5,10 +5,8 @@ namespace Modules\APIProxy\Actions;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use Illuminate\Validation\UnauthorizedException;
 use Lorisleiva\Actions\Action;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class HandleRequest extends Action
 {
