@@ -17,5 +17,8 @@
     "FamilyRelationship": true,
     "ParentalMaritalStatus": true,
     "Indigenous": true,
-    "APIProxy": true
+    "APIProxy": true,
+    "AddressType": true,
+    "DayOfWeek": true,
+    "CivilStatus": true
 }
