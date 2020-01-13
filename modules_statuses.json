@@ -20,5 +20,6 @@
     "APIProxy": true,
     "AddressType": true,
     "DayOfWeek": true,
-    "CivilStatus": true
+    "CivilStatus": true,
+    "ContactType": true
 }
