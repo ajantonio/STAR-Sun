@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/educationlevel",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\EducationLevel\\Providers\\EducationLevelServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\EducationLevel\\": ""
+        }
+    }
+}

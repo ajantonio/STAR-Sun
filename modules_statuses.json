@@ -16,5 +16,7 @@
     "Attribute": true,
     "FamilyRelationship": true,
     "ParentalMaritalStatus": true,
-    "Indigenous": true
+    "Indigenous": true,
+    "School": true,
+    "EducationLevel": true
 }

@@ -1,16 +1,14 @@
-@extends('country::layouts.master')
-
+@extends('educationlevel::layouts.master')
 @section('content_header')
-    <h1><i class="fas fa-list"></i> {{plural(config('country.name'))}}</h1>
+    <h1><i class="fas fa-list"></i> {{plural(config('educationlevel.name'))}}</h1>
 @stop
-
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">
             <el-card>
-                <div slot="header"><i class="el-icon-edit text-primary"></i> Edit Country</div>
+                <div slot="header"><i class="el-icon-plus text-primary"></i> Create EducationLevel</div>
                 <div>
-                    @include('country::components.form')
+                    @include('educationlevel::components.form')
                 </div>
             </el-card>
         </el-col>
@@ -24,36 +22,28 @@
             data() {
                 return {
                     form: {
-                        name: null, 
+                        name: null,
                         description: null,
-                        nationality: null
                     },
-                    rules: {
-                        name: [{ required: true, message: 'Please input the country name.' }],
-                        
+                    rules:{
+                        name:[{required: true, message:'Name field is REQUIRED!!'}]
                     }
                 }
             },
             mounted() {
                 //execute scripts on page ready
-                axios.get('{{route('api.country.find', $id)}}')
-                    .then(res => {
-                        this.form = res.data;
-                    })
-                    .catch(err => {
-                        new ErrorHandler().handle(err.response);
-                    });
             },
-            computed: {},
+            computed:{
+            },
             methods: {
-                submitForm(formRefs) {
+                submitForm(formRefs){
                     this.$refs[formRefs].validate((valid) => {
                         if (valid) {
-                            axios.put('{{route('api.country.update', $id)}}', this.form)
+                            axios.post('{{route('api.educationlevel.store')}}', this.form)
                                 .then(res => {
                                     swal('Success', 'Saved successfully!', 'success')
                                         .then(() => {
-                                            window.location = '{{route('country.index')}}'
+                                            window.location = '{{route('educationlevel.index')}}'
                                         });
                                 })
                                 .catch(err => {
