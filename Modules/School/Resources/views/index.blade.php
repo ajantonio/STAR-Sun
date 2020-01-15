@@ -12,5 +12,26 @@
     {!! $builder->scripts() !!}
     <script>
         applyHeaderSearch('schools');
+        function deleteSchool(id, name) {
+            swal({
+                icon: 'warning',
+                title: 'Delete',
+                text: 'Delete school ' + name + '?',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if(willDelete){
+                    axios.delete('/api/school/' + id)
+                        .then(res => {
+                            swal('Success', 'School deleted!', 'success').then(val => {
+                                window.LaravelDataTables["schools"].ajax.reload(null, false);
+                            });
+                        })
+                        .catch(err => {
+                            new ErrorHandler().handle(err.response);
+                        });
+                }
+            });
+        }
     </script>
 @endpush

@@ -3,6 +3,7 @@
 namespace Modules\EducationLevel\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\EducationLevel\Entities\EducationLevel;
 
 class ShowEditEducationLevelForm extends Action
 {
@@ -31,8 +32,18 @@ class ShowEditEducationLevelForm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(EducationLevel $educationlevel)
     {
-        // Execute the action.
+        return $educationlevel;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($result, $response)
+    {
+        return view('educationlevel::edit')->with('id', $result->id);
     }
 }

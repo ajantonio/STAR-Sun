@@ -5,5 +5,5 @@
 @endcan()
 
 @can('delete-school')
-    <button class="btn btn-xs btn-outline-danger"><i class="fa fa-trash"></i></button>
+<button class="btn btn-xs btn-outline-danger" onclick="deleteSchool('{{$school->id}}', '{{$school->name}}')"><i class="fa fa-trash"></i></button>
 @endcan

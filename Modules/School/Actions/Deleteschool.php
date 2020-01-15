@@ -3,6 +3,7 @@
 namespace Modules\school\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\School\Entities\School;
 
 class Deleteschool extends Action
 {
@@ -31,8 +32,20 @@ class Deleteschool extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(School $school)
     {
-        // Execute the action.
+        $school->delete();
+
+        return $school;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;        
+    }
+
+    public function htmlResponse($results, $request)
+    {
+        return redirect()->back();
     }
 }

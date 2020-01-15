@@ -40,7 +40,7 @@ class StoreNewschool extends Action
         $school->school_code = $this->school_code;
         $school->name = $this->name;
         $school->general_classification = $this->general_classification;
-        $school->address = $this->barangay_district + $this->city_municipality+ $this->province_state + $this->country;
+        $school->address = $this->address.', '.$this->barangay_district.', '.$this->city_municipality.', '.$this->province_state.', '.$this->country;
         $school->barangay_district = $this->barangay_district;
         $school->city_municipality = $this->city_municipality;
         $school->province_state = $this->province_state;

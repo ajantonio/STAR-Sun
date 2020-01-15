@@ -22,25 +22,37 @@
            
             data() {
                 return {
-                    form: {},
-                    rules:{},
-                    barangay_district:[],
-                    options:[{country:'Philippines', label:'Philippines',
-                                children:[{province_state:'CAR', label:'CAR',
-                                    children:[{city_municipality:'Abra',label:'Abra',
-                                        children:[{barangay_district:'Bangued',label:'Bangued'}]//ABRA children closing
-                                             }]
-                                         }]//Philippines children closing
-                            },{
-                              country:'Japan', label:'Japan',
-                                children:[{province_state:'Region 1', label:'Region 1',
-                                    children:[{city_municipality:'Tokyo', label:'Tokyo',
-                                        children:[{barangay_district:'district 2', label:'District 2'}]
-                                             }]
-                                         }]
-                              }]//options closing
-                        }//return closing
-                    },//data closing
+                    form: {
+                        school_code: null,
+                        name: null,
+                        general_classification: null,
+                        address: null,
+                        barangay_district: null,
+                        country: null,
+                        province_state: null,
+                        city_municipality: null,
+                        postal_code: null,
+                        contact_person: null,
+                        position: null,
+                        mobile_no: null,
+                        landline_no: null,
+                        fax_no: null,
+
+                    },
+                    rules:{
+                        school_code:[{required:true, message:'School code is REQUIRED!!'}],
+                        name:[{required:true, message:'Name is REQUIRED!!'}],
+                        general_classification:[{required:true, message:'General classification is REQUIRED!!'}],
+                        address:[{required:true, message:'Address is REQUIRED!!'}],
+                        barangay_district:[{required:true, message:'Barangay District is REQUIRED!!'}],
+                        country:[{required:true, message:'Country is REQUIRED!!'}],
+                        province_state:[{required:true, message:'Province state is REQUIRED!!'}],
+                        city_municipality:[{required:true, message:'City Municipality is REQUIRED!!'}],
+                        contact_person:[{required:true, message:'Contact person is REQUIRED!!'}],
+                    }
+                  
+                }
+            },
             mounted() {
                 //execute scripts on page ready
             },
@@ -66,9 +78,7 @@
                         }
                     });
                 },
-                handleChange(country) {
-                    console.log(country+province_state+city_municipality+barangay_district);
-                 }
+                
             }
         });
     </script>

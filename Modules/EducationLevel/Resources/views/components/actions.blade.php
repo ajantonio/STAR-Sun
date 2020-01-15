@@ -5,5 +5,5 @@
 @endcan()
 
 @can('delete-educationlevel')
-    <button class="btn btn-xs btn-outline-danger"><i class="fa fa-trash"></i></button>
+<button class="btn btn-xs btn-outline-danger" onclick="deleteEducationLevel('{{$educationlevel->id}}', '{{$educationlevel->name}}')"><i class="fa fa-trash"></i></button>
 @endcan

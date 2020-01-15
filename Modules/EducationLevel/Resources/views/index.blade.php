@@ -12,5 +12,28 @@
     {!! $builder->scripts() !!}
     <script>
         applyHeaderSearch('educationlevels');
+
+        function deleteEducationLevel(id, name) {
+            swal({
+                icon: 'warning',
+                title: 'Delete',
+                text: 'Delete educational level ' + name + '?',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if(willDelete){
+                    axios.delete('/api/educationlevel/' + id)
+                        .then(res => {
+                            swal('Success', 'Educationa level deleted!', 'success').then(val => {
+                                window.LaravelDataTables["educationlevels"].ajax.reload(null, false);
+                            });
+                        })
+                        .catch(err => {
+                            new ErrorHandler().handle(err.response);
+                        });
+                }
+            });
+        }
+    </script>
     </script>
 @endpush

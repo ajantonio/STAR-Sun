@@ -1,0 +1,13 @@
+{
+    "name": "AddressType",
+    "alias": "addresstype",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\AddressType\\Providers\\AddressTypeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

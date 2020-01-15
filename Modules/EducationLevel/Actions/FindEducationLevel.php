@@ -3,6 +3,7 @@
 namespace Modules\EducationLevel\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\EducationLevel\Entities\EducationLevel;
 
 class FindEducationLevel extends Action
 {
@@ -31,8 +32,8 @@ class FindEducationLevel extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(EducationLevel $educationlevel)
     {
-        // Execute the action.
+        return $educationlevel;
     }
 }

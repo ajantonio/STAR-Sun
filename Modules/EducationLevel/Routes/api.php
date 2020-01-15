@@ -4,6 +4,8 @@ use Modules\EducationLevel\Actions\StoreNewEducationLevel;
 use Modules\EducationLevel\Actions\DeleteEducationLevel;
 use Modules\EducationLevel\Actions\UpdateEducationLevel;
 use Modules\EducationLevel\Actions\FindEducationLevel;
+use Modules\EducationLevel\Actions\GetAllEducationLevel;
+use Modules\EducationLevel\Actions\GetEducationLevelDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +22,6 @@ Route::middleware('auth:api')->prefix('educationlevel')->group(function(){
     Route::get('/{educationlevel}', FindEducationLevel::class)->name('api.educationlevel.find');
     Route::put('/{educationlevel}', UpdateEducationLevel::class)->name('api.educationlevel.update');
     Route::delete('/{educationlevel}', DeleteEducationLevel::class)->name('api.educationlevel.destroy');
+    Route::get('/', GetAllEducationLevel::class)->name('api.educationlevel.index');  
+    Route::get('/{educationlevel}/show', GetEducationLevelDetail::class)->name('api.educationlevel.show');
 });

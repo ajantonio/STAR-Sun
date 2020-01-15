@@ -18,5 +18,10 @@
     "ParentalMaritalStatus": true,
     "Indigenous": true,
     "School": true,
-    "EducationLevel": true
+    "EducationLevel": true,
+    "APIProxy": true,
+    "AddressType": true,
+    "DayOfWeek": true,
+    "CivilStatus": true,
+    "ContactType": true
 }

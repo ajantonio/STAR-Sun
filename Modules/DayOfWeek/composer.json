@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/dayofweek",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\DayOfWeek\\Providers\\DayOfWeekServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\DayOfWeek\\": ""
+        }
+    }
+}

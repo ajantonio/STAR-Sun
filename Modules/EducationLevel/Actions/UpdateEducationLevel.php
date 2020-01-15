@@ -3,6 +3,7 @@
 namespace Modules\EducationLevel\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\EducationLevel\Entities\EducationLevel;
 
 class UpdateEducationLevel extends Action
 {
@@ -31,8 +32,12 @@ class UpdateEducationLevel extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(EducationLevel $educationlevel)
     {
-        // Execute the action.
+        $educationlevel->name = $this->name;
+        $educationlevel->description = $this->description;
+        $educationlevel->save();
+
+        return $educationlevel;
     }
 }

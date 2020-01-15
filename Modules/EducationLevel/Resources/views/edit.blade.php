@@ -8,16 +8,7 @@
             <el-card>
                 <div slot="header"><i class="el-icon-edit text-primary"></i> Edit EducationLevel</div>
                 <div>
-                    <el-form :model="form" :rules="rules" ref="editForm"
-                             @submit.native.prevent="submitForm('editForm')">
-                        <h1>Form here</h1>
-                        <el-form-item class="text-right">
-                            <el-button type="primary" native-type="submit" icon="el-icon-check">Save</el-button>
-                            <a href="{{route('educationlevel.index')}}">
-                                <el-button type="default" icon="el-icon-close">Cancel</el-button>
-                            </a>
-                        </el-form-item>
-                    </el-form>
+                   @include('educationlevel::components.form')
                 </div>
             </el-card>
         </el-col>
@@ -36,7 +27,7 @@
             },
             mounted() {
                 //execute scripts on page ready
-                axios.get('{{route('api.educationlevel.find', $educationlevel)}}')
+                axios.get('{{route('api.educationlevel.find', $id)}}')
                     .then(res => {
                         this.form = res.data;
                     })

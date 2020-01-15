@@ -3,6 +3,7 @@
 namespace Modules\school\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\School\Entities\School;
 
 class Findschool extends Action
 {
@@ -31,8 +32,8 @@ class Findschool extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(School $school)
     {
-        // Execute the action.
+        return $school;
     }
 }

@@ -45,9 +45,8 @@ class DataTableOfschool extends Action
                 ->toJson();
         }
 
-
-        $builder->addColumn(['data'=>'school_code']);
         $builder->addColumn(['data'=>'name']);
+        $builder->addColumn(['data'=>'school_code']);
         $builder->addColumn(['data'=>'general_classification']);
         $builder->addColumn(['data'=>'address']);
         $builder->addColumn(['data'=>'postal_code']);

@@ -3,6 +3,7 @@
 namespace Modules\school\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\School\Entities\School;
 
 class Updateschool extends Action
 {
@@ -31,8 +32,24 @@ class Updateschool extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(School $school)
     {
-        // Execute the action.
+        $school->school_code = $this->school_code;
+        $school->name = $this->name;
+        $school->general_classification = $this->general_classification;
+        $school->address = $this->address.', '.$this->barangay_district.', '.$this->city_municipality.', '.$this->province_state.', '.$this->country;
+        $school->barangay_district = $this->barangay_district;
+        $school->city_municipality = $this->city_municipality;
+        $school->province_state = $this->province_state;
+        $school->country = $this->country;
+        $school->postal_code = $this->postal_code;
+        $school->contact_person = $this->contact_person;
+        $school->position = $this->position;
+        $school->mobile_no = $this->mobile_no;
+        $school->landline_no = $this->landline_no;
+        $school->fax_no = $this->fax_no;
+        $school->save();
+
+        return $school;
     }
 }

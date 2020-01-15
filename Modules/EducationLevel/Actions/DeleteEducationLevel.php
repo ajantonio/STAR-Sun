@@ -3,6 +3,7 @@
 namespace Modules\EducationLevel\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\EducationLevel\Entities\EducationLevel;
 
 class DeleteEducationLevel extends Action
 {
@@ -31,8 +32,20 @@ class DeleteEducationLevel extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(EducationLevel $educationlevel)
     {
-        // Execute the action.
+        $educationlevel->delete();
+
+        return $educationlevel;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;        
+    }
+
+    public function htmlResponse($results, $request)
+    {
+        return redirect()->back();
     }
 }

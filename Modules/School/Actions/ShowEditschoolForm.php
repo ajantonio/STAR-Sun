@@ -3,6 +3,7 @@
 namespace Modules\school\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\School\Entities\School;
 
 class ShowEditschoolForm extends Action
 {
@@ -31,8 +32,18 @@ class ShowEditschoolForm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(School $school)
     {
-        // Execute the action.
+        return $school;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($result, $response)
+    {
+        return view('school::edit')->with('id', $result->id);
     }
 }
