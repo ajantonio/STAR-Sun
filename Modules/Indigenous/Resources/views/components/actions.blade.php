@@ -5,5 +5,5 @@
 @endcan()
 
 @can('delete-indigenous')
-    <button class="btn btn-xs btn-outline-danger" onclick="deleteIndigenous('{{$indigneous->id}}', '{{$indigenous->name}}')"><i class="fa fa-trash"></i></button>
+    <button class="btn btn-xs btn-outline-danger" onclick="deleteIndigenous('{{$indigenous->id}}', '{{$indigenous->name}}')"><i class="fa fa-trash"></i></button>
 @endcan

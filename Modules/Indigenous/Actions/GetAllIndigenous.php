@@ -18,6 +18,16 @@ class GetAllIndigenous extends Action
     }
 
     /**
+     * Get the validation rules that apply to the action.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [];
+    }
+
+    /**
      * Execute the action and return a result.
      *
      * @return mixed
