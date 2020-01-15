@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/citymunicipality",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\CityMunicipality\\Providers\\CityMunicipalityServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CityMunicipality\\": ""
+        }
+    }
+}

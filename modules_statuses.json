@@ -19,6 +19,7 @@
     "Indigenous": true,
     "School": true,
     "EducationLevel": true,
+    "CityMunicipality": true,
     "APIProxy": true,
     "AddressType": true,
     "DayOfWeek": true,

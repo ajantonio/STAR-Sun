@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Indigenous\Actions;
+namespace Modules\CityMunicipality\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\Indigenous\Entities\Indigenous;
+use Modules\CityMunicipality\Entities\CityMunicipality;
 
-class ViewIndigenous extends Action
+class ShowCreateCityMunicipalityForm extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class ViewIndigenous extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-indigenous');
+        return $this->user()->can('show-create-city-municipality-form');
     }
 
     /**
@@ -32,9 +32,8 @@ class ViewIndigenous extends Action
      *
      * @return mixed
      */
-    public function handle(Indigenous $indigenous)
+    public function handle()
     {
-        // Execute the action.
-        return $indigenous;
+        return view("citymunicipality::create");
     }
 }
