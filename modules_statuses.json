@@ -16,5 +16,6 @@
     "Attribute": true,
     "FamilyRelationship": true,
     "ParentalMaritalStatus": true,
-    "Indigenous": true
+    "Indigenous": true,
+    "CityMunicipality": true
 }
