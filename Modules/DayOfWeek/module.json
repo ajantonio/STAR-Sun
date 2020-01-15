@@ -1,0 +1,13 @@
+{
+    "name": "DayOfWeek",
+    "alias": "dayofweek",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\DayOfWeek\\Providers\\DayOfWeekServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

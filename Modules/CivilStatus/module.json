@@ -1,0 +1,13 @@
+{
+    "name": "CivilStatus",
+    "alias": "civilstatus",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\CivilStatus\\Providers\\CivilStatusServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

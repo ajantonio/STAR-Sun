@@ -19,9 +19,9 @@ use Modules\Indigenous\Actions\GetIndigenousDetails;
 */
 Route::middleware('auth:api')->prefix('indigenous')->group(function(){
     Route::post('/', StoreNewIndigenous::class)->name('api.indigenous.store');
-    Route::get('/', GetAllIndigenous::class)->name('api.indigneous.index');
+    Route::get('/', GetAllIndigenous::class)->name('api.indigenous.index');
     Route::get('/{indigenous}', FindIndigenous::class)->name('api.indigenous.find');
     Route::put('/{indigenous}', UpdateIndigenous::class)->name('api.indigenous.update');
     Route::delete('/{indigenous}', DeleteIndigenous::class)->name('api.indigenous.destroy');
-    Route::get('/{indigenous}/show', GetIndigenousDetails::class)->name('api.indigneous.show');
+    Route::get('/{indigenous}/show', GetIndigenousDetails::class)->name('api.indigenous.show');
 });

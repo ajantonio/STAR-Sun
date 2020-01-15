@@ -17,5 +17,10 @@
     "FamilyRelationship": true,
     "ParentalMaritalStatus": true,
     "Indigenous": true,
-    "CityMunicipality": true
+    "CityMunicipality": true,
+    "APIProxy": true,
+    "AddressType": true,
+    "DayOfWeek": true,
+    "CivilStatus": true,
+    "ContactType": true
 }

@@ -15,7 +15,7 @@
     <script>
         applyHeaderSearch('indigenouss');
 
-        function deleteFamilyRelationship(id, name) {
+        function deleteIndigenous(id, name) {
             swal({
                 icon: 'warning',
                 title: 'Delete',

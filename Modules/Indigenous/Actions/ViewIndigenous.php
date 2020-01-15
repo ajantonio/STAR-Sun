@@ -3,6 +3,7 @@
 namespace Modules\Indigenous\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Indigenous\Entities\Indigenous;
 
 class ViewIndigenous extends Action
 {
@@ -31,8 +32,9 @@ class ViewIndigenous extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Indigenous $indigenous)
     {
         // Execute the action.
+        return $indigenous;
     }
 }

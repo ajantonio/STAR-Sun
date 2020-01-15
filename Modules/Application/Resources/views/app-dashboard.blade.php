@@ -20,9 +20,10 @@
                         <el-col :lg="4" :md="6" :sm="8" class="mb-2">
                             <el-card shadow="hover" class="text-center">
                                 <i class="{{$app->icon}} fa-2x"></i>
-                                <p class="mt-3">{{$app->name}}</p>
+                                <p class="mt-3"><b>{{$app->name}}</b></p>
+                                <p class="text-sm">{{$app->description}}</p>
                             </el-card>
-                        </el-col>
+                        </el-col>                        
                     </a>
                 @endforeach
             </el-row>

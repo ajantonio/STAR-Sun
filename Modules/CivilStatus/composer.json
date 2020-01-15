@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/civilstatus",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\CivilStatus\\Providers\\CivilStatusServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\CivilStatus\\": ""
+        }
+    }
+}
