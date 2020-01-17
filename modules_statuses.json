@@ -24,5 +24,6 @@
     "AddressType": true,
     "DayOfWeek": true,
     "CivilStatus": true,
-    "ContactType": true
+    "ContactType": true,
+    "AuditLog": true
 }

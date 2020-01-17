@@ -11,8 +11,9 @@
 |
 */
 
-use Modules\APIProxy\Actions\HandleRequest;
 
-Route::prefix('ajax')->middleware('auth')->group(function () {
-    Route::match(['GET', 'POST'], '/', HandleRequest::class)->name('api.proxy.endpoint');
+use Modules\AuditLog\Actions\IndexPage;
+
+Route::prefix('auditlogs')->middleware('auth')->group(function() {
+    Route::get('/', IndexPage::class)->name('audit.log.index');
 });
