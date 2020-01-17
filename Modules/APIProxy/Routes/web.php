@@ -14,5 +14,5 @@
 use Modules\APIProxy\Actions\HandleRequest;
 
 Route::prefix('ajax')->middleware('auth')->group(function () {
-    Route::get('/', HandleRequest::class)->name('api.proxy.endpoint');
+    Route::match(['GET', 'POST'], '/', HandleRequest::class)->name('api.proxy.endpoint');
 });

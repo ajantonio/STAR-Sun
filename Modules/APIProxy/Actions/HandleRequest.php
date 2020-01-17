@@ -10,6 +10,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HandleRequest extends Action
 {
+    public function authorize()
+    {
+        return $this->request->wantsJson();
+    }
+
     public function rules()
     {
         return [
@@ -26,12 +31,19 @@ class HandleRequest extends Action
 
         try {
             $client = new Client();
-            $response = $client->request($this->method, $url, [
+
+            $parameters = [
                 'headers' => [
                     'Accept' => 'application/json',
                     'Authorization' => "Bearer " . session()->get('access_token'),
                 ]
-            ]);
+            ];
+
+            if ($this->form_params) {
+                $parameters['form_params'] = $this->form_data;
+            }
+
+            $response = $client->request($this->method, $url, $parameters);
 
             return $response->getBody();
 

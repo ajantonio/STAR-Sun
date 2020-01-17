@@ -42,18 +42,21 @@ class MenuServiceProvider extends ServiceProvider
             $link_groups = ResourceGroup::where('application_id', $application)->orderBy('name')->get();
 
             $main_menu = collect();
+
+            //Get all links with sub menus and permission
+            $all_links = Link::with(['permission', 'submenus'])
+                ->where([
+                    'status' => 'On',
+                    'parent_link_id' => null
+                ])
+                ->orderBy('order')
+                ->orderBy('title')
+                ->get();
+
             foreach ($link_groups as $group) {
 
                 //Get all links with sub menus and permission
-                $links = Link::with(['permission', 'submenus'])
-                    ->where([
-                        'resource_group_id' => $group->id,
-                        'status' => 'On',
-                        'parent_link_id' => null
-                    ])
-                    ->orderBy('order')
-                    ->orderBy('title')
-                    ->get();
+                $links = $all_links->where('resource_group_id', $group->id);
 
                 $filtered_links = $links->filter(function ($link, $key) use ($user) {
 
