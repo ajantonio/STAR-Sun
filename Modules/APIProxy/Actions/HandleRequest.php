@@ -39,7 +39,7 @@ class HandleRequest extends Action
                 ]
             ];
 
-            if ($this->form_params) {
+            if ($this->form_data) {
                 $parameters['form_params'] = $this->form_data;
             }
 
