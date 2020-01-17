@@ -10,5 +10,6 @@
     "ResourceGroup": true,
     "Generator": true,
     "Passport": true,
-    "APIProxy": true
+    "APIProxy": true,
+    "AuditLog": true
 }
