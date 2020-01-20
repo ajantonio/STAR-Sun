@@ -25,5 +25,6 @@
     "DayOfWeek": true,
     "CivilStatus": true,
     "ContactType": true,
-    "AuditLog": true
+    "AuditLog": true,
+    "Period": true
 }

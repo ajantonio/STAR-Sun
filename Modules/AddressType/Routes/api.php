@@ -19,7 +19,7 @@ use Modules\AddressType\Actions\FindAddressType;
 */
 Route::middleware('auth:api')->prefix('addresstype')->group(function(){
     Route::post('/', StoreNewAddressType::class)->name('api.addresstype.store');
-    Route::get('/', GetAllAddressType::class)->name('api.addresstype.store');
+    Route::get('/', GetAllAddressType::class)->name('api.addresstype.index');
     Route::get('/{addresstype}', FindAddressType::class)->name('api.addresstype.find');
     Route::put('/{addresstype}', UpdateAddressType::class)->name('api.addresstype.update');
     Route::delete('/{addresstype}', DeleteAddressType::class)->name('api.addresstype.destroy');
