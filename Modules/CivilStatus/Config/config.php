@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'name' => 'CivilStatus'
+    'name' => 'Civil Status'
 ];

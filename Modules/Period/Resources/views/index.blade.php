@@ -1,6 +1,6 @@
-@extends('civilstatus::layouts.master')
+@extends('period::layouts.master')
 @section('content_header')
-    <h1><i class="fas fa-list"></i> {{plural(config('civilstatus.name'))}}</h1>
+    <h1><i class="fas fa-list"></i> {{plural(config('period.name'))}}</h1>
 @stop
 @section('content')
     <div class="card card-outline card-primary">
@@ -11,21 +11,21 @@
 @push('js')
     {!! $builder->scripts() !!}
     <script>
-        applyHeaderSearch('civilstatuss');
+        applyHeaderSearch('periods');
 
-        function deleteCivilStatus(id, name) {
+        function deletePeriod(id, name) {
             swal({
                 icon: 'warning',
                 title: 'Delete',
-                text: 'Delete civil status ' + name + '?',
+                text: 'Delete period ' + name + '?',
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if(willDelete){
-                    axios.delete('/api/civilstatus/' + id)
+                    axios.delete('/api/period/' + id)
                         .then(res => {
-                            swal('Success', 'Civil Status deleted!', 'success').then(val => {
-                                window.LaravelDataTables["civilstatuss"].ajax.reload(null, false);
+                            swal('Success', 'Period deleted!', 'success').then(val => {
+                                window.LaravelDataTables["periods"].ajax.reload(null, false);
                             });
                         })
                         .catch(err => {

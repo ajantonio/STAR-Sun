@@ -1,11 +1,10 @@
 <?php
 
-namespace Modules\AddressType\Actions;
+namespace Modules\Period\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\AddressType\Entities\AddressType;
 
-class GetAddressTypeDetails extends Action
+class ShowCreatePeriodForm extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +13,7 @@ class GetAddressTypeDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-address-type-details');
+        return $this->user()->can('show-create-period-form');
     }
 
     /**
@@ -35,6 +34,6 @@ class GetAddressTypeDetails extends Action
     public function handle()
     {
         // Execute the action.
-        return AddressType::find($this->addresstype);
+        return view('period::create');
     }
 }

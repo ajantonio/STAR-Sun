@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\AddressType\Actions;
+namespace Modules\TermEvent\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\AddressType\Entities\AddressType;
+use Modules\TermEvent\Entities\TermEvent;
 
-class GetAddressTypeDetails extends Action
+class GetAllTermEvent extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAddressTypeDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-address-type-details');
+        return $this->user()->can('get-all-term-event');
     }
 
     /**
@@ -35,6 +35,6 @@ class GetAddressTypeDetails extends Action
     public function handle()
     {
         // Execute the action.
-        return AddressType::find($this->addresstype);
+        return TermEvent::orderBy('name')->get();
     }
 }

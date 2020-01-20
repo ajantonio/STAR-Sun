@@ -1,0 +1,13 @@
+{
+    "name": "TermCycle",
+    "alias": "termcycle",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\TermCycle\\Providers\\TermCycleServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

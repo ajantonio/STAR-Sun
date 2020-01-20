@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\AddressType\Actions;
+namespace Modules\Period\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\AddressType\Entities\AddressType;
+use Modules\Period\Entities\Period;
 
-class GetAddressTypeDetails extends Action
+class UpdatePeriod extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAddressTypeDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-address-type-details');
+        return $this->user()->can('update-period');
     }
 
     /**
@@ -32,9 +32,13 @@ class GetAddressTypeDetails extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Period $period)
     {
         // Execute the action.
-        return AddressType::find($this->addresstype);
+        $period->name = $this->name;
+        $period->description = $this->description;
+        $period->save();
+
+        return $period;
     }
 }

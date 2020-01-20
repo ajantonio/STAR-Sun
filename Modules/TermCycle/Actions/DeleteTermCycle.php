@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\AddressType\Actions;
+namespace Modules\TermCycle\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\AddressType\Entities\AddressType;
+use Modules\TermCycle\Entities\TermCycle;
 
-class GetAddressTypeDetails extends Action
+class DeleteTermCycle extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAddressTypeDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-address-type-details');
+        return $this->user()->can('delete-term-cycle');
     }
 
     /**
@@ -31,10 +31,22 @@ class GetAddressTypeDetails extends Action
      * Execute the action and return a result.
      *
      * @return mixed
+     * @throws \Exception
      */
-    public function handle()
+    public function handle(TermCycle $termcycle)
     {
         // Execute the action.
-        return AddressType::find($this->addresstype);
+        $termcycle->delete();
     }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($results, $request)
+    {
+        return redirect()->back();
+    }
+
 }

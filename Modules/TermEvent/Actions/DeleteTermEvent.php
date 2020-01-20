@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\AddressType\Actions;
+namespace Modules\TermEvent\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\AddressType\Entities\AddressType;
+use Modules\TermEvent\Entities\TermEvent;
 
-class GetAddressTypeDetails extends Action
+class DeleteTermEvent extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAddressTypeDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-address-type-details');
+        return $this->user()->can('delete-term-event');
     }
 
     /**
@@ -32,9 +32,19 @@ class GetAddressTypeDetails extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(TermEvent $termevent)
     {
         // Execute the action.
-        return AddressType::find($this->addresstype);
+        $termevent->delete();
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($results, $request)
+    {
+        return redirect()->back();
     }
 }
