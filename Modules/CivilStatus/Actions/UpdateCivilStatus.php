@@ -37,6 +37,7 @@ class UpdateCivilStatus extends Action
         // Execute the action.
         $civilstatus->name = $this->name;
         $civilstatus->description = $this->description;
+        $civilstatus->save();
 
         return $civilstatus;
     }
