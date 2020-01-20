@@ -29,6 +29,11 @@ require('datatables.net-buttons/js/buttons.print.js')();
  */
 require('sweetalert');
 
+/**
+ * Numeral JS
+ */
+window.numeral = require('numeral');
+
 
 /**
  * Element UI
