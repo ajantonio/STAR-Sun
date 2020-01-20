@@ -26,5 +26,6 @@
     "CivilStatus": true,
     "ContactType": true,
     "AuditLog": true,
-    "Period": true
+    "Period": true,
+    "TermCycle": true
 }

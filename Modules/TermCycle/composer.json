@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/termcycle",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\TermCycle\\Providers\\TermCycleServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\TermCycle\\": ""
+        }
+    }
+}
