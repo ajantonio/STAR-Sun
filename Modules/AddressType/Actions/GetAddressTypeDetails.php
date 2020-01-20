@@ -35,6 +35,6 @@ class GetAddressTypeDetails extends Action
     public function handle()
     {
         // Execute the action.
-        return AddressType::find($this->$addresstype);
+        return AddressType::find($this->addresstype);
     }
 }
