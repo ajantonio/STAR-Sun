@@ -12,7 +12,11 @@ class HandleRequest extends Action
 {
     public function authorize()
     {
-        return $this->request->wantsJson();
+        if ($this->runningAs('controller')) {
+            return $this->request->wantsJson();
+        }
+
+        return true;
     }
 
     public function rules()
@@ -28,6 +32,10 @@ class HandleRequest extends Action
     {
         $service = config("applications.$this->service");
         $url = $service['url'] . "/" . $this->path;
+
+        if (empty($service)) {
+            return response('Service not found.', 400);
+        }
 
         try {
             $client = new Client();
@@ -45,7 +53,7 @@ class HandleRequest extends Action
 
             $response = $client->request($this->method, $url, $parameters);
 
-            return $response->getBody();
+            return $response->getBody()->getContents();
 
         } catch (RequestException $ex) {
             if ($ex->getCode() == 401) {
@@ -56,7 +64,17 @@ class HandleRequest extends Action
                 }
             }
 
-            return response($ex->getMessage(), $ex->getCode() ?? 500);
+            $ex_code = $ex->getCode();
+            if (intval($ex_code) < 1) {
+                $ex_code = 500;
+            }
+
+            $msg = $ex->getMessage();
+            if (empty($msg)) {
+                $msg = 'Unknown error';
+            }
+
+            return response($msg, $ex_code ?? 500);
         }
     }
 }
