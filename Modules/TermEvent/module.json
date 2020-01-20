@@ -1,0 +1,13 @@
+{
+    "name": "TermEvent",
+    "alias": "termevent",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\TermEvent\\Providers\\TermEventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

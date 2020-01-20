@@ -27,5 +27,6 @@
     "ContactType": true,
     "AuditLog": true,
     "Period": true,
-    "TermCycle": true
+    "TermCycle": true,
+    "TermEvent": true
 }
