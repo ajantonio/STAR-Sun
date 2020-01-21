@@ -28,19 +28,23 @@
             },
             mounted() {
                 //execute scripts on page ready
-                axios.get('{{route('api.schoollevel.find', $id)}}')
-                    .then(res => {
-                        this.form = res.data;
-                    })
-                    .catch(err => {
-                        new ErrorHandler().handle(err.response);
-                    });
+                    axios.get('{{route('api.schoollevel.find', $id)}}')
+                        .then(res => {
+                            this.form = res.data;
+                        })
+                        .catch(err => {
+                            new ErrorHandler().handle(err.response);
+                        });
 
                     axios.get('{{route('api.educationlevel.index')}}')
-                    .then(res => {this.education_levels = res.data;
+                    .then(res => {
+                        this.education_levels = res.data;
                     })
                     .catch(err => {new ErrorHandler().handle(err.response)
                     });
+
+                  
+
             },
             computed: {},
             methods: {

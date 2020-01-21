@@ -4,6 +4,7 @@ use Modules\SchoolLevel\Actions\StoreNewSchoolLevel;
 use Modules\SchoolLevel\Actions\DeleteSchoolLevel;
 use Modules\SchoolLevel\Actions\UpdateSchoolLevel;
 use Modules\SchoolLevel\Actions\FindSchoolLevel;
+use Modules\SchoolLevel\Actions\GetSchoolLevelDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,5 @@ Route::middleware('auth:api')->prefix('schoollevel')->group(function(){
     Route::get('/{schoollevel}', FindSchoolLevel::class)->name('api.schoollevel.find');
     Route::put('/{schoollevel}', UpdateSchoolLevel::class)->name('api.schoollevel.update');
     Route::delete('/{schoollevel}', DeleteSchoolLevel::class)->name('api.schoollevel.destroy');
+    Route::get('/{schoollevel}/show', GetSchoolLevelDetail::class)->name('api.schoollevel.show');
 });

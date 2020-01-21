@@ -3,8 +3,9 @@
 namespace Modules\SchoolLevel\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\SchoolLevel\Entities\SchoolLevel;
 
-class GetSchooLevelDetail extends Action
+class GetSchoolLevelDetail extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
