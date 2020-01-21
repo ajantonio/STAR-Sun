@@ -29,8 +29,11 @@
                         term: null,
                         is_ongoing: null
                     },
+                    campuses: null,
+                    term_cycles: null,
                     rules: {
-                        campus_id: [{required: true, message: 'Please select Campus.'}]
+                        campus_id: [{required: true, message: 'Please select Campus.'}],
+                        term_cycle_id: [{required: true, message: 'Please select Term Cycle.'}]
                     }
                 }
             },
@@ -39,6 +42,25 @@
                 axios.get('{{route('api.term.find', $id)}}')
                     .then(res => {
                         this.form = res.data;
+                        console.log(res.data);
+                    })
+                    .catch(err => {
+                        new ErrorHandler().handle(err.response);
+                    });
+
+                axios.get('{{route('api.campus.index')}}')
+                    .then(res => {
+                        this.campuses = res.data;
+                        // console.log(res.data);
+                    })
+                    .catch(err => {
+                        new ErrorHandler().handle(err.response);
+                    });
+
+                axios.get('{{route('api.termcycle.index')}}')
+                    .then(res => {
+                        this.term_cycles = res.data;
+                        // console.log(res.data);
                     })
                     .catch(err => {
                         new ErrorHandler().handle(err.response);

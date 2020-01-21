@@ -27,5 +27,6 @@
     "ContactType": true,
     "SchoolLevel": true,
     "AuditLog": true,
-    "Term": true
+    "Term": true,
+    "TermCycle": true
 }

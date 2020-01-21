@@ -29,13 +29,30 @@
                         term: null,
                         is_ongoing: null
                     },
+                    campuss: [],
+                    term_cycles: [],
                     rules:{
-                        campus_id: [{required: true, message: 'Please select Campus.'}]
+                        campus_id: [{required: true, message: 'Please select Campus.'}],
+                        term_cycle_id: [{required: true, message: 'Please select Term Cycle.'}],
+                        school_year: [{required: true, message: 'Please enter School Year.'}],
+                        term: [{required: true, message: 'Please enter Term.'}],
+                        is_ongoing: [{required: true, message: 'Please state if Yes or No.'}]
                     }
                 }
             },
             mounted() {
                 //execute scripts on page ready
+                axios.get('{{route('api.campus.index')}}')
+                    .then(res => {this.campuss = res.data;
+                    })
+                    .catch(err => {new ErrorHandler().handle(err.response)}
+                    );
+
+                axios.get('{{route('api.termcycle.index')}}')
+                    .then(res => {this.termcycles = res.data;
+                    })
+                    .catch(err => {new ErrorHandler().handle(err.response)}
+                    );
             },
             computed:{
             },

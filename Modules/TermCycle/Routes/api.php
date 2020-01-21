@@ -19,7 +19,7 @@ use Modules\TermCycle\Actions\FindTermCycle;
 */
 Route::middleware('auth:api')->prefix('termcycle')->group(function(){
     Route::post('/', StoreNewTermCycle::class)->name('api.termcycle.store');
-    Route::get('/', GetAllTermCycle::class)->name('api.termcycle.store');
+    Route::get('/', GetAllTermCycle::class)->name('api.termcycle.index');
     Route::get('/{termcycle}', FindTermCycle::class)->name('api.termcycle.find');
     Route::put('/{termcycle}', UpdateTermCycle::class)->name('api.termcycle.update');
     Route::delete('/{termcycle}', DeleteTermCycle::class)->name('api.termcycle.destroy');

@@ -3,6 +3,7 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
 class UpdateTerm extends Action
 {
@@ -23,7 +24,13 @@ class UpdateTerm extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'campus_id' => 'required',
+            'term_cycle_id' => 'required',
+            'school_year' => 'required',
+            'term' => 'required',
+            'is_ongoing' => 'required'
+        ];
     }
 
     /**
@@ -31,8 +38,16 @@ class UpdateTerm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Term $term)
     {
         // Execute the action.
+        $term->campus_id = $this->campus_id;
+        $term->term_cycle_id = $this->term_cycle_id;
+        $term->school_year = $this->school_year;
+        $term->term = $this->term;
+        $term->is_ongoing = $this->is_ongoing;
+        $term->save();
+
+        return $term;
     }
 }

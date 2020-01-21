@@ -3,6 +3,7 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
 class ShowEditTermForm extends Action
 {
@@ -31,8 +32,19 @@ class ShowEditTermForm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Term $term)
     {
         // Execute the action.
+        return $term;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($result, $response)
+    {
+        return view('term::edit')->with('id', $result->id);
     }
 }

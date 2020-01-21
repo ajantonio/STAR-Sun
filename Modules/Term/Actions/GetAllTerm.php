@@ -3,6 +3,7 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
 class GetAllTerm extends Action
 {
@@ -34,5 +35,6 @@ class GetAllTerm extends Action
     public function handle()
     {
         // Execute the action.
+        return Term::orderBy('name')->get();
     }
 }

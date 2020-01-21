@@ -3,6 +3,7 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
 class GetTermDetails extends Action
 {
@@ -34,5 +35,6 @@ class GetTermDetails extends Action
     public function handle()
     {
         // Execute the action.
+        return Term::find($this->term);
     }
 }

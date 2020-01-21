@@ -34,5 +34,6 @@ class ShowCreateTermForm extends Action
     public function handle()
     {
         // Execute the action.
+        return view('term::create');
     }
 }
