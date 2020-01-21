@@ -40,7 +40,7 @@ class StoreNewSchoolLevel extends Action
     public function handle()
     {
         $schoollevel = new SchoolLevel();
-        $schoollevel->education_level_id = $this->education_level_id['id'];
+        $schoollevel->education_level_id = $this->education_level_id;
         $schoollevel->name = $this->name;
         $schoollevel->description= $this->description;  
         $schoollevel->save();
