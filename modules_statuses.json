@@ -28,5 +28,6 @@
     "SchoolLevel": true,
     "AuditLog": true,
     "Term": true,
-    "TermCycle": true
+    "TermCycle": true,
+    "GradeLevel": true
 }

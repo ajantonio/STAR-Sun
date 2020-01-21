@@ -1,0 +1,13 @@
+{
+    "name": "GradeLevel",
+    "alias": "gradelevel",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\GradeLevel\\Providers\\GradeLevelServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
