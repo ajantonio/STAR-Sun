@@ -3,6 +3,7 @@
 namespace Modules\EducationLevel\Entities;
 
 use Modules\System\Entities\Model;
+use Modules\SchoolLevel\Entities\SchoolLevel;
 
 class EducationLevel extends Model
 {
@@ -10,5 +11,6 @@ class EducationLevel extends Model
     protected $table = 'education_levels';
     public $incrementing = true;
     protected $keyType = 'string';
-    protected $fillable = ['name','description'];
+    protected $fillable = [];
+
 }
