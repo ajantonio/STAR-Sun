@@ -13,7 +13,7 @@ class ShowCreateApplciationForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('create-application');
+        return $this->user()->can('create-application') && config('app.admin_app');
     }
 
     /**

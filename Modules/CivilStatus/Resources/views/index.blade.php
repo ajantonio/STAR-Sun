@@ -17,7 +17,7 @@
             swal({
                 icon: 'warning',
                 title: 'Delete',
-                text: 'Delete civilstatus ' + name + '?',
+                text: 'Delete civil status ' + name + '?',
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {

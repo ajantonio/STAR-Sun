@@ -9,7 +9,7 @@ class DeleteApplication extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('delete-application');
+        return $this->user()->can('delete-application') && config('app.admin_app');
     }
 
     public function handle(Application $application)
