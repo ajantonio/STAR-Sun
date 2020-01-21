@@ -24,7 +24,17 @@ class Updateschool extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'school_code' => 'required||unique',
+            'name'=> 'required',
+            'general_classification'=> 'required',
+            'address'=> 'required',
+            'barangay_district' => 'required',
+            'city_municipality' => 'required',
+            'province_state' => 'required',
+            'country' => 'required',
+            'contact_person' => 'required',
+        ];
     }
 
     /**
