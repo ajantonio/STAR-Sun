@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\SchoolLevel\Actions;
 
 use Lorisleiva\Actions\Action;
 
-class ShowCreateschoolForm extends Action
+class GetSchooLevelDetail extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,7 +13,7 @@ class ShowCreateschoolForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-createschool-form');
+        return $this->user()->can('get-schoo-level-detail');
     }
 
     /**
@@ -33,7 +33,7 @@ class ShowCreateschoolForm extends Action
      */
     public function handle()
     {
-        return view('school::create');
-    }
+        return SchoolLevel::find($this->schoollevel);
+    }    
 
 }

@@ -3,6 +3,7 @@
 namespace Modules\School\Entities;
 
 use Modules\System\Entities\Model;
+use Modules\Country\Entities\Country;
 
 class school extends Model
 {
@@ -12,4 +13,9 @@ class school extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     protected $fillable = [];
+
+    public function details()
+    {
+        return $this->hasMany(Country::class);
+    }
 }

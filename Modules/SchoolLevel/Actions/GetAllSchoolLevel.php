@@ -1,10 +1,11 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\SchoolLevel\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\SchoolLevel\Entities\SchoolLevel;
 
-class ShowCreateschoolForm extends Action
+class GetAllSchoolLevel extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,7 +14,7 @@ class ShowCreateschoolForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-createschool-form');
+        return $this->user()->can('get-all-school-level');
     }
 
     /**
@@ -21,19 +22,8 @@ class ShowCreateschoolForm extends Action
      *
      * @return array
      */
-    public function rules()
-    {
-        return [];
-    }
-
-    /**
-     * Execute the action and return a result.
-     *
-     * @return mixed
-     */
     public function handle()
     {
-        return view('school::create');
+        return SchoolLevel::orderBy('name')->get();
     }
-
 }

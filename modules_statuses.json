@@ -25,6 +25,7 @@
     "DayOfWeek": true,
     "CivilStatus": true,
     "ContactType": true,
+    "SchoolLevel": true,
     "AuditLog": true,
     "Term": true
 }

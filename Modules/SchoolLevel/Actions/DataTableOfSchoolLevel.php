@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\SchoolLevel\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\school\Entities\school;
+use Modules\SchoolLevel\Entities\SchoolLevel;
 use Modules\System\Entities\DatatableBuilder;
 
-class DataTableOfschool extends Action
+class DataTableOfSchoolLevel extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -15,7 +15,7 @@ class DataTableOfschool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-school');
+        return $this->user()->can('view-schoollevel');
     }
 
     /**
@@ -38,20 +38,18 @@ class DataTableOfschool extends Action
     public function handle(DatatableBuilder $builder)
     {
         if (request()->ajax()) {
-            return datatables()->of(school::query())
-                ->editColumn('action', function ($school) {
-                    return view('school::components.actions', compact(['school']));
+            return datatables()->of(SchoolLevel::query())
+                ->editColumn('action', function ($schoollevel) {
+                    return view('schoollevel::components.actions', compact(['schoollevel']));
                 })
                 ->toJson();
         }
 
         $builder->addColumn(['data'=>'name']);
-        $builder->addColumn(['data'=>'general_classification']);
-        $builder->addColumn(['data'=>'contact_person']);
-        $builder->addColumn(['data'=>'mobile_no']);
+        $builder->addColumn(['data'=>'description']);
         $builder->addActionColumn();
-        $builder->setTableId('schools');
+        $builder->setTableId('schoollevels');
 
-        return view('school::index', compact('builder'));
+        return view('schoollevel::index', compact('builder'));
     }
 }

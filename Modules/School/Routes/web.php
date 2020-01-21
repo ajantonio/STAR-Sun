@@ -16,9 +16,11 @@ use Modules\School\Actions\ShowEditSchoolForm;
 use Modules\School\Actions\ViewSchool;
 use Modules\School\Actions\DataTableOfSchool;
 
+
 Route::prefix('school')->middleware('auth')->group(function() {
     Route::get('/', DataTableOfSchool::class)->name('school.index');
     Route::get('/create', ShowCreateSchoolForm::class)->name('school.create');
-    Route::get('/{school}', ViewSchool::class)->name('school.show');
+    Route::get('/{school}/show', ViewSchool::class)->name('school.show');
     Route::get('/{school}/edit', ShowEditSchoolForm::class)->name('school.edit');
+   
 });

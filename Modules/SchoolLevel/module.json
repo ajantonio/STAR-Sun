@@ -1,0 +1,13 @@
+{
+    "name": "SchoolLevel",
+    "alias": "schoollevel",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\SchoolLevel\\Providers\\SchoolLevelServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
