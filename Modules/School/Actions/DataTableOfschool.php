@@ -46,15 +46,9 @@ class DataTableOfschool extends Action
         }
 
         $builder->addColumn(['data'=>'name']);
-        $builder->addColumn(['data'=>'school_code']);
         $builder->addColumn(['data'=>'general_classification']);
-        $builder->addColumn(['data'=>'address']);
-        $builder->addColumn(['data'=>'postal_code']);
         $builder->addColumn(['data'=>'contact_person']);
-        $builder->addColumn(['data'=>'position']);
         $builder->addColumn(['data'=>'mobile_no']);
-        $builder->addColumn(['data'=>'landline_no']);
-        $builder->addColumn(['data'=>'fax_no']);
         $builder->addActionColumn();
         $builder->setTableId('schools');
 

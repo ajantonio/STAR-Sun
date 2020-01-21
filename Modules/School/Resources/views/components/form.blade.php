@@ -4,84 +4,117 @@
         <el-form-item label="School Code" prop="school_code">
             <el-input v-model="form.school_code"></el-input>
         </el-form-item>
-        {{--Name--}}
-        <el-form-item label="Name" prop="name">
-            <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        {{--General Classification--}}
-        <el-form-item label="General Classification" prop="general_classification">
-            <el-input v-model="form.general_classification"></el-input>
-        </el-form-item>
 
-        {{--Address No.--}}
-        <el-form-item label="Address No./Street" prop="address">    
-            <el-input v-model="form.address"></el-input>
-        </el-form-item>
+        <el-row :gutter="20">
+            <el-col :md='12'>
+            {{--Name--}}
+                <el-form-item label="Name" prop="name">
+                    <el-input v-model="form.name"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :md='12'>
+            {{--General Classification--}}
+                <el-form-item label="General Classification" prop="general_classification">
+                    <el-input v-model="form.general_classification"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
 
-        {{--Barangay District--}}
-        <el-form-item label="Barangay District" prop="barangay_district">    
-            <el-input v-model="form.barangay_district"></el-input>
-        </el-form-item>
+        <el-row :gutter="20">
+            <el-col :md="12">
+            {{--Address No.--}}
+                <el-form-item label="Address No./Street" prop="address" >    
+                    <el-input v-model="form.address"></el-input>
+                </el-form-item>
+            </el-col>
 
+            <el-col :md="12">
+            {{--Barangay District--}}
+                <el-form-item label="Barangay District" prop="barangay_district">    
+                    <el-input v-model="form.barangay_district"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
+
+        <el-row :gutter="20">
         {{--Country--}}
-        <el-form-item label="Country" prop="country" >    
-            <el-radio-group  v-model="form.country">
-                <el-radio label="philippines"></el-radio>
-                <el-radio label="Japan"></el-radio>
-            </el-radio-group>  
+        <el-col :md="8">
+        <el-form-item label="Country" prop="country">
+            <el-select @change="countryChange" v-model="form.country" filterable placeholder="Select Country" value-key="id" class="w-100">
+                <el-option
+                v-for="country in countries"
+                :key="country.id"
+                :label="country.name"
+                :value="country.name">
+                </el-option>
+            </el-select>
         </el-form-item>
+        </el-col>
 
         {{--Province State--}}
-        <el-form-item v-show="form.country === 'philippines'" label="Province State" prop="province_state">    
-            <el-radio-group  v-model="form.province_state">
-                <el-radio label="CAR">CAR</el-radio>
-                <el-radio label="NCR">NCR</el-radio>
-            </el-radio-group>  
+        <el-col :md="8">
+        <el-form-item label="Province State" prop="province_state">
+            <el-select v-model="form.province_state" filterable placeholder="Select Province" value-key="id" class="w-100">
+                <el-option
+                v-for="country in countries"
+                :key="country.id"
+                :label="country.name"
+                :value="country.name">
+                </el-option>
+            </el-select>
         </el-form-item>
+        </el-col>
 
         {{--City Municipality--}}
-        <el-form-item v-show="form.province_state === 'NCR' && form.country ==='philippines'" label="City Municipality" prop="city_municipality">    
-           
-                <el-radio v-model="form.city_municipality" label="Taguig">Taguig</el-radio>
-                <el-radio v-model="form.city_municipality" label="Makati">Makati</el-radio>
-           
+        <el-col :md="8">
+        <el-form-item label="City Municipalities" prop="city_municipalities">
+            <el-select v-model="form.city_municipalities" filterable placeholder="Select City or Municipality" value-key="id" class="w-100">
+                <el-option
+                v-for="country in countries"
+                :key="country.id"
+                :label="country.name"
+                :value="country.name">
+                </el-option>
+            </el-select>
         </el-form-item>
+        </el-col>
+        </el-row>
         
         {{--Postal Code--}}
         <el-form-item label="Postal Code" prop="postal_code">
             <el-input v-model="form.postal_code"></el-input>
         </el-form-item>
         
-        <el-row type="text">
+        <el-row :gutter="20">
             {{--Contact Person--}}
-            <el-col :span="12">
+            <el-col :md="12">
                 <el-form-item label="Contact Person" prop="contact_person">
                     <el-input v-model="form.contact_person"></el-input>
                 </el-form-item>
             </el-col>
 
             {{--Position--}}
-            <el-col :span="12">
+            <el-col :md="12">
                 <el-form-item label="Position" prop="position">
                     <el-input v-model="form.position"></el-input>
                 </el-form-item>
             </el-col>
 
             {{--Mobile No.--}}
-            <el-col :span="8">
+            <el-col :md="8">
                 <el-form-item label="Mobile Number" prop="mobile_no">
                     <el-input v-model="form.mobile_no"></el-input>
                 </el-form-item>
             </el-col>
        
             {{--Landline No--}}
-            <el-col :span="8">
+            <el-col :md="8">
                 <el-form-item label="Landline Number" prop="landline_no">
                     <el-input v-model="form.landline_no"></el-input>
                 </el-form-item>
             </el-col>
             {{--fax No.--}}
-            <el-col :span="8">
+            <el-col :md="8">
                 <el-form-item label="Fax Number" prop="fax_no">
                     <el-input v-model="form.fax_no"></el-input>
                 </el-form-item>

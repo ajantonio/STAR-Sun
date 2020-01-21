@@ -22,6 +22,7 @@
            
             data() {
                 return {
+                    myJson:[],
                     form: {
                         school_code: null,
                         name: null,
@@ -39,6 +40,8 @@
                         fax_no: null,
 
                     },
+                    countries:[],
+                    city_municipalies:[],
                     rules:{
                         school_code:[{required:true, message:'School code is REQUIRED!!'}],
                         name:[{required:true, message:'Name is REQUIRED!!'}],
@@ -47,14 +50,16 @@
                         barangay_district:[{required:true, message:'Barangay District is REQUIRED!!'}],
                         country:[{required:true, message:'Country is REQUIRED!!'}],
                         province_state:[{required:true, message:'Province state is REQUIRED!!'}],
-                        city_municipality:[{required:true, message:'City Municipality is REQUIRED!!'}],
                         contact_person:[{required:true, message:'Contact person is REQUIRED!!'}],
-                    }
-                  
+                    },
                 }
             },
             mounted() {
-                //execute scripts on page ready
+                axios.get('{{route('api.country.index')}}')
+                    .then(res => {this.countries = res.data;
+                    })
+                    .catch(err => {new ErrorHandler().handle(err.response)
+                    });
             },
             computed:{
             },
@@ -78,7 +83,24 @@
                         }
                     });
                 },
-                
+                countryChange() {
+                    this.form.province_state = null;
+                    this.province_state = null;
+                    this.form.city_municipalitiy = null;
+                    this.city_municipality = null;
+                   
+
+                    if (this.form.country) {
+
+                        axios.get('/api/school/' + this.form.school.id + '/resources')
+                            .then(res => {
+                                this.resource_groups = res.data;
+                            })
+                            .catch(err => {
+                                new ErrorHandler().handle(err.response);
+                            });
+                    }
+                },
             }
         });
     </script>

@@ -12,8 +12,44 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th>Label</th>
-                                <td>Value</td>
+                                <th>School Code</th>
+                                <td>{{$school->school_code}}</td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td>{{$school->name}}</td>
+                            </tr>
+                            <tr>
+                                <th>General Classification</th>
+                                <td>{{$school->general_classification}}</td>
+                            </tr>
+                            <tr>
+                                <th>Address</th>
+                                <td>{{$school->address}}</td>
+                            </tr>
+                            <tr>
+                                <th>Postal Code</th>
+                                <td>{{$school->postal_code}}</td>
+                            </tr>
+                            <tr>
+                                <th>Contact Person</th>
+                                <td>{{$school->contact_person}}</td>
+                            </tr>
+                            <tr>
+                                <th>Position</th>
+                                <td>{{$school->position}}</td>
+                            </tr>
+                            <tr>
+                                <th>Mobile Number</th>
+                                <td>{{$school->mobile_no}}</td>
+                            </tr>
+                            <tr>
+                                <th>Landline Number</th>
+                                <td>{{$school->landline_no}}</td>
+                            </tr>
+                            <tr>
+                                <th>Fax Number</th>
+                                <td>{{$school->fax_no}}</td>
                             </tr>
                             </tbody>
                         </table>
