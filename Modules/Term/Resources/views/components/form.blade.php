@@ -24,16 +24,21 @@
             </el-select>
         </el-form-item>
 
-        <el-form-item label="School Year" prop="name">
+        <el-form-item label="School Year" prop="school_year">
             <el-input-number v-model="form.school_year" class="w-100"></el-input-number>
         </el-form-item>
 
-        <el-form-item label="Term" prop="name">
+        <el-form-item label="Term" prop="term">
             <el-input v-model="form.term"></el-input>
         </el-form-item>
 
-        <el-form-item label="Is ongoing" prop="name">
-            <el-input v-model="form.is_ongoing"></el-input>
+        <el-form-item label="Is ongoing" prop="is_ongoing">
+{{--            <el-input v-model="form.is_ongoing"></el-input>--}}
+            <el-switch
+                    v-model="form.is_ongoing"
+                    active-value="Yes"
+                    inactive-value="No">
+            </el-switch>
         </el-form-item>
 
         <el-form-item class="text-right">

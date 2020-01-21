@@ -5,5 +5,5 @@
 @endcan()
 
 @can('delete-term')
-    <button class="btn btn-xs btn-outline-danger" onclick="deleteTerm('{{$term->id}}', '{{$term->name}}')"><i class="fa fa-trash"></i></button>
+    <button class="btn btn-xs btn-outline-danger" onclick="deleteTerm('{{$term->id}}', '{{$term->term}}')"><i class="fa fa-trash"></i></button>
 @endcan
