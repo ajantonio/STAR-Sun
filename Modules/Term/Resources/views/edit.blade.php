@@ -2,22 +2,14 @@
 @section('content_header')
     <h1><i class="fas fa-list"></i> {{plural(config('term.name'))}}</h1>
 @stop
+
 @section('content')
     <el-row class="pb-2">
         <el-col :md="24">
             <el-card>
                 <div slot="header"><i class="el-icon-edit text-primary"></i> Edit Term</div>
                 <div>
-                    <el-form :model="form" :rules="rules" ref="editForm"
-                             @submit.native.prevent="submitForm('editForm')">
-                        <h1>Form here</h1>
-                        <el-form-item class="text-right">
-                            <el-button type="primary" native-type="submit" icon="el-icon-check">Save</el-button>
-                            <a href="{{route('term.index')}}">
-                                <el-button type="default" icon="el-icon-close">Cancel</el-button>
-                            </a>
-                        </el-form-item>
-                    </el-form>
+                    @include('term::components.form')
                 </div>
             </el-card>
         </el-col>
@@ -30,15 +22,45 @@
             el: '.content',
             data() {
                 return {
-                    form: {},
-                    rules: {}
+                    form: {
+                        campus_id: null,
+                        term_cycle_id: null,
+                        school_year: null,
+                        term: null,
+                        is_ongoing: null
+                    },
+                    campuses: null,
+                    term_cycles: null,
+                    rules: {
+                        campus_id: [{required: true, message: 'Please select Campus.'}],
+                        term_cycle_id: [{required: true, message: 'Please select Term Cycle.'}]
+                    }
                 }
             },
             mounted() {
                 //execute scripts on page ready
-                axios.get('{{route('api.term.find', $term)}}')
+                axios.get('{{route('api.term.find', $id)}}')
                     .then(res => {
                         this.form = res.data;
+                        console.log(res.data);
+                    })
+                    .catch(err => {
+                        new ErrorHandler().handle(err.response);
+                    });
+
+                axios.get('{{route('api.campus.index')}}')
+                    .then(res => {
+                        this.campuses = res.data;
+                        // console.log(res.data);
+                    })
+                    .catch(err => {
+                        new ErrorHandler().handle(err.response);
+                    });
+
+                axios.get('{{route('api.termcycle.index')}}')
+                    .then(res => {
+                        this.term_cycles = res.data;
+                        // console.log(res.data);
                     })
                     .catch(err => {
                         new ErrorHandler().handle(err.response);

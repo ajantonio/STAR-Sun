@@ -45,7 +45,12 @@ class DataTableOfTerm extends Action
                 ->toJson();
         }
 
-        $builder->addColumn(['data'=>'id']);
+//        $builder->addColumn(['data'=>'id']);
+//        $builder->addColumn(['data'=>'campus_id']);
+//        $builder->addColumn(['data'=>'term_cycle_id']);
+        $builder->addColumn(['data'=>'school_year']);
+        $builder->addColumn(['data'=>'term']);
+        $builder->addColumn(['data'=>'is_ongoing']);
         $builder->addActionColumn();
         $builder->setTableId('terms');
 

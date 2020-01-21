@@ -12,5 +12,29 @@
     {!! $builder->scripts() !!}
     <script>
         applyHeaderSearch('terms');
+
+        function deleteTerm(id, term) {
+            swal({
+                icon: 'warning',
+                title: 'Delete',
+                text: 'Delete term ' + term + '?',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if(willDelete){
+                    axios.delete('/api/term/' + id)
+                        .then(res => {
+                            swal('Success', 'Term deleted!', 'success').then(val => {
+                                window.LaravelDataTables["terms"].ajax.reload(null, false);
+                            });
+                        })
+                        .catch(err => {
+                            new ErrorHandler().handle(err.response);
+                        });
+                }
+            });
+        }
+    </script>
     </script>
 @endpush
+

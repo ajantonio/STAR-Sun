@@ -3,6 +3,7 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
 class DeleteTerm extends Action
 {
@@ -31,8 +32,21 @@ class DeleteTerm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Term $term)
     {
         // Execute the action.
+        $term->delete();
+
+        return $term;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($results, $request)
+    {
+        return redirect()->back();
     }
 }

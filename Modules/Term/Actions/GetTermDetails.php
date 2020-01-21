@@ -3,8 +3,9 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
-class ShowCreateTermForm extends Action
+class GetTermDetails extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,7 +14,7 @@ class ShowCreateTermForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-term-form');
+        return $this->user()->can('get-term-details');
     }
 
     /**
@@ -34,6 +35,6 @@ class ShowCreateTermForm extends Action
     public function handle()
     {
         // Execute the action.
-        return view('term::create');
+        return Term::find($this->term);
     }
 }
