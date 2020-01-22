@@ -35,6 +35,6 @@ class GetAllTerm extends Action
     public function handle()
     {
         // Execute the action.
-        return Term::orderBy('name')->get();
+        return Term::orderBy('school_year')->orderBy('term')->get();
     }
 }
