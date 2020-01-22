@@ -14,7 +14,7 @@ class Deleteschool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('deleteschool');
+        return $this->user()->can('delete-school');
     }
 
     /**

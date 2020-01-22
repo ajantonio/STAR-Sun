@@ -14,7 +14,7 @@ class UpdateSchoolLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-school-level');
+        return $this->user()->can('update-schoollevel');
     }
 
     /**

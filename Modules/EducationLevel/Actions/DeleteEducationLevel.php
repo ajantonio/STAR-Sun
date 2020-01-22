@@ -14,7 +14,7 @@ class DeleteEducationLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-education-level');
+        return $this->user()->can('delete-educationlevel');
     }
 
     /**
