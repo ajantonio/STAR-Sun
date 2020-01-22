@@ -25,7 +25,7 @@ class StoreNewGradeLevel extends Action
     public function rules()
     {
         return [
-            'name'=>'required',
+            'name'=>'required|unique:sm_commondb_con.grade_levels',
             'education_level_id'=>'required'
         ];
     }

@@ -25,7 +25,7 @@ class UpdateGradeLevel extends Action
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name'=>"required|unique:sm_commondb_con.grade_levels,name,{$this->gradelevel}",
             'education_level_id' => 'required'
         ];
     }

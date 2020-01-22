@@ -27,7 +27,7 @@ class StoreNewSchoolLevel extends Action
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:name.sm_commondb_con',
             'education_level_id' =>'required'
         ];
     }
