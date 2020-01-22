@@ -27,7 +27,7 @@ class StoreNewSchoolLevel extends Action
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:name.sm_commondb_con',
             'education_level_id' =>'required'
         ];
     }
@@ -40,7 +40,7 @@ class StoreNewSchoolLevel extends Action
     public function handle()
     {
         $schoollevel = new SchoolLevel();
-        $schoollevel->education_level_id = $this->education_level_id['id'];
+        $schoollevel->education_level_id = $this->education_level_id;
         $schoollevel->name = $this->name;
         $schoollevel->description= $this->description;  
         $schoollevel->save();

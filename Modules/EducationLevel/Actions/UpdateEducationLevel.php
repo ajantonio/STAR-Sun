@@ -24,7 +24,9 @@ class UpdateEducationLevel extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'name'=>"required|unique:sm_commondb_con.education_levels,name,{$this->educationlevel}",
+        ];
     }
 
     /**
