@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Term\Actions;
+namespace Modules\TermEventDetail\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\Term\Entities\Term;
+use Modules\TermEventDetail\Entities\TermEventDetail;
 
-class GetAllTerm extends Action
+class GetTermEventDetailDetail extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAllTerm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-term');
+        return $this->user()->can('get-term-event-detail-detail');
     }
 
     /**
@@ -35,6 +35,6 @@ class GetAllTerm extends Action
     public function handle()
     {
         // Execute the action.
-        return Term::orderBy('school_year')->get();
+        return TermEventDetail::find($this->termeventdetail);
     }
 }

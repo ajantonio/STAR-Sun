@@ -28,5 +28,8 @@
     "SchoolLevel": true,
     "AuditLog": true,
     "Term": true,
-    "TermCycle": true
+    "TermCycle": true,
+    "TermEvent": true,
+    "TermEventDetail": true,
+    "Period": true
 }
