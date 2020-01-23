@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Term\Actions;
+namespace Modules\GradeLevel\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\Term\Entities\Term;
+use Modules\GradeLevel\Entities\GradeLevel;
 
-class GetAllTerm extends Action
+class FindGradeLevel extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAllTerm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-term');
+        return $this->user()->can('find-grade-level');
     }
 
     /**
@@ -32,9 +32,8 @@ class GetAllTerm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(GradeLevel $gradelevel)
     {
-        // Execute the action.
-        return Term::orderBy('school_year')->orderBy('term')->get();
+        return $gradelevel;
     }
 }

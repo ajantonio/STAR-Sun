@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Term\Actions;
+namespace Modules\GradeLevel\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\Term\Entities\Term;
+use Modules\GradeLevel\Entities\GradeLevel;
 use Modules\System\Entities\DatatableBuilder;
 
-class DataTableOfTerm extends Action
+class DataTableOfGradeLevel extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -15,7 +15,7 @@ class DataTableOfTerm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-term');
+        return $this->user()->can('view-gradelevel');
     }
 
     /**
@@ -38,21 +38,18 @@ class DataTableOfTerm extends Action
     public function handle(DatatableBuilder $builder)
     {
         if (request()->ajax()) {
-            return datatables()->of(Term::query())
-                ->editColumn('action', function ($term) {
-                    return view('term::components.actions', compact(['term']));
+            return datatables()->of(GradeLevel::query())
+                ->editColumn('action', function ($gradelevel) {
+                    return view('gradelevel::components.actions', compact(['gradelevel']));
                 })
                 ->toJson();
         }
 
-        $builder->addColumn(['data'=>'school_year']);
-        $builder->addColumn(['data'=>'term']);
-        $builder->addColumn(['data'=>'is_ongoing']);
+        $builder->addColumn(['data'=>'name']);
+        $builder->addColumn(['data'=>'description']);
         $builder->addActionColumn();
-        $builder->setTableId('terms');
+        $builder->setTableId('gradelevels');
 
-        $builder->orderBy([0, 1], 'asc');
-
-        return view('term::index', compact('builder'));
+        return view('gradelevel::index', compact('builder'));
     }
 }

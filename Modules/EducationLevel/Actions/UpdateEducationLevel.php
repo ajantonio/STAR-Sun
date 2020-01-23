@@ -14,7 +14,7 @@ class UpdateEducationLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-education-level');
+        return $this->user()->can('update-educationlevel');
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateEducationLevel extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'name'=>"required|unique:sm_commondb_con.education_levels,name,{$this->educationlevel}",
+        ];
     }
 
     /**

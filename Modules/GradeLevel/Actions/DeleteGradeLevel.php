@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\SchoolLevel\Actions;
+namespace Modules\GradeLevel\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\SchoolLevel\Entities\SchoolLevel;
+use Modules\GradeLevel\Entities\GradeLevel;
 
-class DeleteSchoolLevel extends Action
+class DeleteGradeLevel extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class DeleteSchoolLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-schoollevel');
+        return $this->user()->can('delete-gradelevel');
     }
 
     /**
@@ -32,11 +32,11 @@ class DeleteSchoolLevel extends Action
      *
      * @return mixed
      */
-    public function handle(SchoolLevel $schoollevel)
+    public function handle(GradeLevel $gradelevel)
     {
-        $schoollevel->delete();
+        $gradelevel->delete();
 
-        return $schoollevel;
+        return $gradelevel;
     }
 
     public function jsonResponse($result, $request)

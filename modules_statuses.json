@@ -31,5 +31,6 @@
     "TermCycle": true,
     "TermEvent": true,
     "TermEventDetail": true,
-    "Period": true
+    "Period": true,
+    "GradeLevel": true
 }
