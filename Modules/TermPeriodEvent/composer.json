@@ -1,0 +1,25 @@
+{
+    "name": "bravo4all/termperiodevent",
+    "description": "",
+    "authors": [
+        {
+            "name": "Asia Pacific College",
+            "email": "delossantosheremias@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\TermPeriodEvent\\Providers\\TermPeriodEventServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\TermPeriodEvent\\": ""
+        }
+    }
+}
