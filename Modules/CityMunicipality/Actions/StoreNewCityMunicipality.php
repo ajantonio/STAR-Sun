@@ -24,7 +24,10 @@ class StoreNewCityMunicipality extends Action
      */
     public function rules()
     {
-        return [];
+        return [
+            'province' => 'required|unique:province',
+            'city_municipality' => 'required'
+        ];
     }
 
     /**
