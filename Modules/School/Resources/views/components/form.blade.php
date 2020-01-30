@@ -67,8 +67,8 @@
 
         {{--City Municipality--}}
         <el-col :md="8">
-        <el-form-item label="City Municipalities" prop="city_municipalities">
-            <el-select v-model="form.city_municipalities" filterable placeholder="Select City or Municipality" value-key="id" class="w-100">
+        <el-form-item label="City Municipalities" prop="city_municipality">
+            <el-select v-model="form.city_municipality" filterable placeholder="Select City or Municipality" value-key="id" class="w-100">
                 <el-option
                 v-for="country in countries"
                 :key="country.id"
