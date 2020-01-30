@@ -141,7 +141,7 @@
                                             if (this.modal) {
                                                 this.$emit('created', res.data);
                                             } else {
-                                                window.location = '/application'
+                                                window.location = '/permission'
                                             }
                                         });
                                 })
