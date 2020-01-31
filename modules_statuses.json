@@ -33,5 +33,6 @@
     "TermEventDetail": true,
     "Period": true,
     "GradeLevel": true,
-    "TermPeriodEvent": true
+    "TermPeriodEvent": true,
+    "TestModule": true
 }
