@@ -25,7 +25,7 @@ class Updateschool extends Action
     public function rules()
     {
         return [
-            'school_code' => "required|unique:sm_commondb_con.schools,school_code,{$this->school_code}",
+            'school_code' => "required|unique:sm_commondb_con.schools,school_code,{$this->school}",
             'name'=> "required|unique:sm_commondb_con.schools,name,{$this->name}",
             'general_classification'=> 'required',
             'address'=> 'required',
