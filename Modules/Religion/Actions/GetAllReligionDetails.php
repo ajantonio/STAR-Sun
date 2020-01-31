@@ -5,7 +5,7 @@ namespace Modules\Religion\Actions;
 use Lorisleiva\Actions\Action;
 use Modules\Religion\Entities\Religion;
 
-class GetAllReligions extends Action
+class GetAllReligionDetails extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class GetAllReligions extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-religions');
+        return $this->user()->can('get-all-religion-details');
     }
 
     /**
@@ -35,6 +35,6 @@ class GetAllReligions extends Action
     public function handle()
     {
         // Execute the action.
-        return Religion::orderBy('name')->get();
+        return Religion::find($this->relgion);
     }
 }
