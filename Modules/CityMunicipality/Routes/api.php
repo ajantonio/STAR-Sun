@@ -20,7 +20,7 @@ use Modules\CityMunicipality\Actions\FindCityMunicipality;
 Route::middleware('auth:api')->prefix('citymunicipality')->group(function(){
     Route::post('/', StoreNewCityMunicipality::class)->name('api.citymunicipality.store');
     Route::get('/', GetAllCityMunicipalities::class)->name('api.citymunicipality.index');
-    Route::get('/{country}/show', GetCityMunicipalityDetails::class)->name('api.country.show');
+    Route::get('/{citymunicipality}/show', GetCityMunicipalityDetails::class)->name('api.citymunicipality.show');
     Route::get('/{citymunicipality}', FindCityMunicipality::class)->name('api.citymunicipality.find');
     Route::put('/{citymunicipality}', UpdateCityMunicipality::class)->name('api.citymunicipality.update');
     Route::delete('/{citymunicipality}', DeleteCityMunicipality::class)->name('api.citymunicipality.destroy');

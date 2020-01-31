@@ -25,7 +25,7 @@ class UpdateCityMunicipality extends Action
     public function rules()
     {
         return [
-            'province' => 'required|unique:province',
+            'province' => "required",
             'city_municipality' => 'required'
         ];
     }
