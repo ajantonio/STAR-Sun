@@ -104,12 +104,13 @@ axios.interceptors.request.use(function (config) {
     // show loader
     loadingInstance = Loading.service({
         fullscreen: true,
-        lock:true,
-        text:'Loading',
-        spinner:'el-icon-loading'
+        lock: true,
+        text: 'Loading',
+        spinner: 'el-icon-loading'
     });
     return config;
 }, function (error) {
+    loadingInstance.close();
     return Promise.reject(error);
 });
 
@@ -122,5 +123,6 @@ axios.interceptors.response.use(function (response) {
     }
     return response;
 }, function (error) {
+    loadingInstance.close();
     return Promise.reject(error);
 });
