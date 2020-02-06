@@ -5,6 +5,8 @@ namespace Modules\Term\Entities;
 use Modules\Campus\Entities\Campus;
 use Modules\System\Entities\Model;
 use Modules\TermCycle\Entities\TermCycle;
+use Modules\TermEventDetail\Entities\TermEventDetail;
+use Modules\TermPeriodEvent\Entities\TermPeriodEvent;
 
 class Term extends Model
 {
@@ -24,5 +26,16 @@ class Term extends Model
     {
         return $this->belongsTo(TermCycle::class);
     }
+
+    public function term_event_details()
+    {
+        return $this->hasMany(TermEventDetail::class);
+    }
+
+    public function term_period_events()
+    {
+        return $this->hasMany(TermPeriodEvent::class);
+    }
+
 
 }
