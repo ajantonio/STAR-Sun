@@ -62,7 +62,7 @@ class StoreNewTerm extends Action
                 "datetime_end" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_end']))
             ];
 
-            $term->term_event_details()->save(new TermEventDetail($data));
+            $term->event_details()->save(new TermEventDetail($data));
         }
 
         foreach ($this->term_period_events as $term_period_event)
@@ -75,7 +75,7 @@ class StoreNewTerm extends Action
                 "datetime_end" => date('Y-m-d H:i:s', strtotime($term_period_event['date_time_end']))
             ];
 
-            $term->term_period_events()->save(new TermPeriodEvent($second_data));
+            $term->period_events()->save(new TermPeriodEvent($second_data));
         }
 
         return $term;

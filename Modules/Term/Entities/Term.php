@@ -27,12 +27,12 @@ class Term extends Model
         return $this->belongsTo(TermCycle::class);
     }
 
-    public function term_event_details()
+    public function event_details()
     {
         return $this->hasMany(TermEventDetail::class);
     }
 
-    public function term_period_events()
+    public function period_events()
     {
         return $this->hasMany(TermPeriodEvent::class);
     }

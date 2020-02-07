@@ -4,6 +4,8 @@ namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
 use Modules\Term\Entities\Term;
+use Modules\TermEventDetail\Entities\TermEventDetail;
+use Modules\TermPeriodEvent\Entities\TermPeriodEvent;
 
 class UpdateTerm extends Action
 {
@@ -47,6 +49,34 @@ class UpdateTerm extends Action
         $term->term = $this->term;
         $term->is_ongoing = $this->is_ongoing;
         $term->save();
+
+        $term->event_details()->delete();
+        $term->period_events()->delete();
+
+        foreach ($this->term_event_details as $term_event_detail)
+        {
+            $data = [
+                "term_id" => $term->id,
+                "term_event_id" => $term_event_detail['term_event'],
+                "datetime_start" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_start'])),
+                "datetime_end" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_end']))
+            ];
+
+            $term->event_details()->save(new TermEventDetail($data));
+        }
+
+        foreach ($this->term_period_events as $term_period_event)
+        {
+            $second_data = [
+                "term_id" => $term->id,
+                "period_id" => $term_period_event['period'],
+                "term_event_id" => $term_period_event['term_event'],
+                "datetime_start" => date('Y-m-d H:i:s', strtotime($term_period_event['date_time_start'])),
+                "datetime_end" => date('Y-m-d H:i:s', strtotime($term_period_event['date_time_end']))
+            ];
+
+            $term->period_events()->save(new TermPeriodEvent($second_data));
+        }
 
         return $term;
     }
