@@ -15,7 +15,9 @@ class Term extends Model
 
     public $incrementing = false;
     protected $keyType = 'string';
-    protected $fillable = ['campus_id', 'term_cycle_id', 'school_year', 'term', 'is_ongoing'];
+//    protected $fillable = ['campus_id', 'term_cycle_id', 'school_year', 'term', 'is_ongoing'];
+    protected $guarded = [];
+
 
     public function campusDetails()
     {

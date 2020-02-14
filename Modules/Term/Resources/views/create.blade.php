@@ -26,9 +26,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(term_event_details, index) in form.term_event_details">
+                                    <tr v-for="(event_details, index) in form.term_event_details">
                                         <td>
-                                            <el-select v-model="form.term_event_details[index].term_event">
+                                            <el-select v-model="form.term_event_details[index].term_event_id">
                                                 <el-option v-for="term_event in term_events"
                                                            :key="term_event.id"
                                                            :value="term_event.id"
@@ -37,13 +37,13 @@
                                             </el-select>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_event_details[index].date_time_start"
+                                            <el-date-picker v-model="form.term_event_details[index].datetime_start"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_event_details[index].date_time_end"
+                                            <el-date-picker v-model="form.term_event_details[index].datetime_end"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
@@ -80,9 +80,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(term_period_events, index) in form.term_period_events">
+                                    <tr v-for="(period_events, index) in form.term_period_events">
                                         <td>
-                                            <el-select v-model="form.term_period_events[index].period">
+                                            <el-select v-model="form.term_period_events[index].period_id">
                                                 <el-option v-for="period in periods"
                                                            :key="period.id"
                                                            :value="period.id"
@@ -91,7 +91,7 @@
                                             </el-select>
                                         </td>
                                         <td>
-                                            <el-select v-model="form.term_period_events[index].term_event">
+                                            <el-select v-model="form.term_period_events[index].term_event_id">
                                                 <el-option v-for="term_event in term_events"
                                                            :key="term_event.id"
                                                            :value="term_event.id"
@@ -100,13 +100,13 @@
                                             </el-select>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_period_events[index].date_time_start"
+                                            <el-date-picker v-model="form.term_period_events[index].datetime_start"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_period_events[index].date_time_end"
+                                            <el-date-picker v-model="form.term_period_events[index].datetime_end"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
@@ -153,13 +153,16 @@
                 data() {
                     return {
                         form: {
-                            term_event_details: [],
-                            term_period_events: [],
                             campus_id: null,
                             term_cycle_id: null,
                             school_year: null,
                             term: null,
-                            is_ongoing: null
+                            is_ongoing: null,
+
+                            event_details: [],
+                            period_events: [],
+                            term_event_details: [],
+                            term_period_events: [],
                         },
                         campuses: [],
                         term_cycles: [],
@@ -188,12 +191,14 @@
                         .catch(err => {new ErrorHandler().handle(err.response)}
                         );
 
+                    //term_events
                     axios.get('{{route('api.termevent.index')}}')
                         .then(res => {this.term_events = res.data;
                         })
                         .catch(err => {new ErrorHandler().handle(err.response)}
                         );
 
+                    //periods
                     axios.get('{{route('api.period.index')}}')
                         .then(res => {this.periods = res.data;
                         })
