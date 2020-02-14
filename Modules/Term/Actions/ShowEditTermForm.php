@@ -45,6 +45,6 @@ class ShowEditTermForm extends Action
 
     public function htmlResponse($result, $response)
     {
-        return view('term::edit')->with('id', $result->id);
+        return view('term::edit')->with('id', $this->term);
     }
 }

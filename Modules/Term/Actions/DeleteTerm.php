@@ -35,6 +35,8 @@ class DeleteTerm extends Action
     public function handle(Term $term)
     {
         // Execute the action.
+        $term->event_details()->delete();
+        $term->period_events()->delete();
         $term->delete();
 
         return $term;

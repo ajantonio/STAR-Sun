@@ -34,6 +34,10 @@ class FindTerm extends Action
      */
     public function handle(Term $term)
     {
+        if($this->with != ''){
+            $rel = explode(',', $this->with);
+            $term->load($rel);
+        }
         return $term;
     }
 }

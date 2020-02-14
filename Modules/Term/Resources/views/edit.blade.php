@@ -25,9 +25,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(custom_term_event_details, index) in form.term_event_details">
+                                    <tr v-for="(event_details, index) in form.term_event_details">
                                         <td>
-                                            <el-select v-model="form.term_event_details[index].term_event">
+                                            <el-select v-model="form.term_event_details[index].term_event_id">
                                                 <el-option v-for="term_event in term_events"
                                                            :key="term_event.id"
                                                            :value="term_event.id"
@@ -36,13 +36,13 @@
                                             </el-select>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_event_details[index].date_time_start"
+                                            <el-date-picker v-model="form.term_event_details[index].datetime_start"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_event_details[index].date_time_end"
+                                            <el-date-picker v-model="form.term_event_details[index].datetime_end"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
@@ -79,9 +79,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(custom_term_period_events, index) in form.term_period_events">
+                                    <tr v-for="(period_events, index) in form.term_period_events">
                                         <td>
-                                            <el-select v-model="form.term_period_events[index].period">
+                                            <el-select v-model="form.term_period_events[index].period_id">
                                                 <el-option v-for="period in periods"
                                                            :key="period.id"
                                                            :value="period.id"
@@ -90,7 +90,7 @@
                                             </el-select>
                                         </td>
                                         <td>
-                                            <el-select v-model="form.term_period_events[index].term_event">
+                                            <el-select v-model="form.term_period_events[index].term_event_id">
                                                 <el-option v-for="term_event in term_events"
                                                            :key="term_event.id"
                                                            :value="term_event.id"
@@ -99,13 +99,13 @@
                                             </el-select>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_period_events[index].date_time_start"
+                                            <el-date-picker v-model="form.term_period_events[index].datetime_start"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
                                         </td>
                                         <td>
-                                            <el-date-picker v-model="form.term_period_events[index].date_time_end"
+                                            <el-date-picker v-model="form.term_period_events[index].datetime_end"
                                                             type="datetime"
                                                             placeholder="Select date and time">
                                             </el-date-picker>
@@ -146,18 +146,22 @@
 
 @section('js')
     <script>
-        new Vue({
+        let app = new Vue({
             el: '.content',
             data() {
                 return {
                     form: {
-                        term_event_details: [],
-                        term_period_events: [],
                         campus_id: null,
                         term_cycle_id: null,
                         school_year: null,
                         term: null,
-                        is_ongoing: null
+                        is_ongoing: null,
+
+                        term_event_details: [],
+                        term_period_events: [],
+                        event_details: [],
+                        period_events: []
+
                     },
                     campuses: null,
                     term_cycles: null,
@@ -171,28 +175,32 @@
             },
             mounted() {
                 //execute scripts on page ready
-                axios.get('{{route('api.term.find', ['term'=>$id, 'with'=>'event_details'])}}')
+                axios.get('{{route('api.term.find', ['term'=>$id, 'with'=>'event_details,period_events'])}}')
                     .then(res => {
-                        this.form.term_event_details = res.data.event_details;
-                        console.log(res.data);
+                        this.form.campus_id = res.data.campus_id;
+                        this.form.term_cycle_id = res.data.term_cycle_id;
+                        this.form.school_year = res.data.school_year;
+                        this.form.term = res.data.term;
+                        this.form.is_ongoing = res.data.is_ongoing;
+
+                        $.extend(this.form.term_event_details , res.data.event_details);
+                        $.extend(this.form.term_period_events , res.data.period_events);
+
+                        // this.form.term_event_details = res.data.event_details;
+                        // console.log(res.data);
+                        // console.log("==============================");
+                        // console.log(this.form.term_event_details);
                     })
                     .catch(err => {
                         new ErrorHandler().handle(err.response);
                     });
 
-                axios.get('{{route('api.term.find', ['term'=>$id, 'with'=>'period_events'])}}')
-                    .then(res => {
-                        this.form.period_events = res.data.period_events;
-                        console.log(res.data);
-                    })
-                    .catch(err => {
-                        new ErrorHandler().handle(err.response);
-                    });
+
 
                 axios.get('{{route('api.campus.index')}}')
                     .then(res => {
                         this.campuses = res.data;
-                        // console.log(res.data);
+                        console.log(res.data);
                     })
                     .catch(err => {
                         new ErrorHandler().handle(err.response);
@@ -208,7 +216,10 @@
                     });
 
                 axios.get('{{route('api.termevent.index')}}')
-                    .then(res => {this.term_events = res.data;
+                    .then(res => {
+                        this.term_events = res.data;
+                        // console.log("====Events========");
+                        // console.log(this.term_events);
                     })
                     .catch(err => {new ErrorHandler().handle(err.response)}
                     );

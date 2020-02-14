@@ -48,26 +48,30 @@ class UpdateTerm extends Action
         $term->school_year = $this->school_year;
         $term->term = $this->term;
         $term->is_ongoing = $this->is_ongoing;
-        $term->save();
 
         $term->event_details()->delete();
-        $term->period_events()->delete();
-
         foreach ($this->term_event_details as $term_event_detail)
         {
-            $data = [
+            /*$data = [
                 "term_id" => $term->id,
                 "term_event_id" => $term_event_detail['term_event'],
                 "datetime_start" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_start'])),
                 "datetime_end" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_end']))
             ];
 
-            $term->event_details()->save(new TermEventDetail($data));
+            $term->event_details()->save(new TermEventDetail($data));*/
+
+            $term_event_detail['term_event_id'] = $term_event_detail['term_event_id'];
+            $term_event_detail['datetime_start'] = date('Y-m-d H:i:s', strtotime($term_event_detail['datetime_start']));
+            $term_event_detail['datetime_end'] = date('Y-m-d H:i:s', strtotime($term_event_detail['datetime_end']));
+
+            $term->event_details()->save(new TermEventDetail($term_event_detail));
         }
 
+        $term->period_events()->delete();
         foreach ($this->term_period_events as $term_period_event)
         {
-            $second_data = [
+            /*$second_data = [
                 "term_id" => $term->id,
                 "period_id" => $term_period_event['period'],
                 "term_event_id" => $term_period_event['term_event'],
@@ -75,9 +79,17 @@ class UpdateTerm extends Action
                 "datetime_end" => date('Y-m-d H:i:s', strtotime($term_period_event['date_time_end']))
             ];
 
-            $term->period_events()->save(new TermPeriodEvent($second_data));
+            $term->period_events()->save(new TermPeriodEvent($second_data));*/
+
+            $term_period_event['period_id'] = $term_period_event['period_id'];
+            $term_period_event['term_event_id'] = $term_period_event['term_event_id'];
+            $term_period_event['datetime_start'] = date('Y-m-d H:i:s', strtotime($term_period_event['datetime_start']));
+            $term_period_event['datetime_end'] = date('Y-m-d H:i:s', strtotime($term_period_event['datetime_end']));
+
+            $term->period_events()->save(new TermPeriodEvent($term_period_event));
         }
 
-        return $term;
+        // return $term;
+        $term->save();
     }
 }
