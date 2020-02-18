@@ -5,6 +5,7 @@ namespace Modules\Term\Actions;
 use Lorisleiva\Actions\Action;
 use Modules\Term\Entities\Term;
 use Modules\System\Entities\DatatableBuilder;
+use function foo\func;
 
 class DataTableOfTerm extends Action
 {
@@ -38,15 +39,24 @@ class DataTableOfTerm extends Action
     public function handle(DatatableBuilder $builder)
     {
         if (request()->ajax()) {
-            return datatables()->of(Term::query())
+            return datatables()->of(Term::with('campus')->get())
                 ->editColumn('action', function ($term) {
                     return view('term::components.actions', compact(['term']));
                 })
+                ->editColumn('campus_id', function ($term){
+                        return $term->campus->name;
+                })
+                ->addColumn('school_year_term', function($term){
+                    return $term->school_year . " - " . $term->term;
+                })
+
                 ->toJson();
         }
 
-        $builder->addColumn(['data'=>'school_year']);
-        $builder->addColumn(['data'=>'term']);
+        $builder->addColumn(['data'=>'school_year_term']);
+        $builder->addColumn(['data'=>'campus_id', 'title'=>'Campus Name']);
+        // $builder->addColumn(['data'=>'school_year']);
+        // $builder->addColumn(['data'=>'term']);
         $builder->addColumn(['data'=>'is_ongoing']);
         $builder->addActionColumn();
         $builder->setTableId('terms');
