@@ -7,7 +7,7 @@ namespace Modules\Term\Actions;
 use Lorisleiva\Actions\Action;
 use Modules\Term\Entities\Term;
 
-class TermEventDetails extends Action
+class TermPeriodEvents extends Action
 {
     public function rules()
     {
@@ -18,7 +18,7 @@ class TermEventDetails extends Action
 
     public function handle()
     {
-        return Term::with('event_details.term_event')
+        return Term::with('period_events.period')
             ->where('id', $this->id)
             ->first();
     }

@@ -5,6 +5,7 @@ use Modules\Term\Actions\GetTermDetails;
 use Modules\Term\Actions\StoreNewTerm;
 use Modules\Term\Actions\DeleteTerm;
 use Modules\Term\Actions\TermEventDetails;
+use Modules\Term\Actions\TermPeriodEvents;
 use Modules\Term\Actions\UpdateTerm;
 use Modules\Term\Actions\FindTerm;
 
@@ -27,5 +28,5 @@ Route::middleware('auth:api')->prefix('term')->group(function () {
     Route::get('/{term}/show', GetTermDetails::class)->name('api.term.show');
 
     Route::get('/{id}/event_details', TermEventDetails::class)->name('api.term.event.details');
-    //Route::get('/{id}/period_events')->name('api.term.period.events');
+    Route::get('/{id}/period_events', TermPeriodEvents::class)->name('api.term.period.events');
 });
