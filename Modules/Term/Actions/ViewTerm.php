@@ -3,6 +3,7 @@
 namespace Modules\Term\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\Term\Entities\Term;
 
 class ViewTerm extends Action
 {
@@ -31,8 +32,9 @@ class ViewTerm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Term $term)
     {
         // Execute the action.
+        return view('term::view', compact('term'));
     }
 }

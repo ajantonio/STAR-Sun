@@ -57,9 +57,9 @@ class StoreNewTerm extends Action
         {
             $data = [
                 "term_id" => $term->id,
-                "term_event_id" => $term_event_detail['term_event'],
-                "datetime_start" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_start'])),
-                "datetime_end" => date('Y-m-d H:i:s', strtotime($term_event_detail['date_time_end']))
+                "term_event_id" => $term_event_detail['term_event_id'],
+                "datetime_start" => date('Y-m-d H:i:s', strtotime($term_event_detail['datetime_start'])),
+                "datetime_end" => date('Y-m-d H:i:s', strtotime($term_event_detail['datetime_end']))
             ];
 
             $term->event_details()->save(new TermEventDetail($data));
@@ -69,10 +69,10 @@ class StoreNewTerm extends Action
         {
             $second_data = [
                 "term_id" => $term->id,
-                "period_id" => $term_period_event['period'],
-                "term_event_id" => $term_period_event['term_event'],
-                "datetime_start" => date('Y-m-d H:i:s', strtotime($term_period_event['date_time_start'])),
-                "datetime_end" => date('Y-m-d H:i:s', strtotime($term_period_event['date_time_end']))
+                "period_id" => $term_period_event['period_id'],
+                "term_event_id" => $term_period_event['term_event_id'],
+                "datetime_start" => date('Y-m-d H:i:s', strtotime($term_period_event['datetime_start'])),
+                "datetime_end" => date('Y-m-d H:i:s', strtotime($term_period_event['datetime_end']))
             ];
 
             $term->period_events()->save(new TermPeriodEvent($second_data));
