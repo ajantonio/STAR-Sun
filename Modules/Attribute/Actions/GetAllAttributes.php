@@ -24,6 +24,6 @@ class GetAllAttributes extends Action
      */
     public function handle()
     {
-        return Attribute::orderBy('domain, key_value_name')->get();
+        return Attribute::orderBy('domain')->orderBy('key_value_name')->get();
     }
 }

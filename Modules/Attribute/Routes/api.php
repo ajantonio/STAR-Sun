@@ -25,3 +25,4 @@ Route::middleware('auth:api')->prefix('attribute')->group(function(){
     Route::delete('/{attribute}', DeleteAttribute::class)->name('api.attribute.destroy');
     Route::get('/{attribute}/show', GetAttributeDetails::class)->name('api.attribute.show');
 });
+
