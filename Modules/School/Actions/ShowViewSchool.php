@@ -1,10 +1,11 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
+use Modules\School\Entities\School;
 
-class ShowCreateschoolForm extends Action
+class ShowViewSchool extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -13,7 +14,7 @@ class ShowCreateschoolForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-createschool-form');
+        return $this->user()->can('show-viewschool');
     }
 
     /**
@@ -31,9 +32,18 @@ class ShowCreateschoolForm extends Action
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(School $school)
     {
-        return view('school::create');
+        return $school;
     }
 
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($result, $response)
+    {
+        return view('school::view')->with('id', $result->id);
+    }
 }

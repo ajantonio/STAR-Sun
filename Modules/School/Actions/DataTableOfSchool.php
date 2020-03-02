@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
 use Modules\school\Entities\school;
 use Modules\System\Entities\DatatableBuilder;
 
-class DataTableOfschool extends Action
+class DataTableOfSchool extends Action
 {
     /**
      * Determine if the user is authorized to make this action.

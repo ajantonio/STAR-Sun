@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
 use Modules\School\Entities\School;
 
-class Findschool extends Action
+class ShowEditSchoolForm extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class Findschool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('findschool');
+        return $this->user()->can('show-editschool-form');
     }
 
     /**
@@ -35,5 +35,15 @@ class Findschool extends Action
     public function handle(School $school)
     {
         return $school;
+    }
+
+    public function jsonResponse($result, $request)
+    {
+        return $result;
+    }
+
+    public function htmlResponse($result, $response)
+    {
+        return view('school::edit')->with('id', $result->id);
     }
 }

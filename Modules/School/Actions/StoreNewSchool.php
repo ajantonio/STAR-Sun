@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
 use Modules\School\Entities\School;
 use Illuminate\Support\Str;
 
-class StoreNewschool extends Action
+class StoreNewSchool extends Action
 {
     /**
      * Determine if the user is authorized to make this action.

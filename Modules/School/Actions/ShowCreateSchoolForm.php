@@ -1,11 +1,10 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\School\Entities\School;
 
-class Deleteschool extends Action
+class ShowCreateSchoolForm extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +13,7 @@ class Deleteschool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-school');
+        return $this->user()->can('show-createschool-form');
     }
 
     /**
@@ -32,20 +31,9 @@ class Deleteschool extends Action
      *
      * @return mixed
      */
-    public function handle(School $school)
+    public function handle()
     {
-        $school->delete();
-
-        return $school;
+        return view('school::create');
     }
 
-    public function jsonResponse($result, $request)
-    {
-        return $result;        
-    }
-
-    public function htmlResponse($results, $request)
-    {
-        return redirect()->back();
-    }
 }

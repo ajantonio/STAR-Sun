@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
 use Modules\School\Entities\School;
 
-class ShowViewschool extends Action
+class DeleteSchool extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,7 +14,7 @@ class ShowViewschool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-viewschool');
+        return $this->user()->can('delete-school');
     }
 
     /**
@@ -34,16 +34,18 @@ class ShowViewschool extends Action
      */
     public function handle(School $school)
     {
+        $school->delete();
+
         return $school;
     }
 
     public function jsonResponse($result, $request)
     {
-        return $result;
+        return $result;        
     }
 
-    public function htmlResponse($result, $response)
+    public function htmlResponse($results, $request)
     {
-        return view('school::view')->with('id', $result->id);
+        return redirect()->back();
     }
 }
