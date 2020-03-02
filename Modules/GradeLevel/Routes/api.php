@@ -4,7 +4,7 @@ use Modules\GradeLevel\Actions\StoreNewGradeLevel;
 use Modules\GradeLevel\Actions\DeleteGradeLevel;
 use Modules\GradeLevel\Actions\UpdateGradeLevel;
 use Modules\GradeLevel\Actions\FindGradeLevel;
-use Modules\GradeLevel\Actions\GetGradeLeveldetail;
+use Modules\GradeLevel\Actions\GetGradeLevelDetail;
 use Modules\GradeLevel\Actions\GetAllGradeLevel;
 
 /*
