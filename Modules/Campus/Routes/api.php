@@ -1,5 +1,6 @@
 <?php
 
+use Modules\Campus\Actions\GetCampusTerms;
 use Modules\Campus\Actions\StoreNewCampus;
 use Modules\Campus\Actions\DeleteCampus;
 use Modules\Campus\Actions\UpdateCampus;
@@ -24,4 +25,6 @@ Route::middleware('auth:api')->prefix('campus')->group(function(){
     Route::put('/{campus}', UpdateCampus::class)->name('api.campus.update');
     Route::delete('/{campus}', DeleteCampus::class)->name('api.campus.destroy');
     Route::get('/{campus}/show', GetCampusDetails::class)->name('api.campus.show');
+
+    Route::get('/{campus_id}/terms', GetCampusTerms::class)->name('api.campus.terms');
 });

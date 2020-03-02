@@ -18,13 +18,12 @@ class Term extends Model
 //    protected $fillable = ['campus_id', 'term_cycle_id', 'school_year', 'term', 'is_ongoing'];
     protected $guarded = [];
 
-
-    public function campusDetails()
+    public function campus()
     {
         return $this->belongsTo(Campus::class);
     }
 
-    public function termCycledDetails()
+    public function term_cycle()
     {
         return $this->belongsTo(TermCycle::class);
     }
