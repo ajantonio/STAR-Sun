@@ -7,138 +7,11 @@
     <el-row class="pb-2">
         <el-col :md="24">
             <el-card>
-                <el-form :model="form" :rules="rules" ref="createForm" @submit.native.prevent="submitForm('createForm')">
                     <div slot="header"><i class="el-icon-edit text-primary"></i> Edit Term</div>
                     <div>
                         @include('term::components.form')
                     </div>
-                    <div>
-                        <el-card header="Term Event Details" class="card-outline card-primary">
-                            <div>
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Event</th>
-                                        <th>Datetime Start</th>
-                                        <th>Datetime End</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr v-for="(event_details, index) in form.term_event_details">
-                                        <td>
-                                            <el-select v-model="form.term_event_details[index].term_event_id">
-                                                <el-option v-for="term_event in term_events"
-                                                           :key="term_event.id"
-                                                           :value="term_event.id"
-                                                           :label="term_event.name">
-                                                </el-option>
-                                            </el-select>
-                                        </td>
-                                        <td>
-                                            <el-date-picker v-model="form.term_event_details[index].datetime_start"
-                                                            type="datetime"
-                                                            placeholder="Select date and time">
-                                            </el-date-picker>
-                                        </td>
-                                        <td>
-                                            <el-date-picker v-model="form.term_event_details[index].datetime_end"
-                                                            type="datetime"
-                                                            placeholder="Select date and time">
-                                            </el-date-picker>
-                                        </td>
-                                        <td>
-                                            <el-button @click="removeTermEventDetail(index)"
-                                                       type="danger"
-                                                       size="small"
-                                                       icon="el-icon-minus">
-                                            </el-button>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <el-button @click="addTermEventDetails"
-                                           type="primary"
-                                           icon="el-icon-plus">
-                                </el-button>
-                            </div>
-                        </el-card>
-                    </div><br>
 
-                    <div>
-                        <el-card header="Term Period Events" class="card-outline card-primary">
-                            <div>
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Period</th>
-                                        <th>Event</th>
-                                        <th>Datetime Start</th>
-                                        <th>Datetime End</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr v-for="(period_events, index) in form.term_period_events">
-                                        <td>
-                                            <el-select v-model="form.term_period_events[index].period_id">
-                                                <el-option v-for="period in periods"
-                                                           :key="period.id"
-                                                           :value="period.id"
-                                                           :label="period.name">
-                                                </el-option>
-                                            </el-select>
-                                        </td>
-                                        <td>
-                                            <el-select v-model="form.term_period_events[index].term_event_id">
-                                                <el-option v-for="term_event in term_events"
-                                                           :key="term_event.id"
-                                                           :value="term_event.id"
-                                                           :label="term_event.name">
-                                                </el-option>
-                                            </el-select>
-                                        </td>
-                                        <td>
-                                            <el-date-picker v-model="form.term_period_events[index].datetime_start"
-                                                            type="datetime"
-                                                            placeholder="Select date and time">
-                                            </el-date-picker>
-                                        </td>
-                                        <td>
-                                            <el-date-picker v-model="form.term_period_events[index].datetime_end"
-                                                            type="datetime"
-                                                            placeholder="Select date and time">
-                                            </el-date-picker>
-                                        </td>
-                                        <td>
-                                            <el-button @click="removeTermPeriodEvent(index)"
-                                                       type="danger"
-                                                       size="small"
-                                                       icon="el-icon-minus">
-                                            </el-button>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                                <el-button @click="addTermPeriodEvent"
-                                           type="primary"
-                                           icon="el-icon-plus">
-                                </el-button>
-                            </div>
-                        </el-card>
-                    </div>
-
-                    <el-row class="mt-5">
-                        <el-col>
-                            <el-form-item class="text-right">
-                                <el-button type="primary" native-type="submit" icon="el-icon-check">Save</el-button>
-                                <a href="{{route('term.index')}}">
-                                    <el-button type="default" icon="el-icon-close">Cancel</el-button>
-                                </a>
-                            </el-form-item>
-                        </el-col>
-                    </el-row>
-                </el-form>
             </el-card>
         </el-col>
     </el-row>
@@ -157,13 +30,14 @@
                         term: null,
                         is_ongoing: null,
 
+                        event_details: [],
+                        period_events: [],
                         term_event_details: [],
                         term_period_events: [],
-                        event_details: [],
-                        period_events: []
-
                     },
-                    campuses: null,
+                    selected_term: null,
+                    campuses: [],
+                    campus_terms: [],
                     term_cycles: null,
                     term_events: [],
                     periods: [],
@@ -200,7 +74,7 @@
                 axios.get('{{route('api.campus.index')}}')
                     .then(res => {
                         this.campuses = res.data;
-                        console.log(res.data);
+                        // console.log(res.data);
                     })
                     .catch(err => {
                         new ErrorHandler().handle(err.response);
@@ -232,6 +106,36 @@
             },
             computed: {},
             methods: {
+                campusChange() {
+                    if (this.form.campus_id) {
+                        axios.get('/api/campus/' + this.form.campus_id + '/terms')
+                            .then(result => {
+                                this.campus_terms = result.data;
+                                // console.log(result.data);
+                            })
+                            .catch(err => new ErrorHandler().handle(err.response));
+                    }
+                },
+                getTermEventsAndPeriods() {
+                    if (this.selected_term) {
+                        axios.get("/api/term/" + this.selected_term + "/event_details")
+                            .then(result => {
+                                this.form.term_event_details = result.data.event_details;
+                                console.log(result.data.event_details);
+                            })
+                            .catch(err => new ErrorHandler().handle(err.response));
+
+
+                        axios.get("/api/term/" + this.selected_term + "/period_events")
+                            .then(result => {
+                                this.form.term_period_events = result.data.period_events;
+                            })
+                            .catch(err => new ErrorHandler().handle(err.response));
+                    }
+                },
+                addTermEventDetail() {
+                    this.form.term_event_details.push({});
+                },
                 submitForm(formRefs) {
                     this.$refs[formRefs].validate((valid) => {
                         if (valid) {
@@ -250,9 +154,6 @@
                             return false;
                         }
                     });
-                },
-                addTermEventDetails() {
-                    this.form.term_event_details.push({});
                 },
                 removeTermEventDetail(index){
                     this.form.term_event_details.splice(index, 1);
