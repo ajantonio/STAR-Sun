@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\school\Actions;
+namespace Modules\School\Actions;
 
 use Lorisleiva\Actions\Action;
 use Modules\School\Entities\School;
 
-class Updateschool extends Action
+class UpdateSchool extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
