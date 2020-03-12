@@ -98,8 +98,10 @@ import {Loading} from 'element-ui';
 
 let loadingInstance = null;
 var numberOfAjaxCAllPending = 0;
+let token = null;
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
+
     numberOfAjaxCAllPending++;
     // show loader
     loadingInstance = Loading.service({

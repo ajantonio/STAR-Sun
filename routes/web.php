@@ -11,11 +11,18 @@
 |
 */
 
-Auth::routes([
-    'register'=>false
-]);
+/**
+ * Auth routes
+ */
+Route::get('/redirect', 'Auth\LoginController@redirect')->name('login');
+Route::get('/auth/callback', 'Auth\LoginController@callback')->name('auth.callback');
+Route::get('/auth/user', 'Auth\LoginController@getUserInfo')->name('auth.user');
+Route::get('/logout/callback', 'Auth\LoginController@loggedOutCallback')->name('logout.callback');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::middleware('auth')->group(function (){
-    Route::get('/', 'HomeController@index');
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/auth/token', 'TokenController@accessToken')->name('token.access_token');
 });
