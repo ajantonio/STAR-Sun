@@ -29,6 +29,11 @@ require('datatables.net-buttons/js/buttons.print.js')();
  */
 require('sweetalert');
 
+/**
+ * Numeral JS
+ */
+window.numeral = require('numeral');
+
 
 /**
  * Element UI
@@ -87,4 +92,39 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 swal.setDefaults({
     closeOnClickOutside: false
+});
+
+import {Loading} from 'element-ui';
+
+let loadingInstance = null;
+var numberOfAjaxCAllPending = 0;
+let token = null;
+// Add a request interceptor
+axios.interceptors.request.use(function (config) {
+
+    numberOfAjaxCAllPending++;
+    // show loader
+    loadingInstance = Loading.service({
+        fullscreen: true,
+        lock: true,
+        text: 'Loading',
+        spinner: 'el-icon-loading'
+    });
+    return config;
+}, function (error) {
+    loadingInstance.close();
+    return Promise.reject(error);
+});
+
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+    numberOfAjaxCAllPending--;
+    if (numberOfAjaxCAllPending == 0) {
+        //hide loader
+        loadingInstance.close();
+    }
+    return response;
+}, function (error) {
+    loadingInstance.close();
+    return Promise.reject(error);
 });

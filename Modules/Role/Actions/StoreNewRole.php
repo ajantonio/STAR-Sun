@@ -47,6 +47,10 @@ class StoreNewRole extends Action
         $role->permissions()->attach($this->permissions);;
         $role->forgetCachedPermissions();
 
+        activity()->withProperties($role->permissions)
+            ->performedOn($role)
+            ->log('Created new role');
+
         return $role;
     }
 }

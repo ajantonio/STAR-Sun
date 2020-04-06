@@ -7,6 +7,9 @@ let ErrorHandler = function () {
         root.error = error;
 
         switch (error.status) {
+            case 401:
+                handler401();
+                break;
             case 422:
                 handler422();
                 break;
@@ -22,6 +25,13 @@ let ErrorHandler = function () {
             default:
                 handler500();
                 break;
+        }
+    };
+    let handler401 = function () {
+        if (root.error.data.message) {
+            swal('Unauthorized', root.error.data.message, 'error');
+        } else {
+            swal('Unauthorized', "Request unauthorized.", 'error');
         }
     };
 
@@ -45,7 +55,11 @@ let ErrorHandler = function () {
 
 
     let handler404 = function () {
-        swal('Not Found!', "We couldn't find the requested resource.", 'error');
+        if (root.error.data.message) {
+            swal('Not Found!', root.error.data.message, 'error');
+        } else {
+            swal('Not Found!', "We couldn't find the requested resource.", 'error');
+        }
 
     };
 

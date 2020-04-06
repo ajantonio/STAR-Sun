@@ -9,5 +9,6 @@
     "Permission": true,
     "ResourceGroup": true,
     "Generator": true,
-    "Passport": true
+    "APIProxy": true,
+    "AuditLog": true
 }
