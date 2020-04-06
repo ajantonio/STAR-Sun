@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
-use Modules\User\Entities\UserToken;
 
 class LoginController extends Controller
 {
@@ -129,16 +128,7 @@ class LoginController extends Controller
 
         if ($user) {
             if ($user = Auth::loginUsingId($user['id'])) {
-                $created_token = UserToken::create([
-                    'user_id' => $user->id,
-                    'token' => $token,
-                    'refresh_token' => $payload['refresh_token'],
-                    'revoked' => 0,
-                    'expired_at' => Carbon::now()->seconds($payload['expires_in'])->toDateTimeString()
-                ]);
-
                 session()->put('_key', $token);
-                session()->put('token_id', $created_token->id);
             }
         }
 
@@ -155,12 +145,6 @@ class LoginController extends Controller
     {
         Auth::logoutOtherDevices(Str::random());
         $this->guard()->logout();
-
-        $token = UserToken::find($request->session()->pull('token_id'));
-        if($token){
-            $token->revoked = 1;
-            $token->save();
-        }
 
         $request->session()->invalidate();
 

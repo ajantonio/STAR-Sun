@@ -22,7 +22,7 @@
 <script src="{{ mix('js/app.js') }}"></script>
 <script>
     $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-sm';
-    window.axios.defaults.headers.common['Authorization'] = '{{session()->get("_key")}}';
+    window.axios.defaults.headers.common['Authorization'] = 'Bearer {{session()->get("_key")}}';
 </script>
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 <script src="{{ asset('js/bravo.js') }}"></script>
