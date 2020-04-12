@@ -26,7 +26,8 @@
         "spatie/laravel-permission": "^3.3",
         "yajra/laravel-datatables-buttons": "^4.8",
         "yajra/laravel-datatables-html": "^4.20",
-        "yajra/laravel-datatables-oracle": "^9.7"
+        "yajra/laravel-datatables-oracle": "^9.7",
+      "ext-pdo": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
