@@ -16,6 +16,7 @@
         "jeroennoten/laravel-adminlte": "^3.0",
         "laravel/framework": "^6.2",
         "laravel/helpers": "^1.1",
+        "laravel/passport": "^8.4",
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^2.0",
         "lorisleiva/laravel-actions": "^0.2.4",
