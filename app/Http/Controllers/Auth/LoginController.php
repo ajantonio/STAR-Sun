@@ -128,7 +128,7 @@ class LoginController extends Controller
 
         if ($user) {
             if ($user = Auth::loginUsingId($user['id'])) {
-                session()->put('_key', $token);
+                session()->put('access_token', $token);
             }
         }
 
