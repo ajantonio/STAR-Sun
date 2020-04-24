@@ -84,7 +84,7 @@
         </el-col>
     </el-row>
 
-    {{--row: Term Event Details --}}
+    {{--row: Term Event Details}}
     <el-row>
         <el-card header="Term Event Details" class="card-outline card-primary">
             <el-container>

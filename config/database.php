@@ -46,8 +46,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            //'host' => env('DB_HOST', '127.0.0.1'), /*Staging connection*/
-            'host' => env('DB_HOST', 'localhost'), /*Local connection*/
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
@@ -95,8 +94,7 @@ return [
         'sm_commondb_con' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            //'host' => env('DB_HOST', '127.0.0.1'), /*Staging connection*/
-            'host' => env('DB_HOST', 'localhost'), /*Local connection*/
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => 'SM_COMMONDB',
             'username' => env('DB_USERNAME', 'forge'),
@@ -116,8 +114,7 @@ return [
         'sm_geninfdb_con' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            //'host' => env('DB_HOST', '127.0.0.1'), /*Staging connection*/
-            'host' => env('DB_HOST', 'localhost'), /*Local connection*/
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => 'SM_GENINFDB',
             'username' => env('DB_USERNAME', 'forge'),
