@@ -9,7 +9,6 @@
     "Permission": true,
     "ResourceGroup": true,
     "Generator": true,
-    "Passport": true,
     "Campus": true,
     "Country": true,
     "Religion": true,
@@ -33,6 +32,5 @@
     "TermEventDetail": true,
     "Period": true,
     "GradeLevel": true,
-    "TermPeriodEvent": true,
-    "TestModule": true
+    "TermPeriodEvent": true
 }

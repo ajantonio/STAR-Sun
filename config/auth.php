@@ -67,7 +67,7 @@ return [
 
     'providers' => [
         'users' => [
-            'driver' => 'ldap',
+            'driver' => 'eloquent',
             'model' => \Modules\User\Entities\User::class,
         ],
 

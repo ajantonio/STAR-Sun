@@ -31,7 +31,12 @@ class HandleRequest extends Action
     public function handle()
     {
         $service = config("applications.$this->service");
-        $url = $service['url'] . "/" . $this->path;
+
+        if (config('app.env') == 'production') {
+            $url = $service['url'] . "/" . $this->path;
+        } else {
+            $url = $service['dev_url'] . "/" . $this->path;
+        }
 
         if (empty($service)) {
             return response('Service not found.', 400);

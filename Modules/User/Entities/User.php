@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use Modules\Role\Entities\Role;
 use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements Auditable
 {
-    use Notifiable, HasRoles, SoftDeletes, HasApiTokens;
+    use HasApiTokens, Notifiable, HasRoles, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
     public $incrementing = false;

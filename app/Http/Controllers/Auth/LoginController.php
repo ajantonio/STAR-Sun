@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 class LoginController extends Controller
 {
@@ -27,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -36,97 +40,139 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'getUserInfo']);
     }
 
-
     /**
-     * Handle a login request to the application.
+     * Redirect application to Oauth server for authentication and access token
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function login(Request $request)
+    public function redirect(Request $request)
     {
-        $this->validateLogin($request);
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        if ($this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
-
-            return $this->sendLockoutResponse($request);
+        if (Auth::check()) {
+            return redirect('/');
         }
 
-        if ($this->attemptLogin($request)) {
+        $request->session()->put('state', $state = Str::random(128));
 
-            return $this->sendLoginResponse($request);
+        $query = http_build_query([
+            'state' => $state,
+            'client_id' => config('passport.client_id'),
+            'redirect_uri' => config('passport.redirect_uri'),
+            'response_type' => 'code',
+            'scope' => '',
+        ]);
+
+        return redirect(config('passport.server') . '/oauth/authorize?' . $query);
+    }
+
+    /**
+     * OAuth callback handler
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Throwable
+     */
+    public function callback(Request $request)
+    {
+        if ($request->error == 'access_denied') return redirect('/');
+
+        $state = $request->session()->pull('state');
+
+        throw_unless(
+            strlen($state) > 0 && $state === $request->state,
+            InvalidArgumentException::class
+        );
+
+        $http = new \GuzzleHttp\Client();
+        $response = $http->post(config('passport.server') . '/oauth/token', [
+            'form_params' => [
+                'grant_type' => 'authorization_code',
+                'client_id' => config('passport.client_id'),
+                'client_secret' => config('passport.client_secret'),
+                'redirect_uri' => config('passport.redirect_uri'),
+                'code' => $request->code
+            ]
+        ]);
+
+        $data = encrypt(json_decode((string)$response->getBody(), true));
+
+        $request->session()->put('oauth_payload', $data);
+
+        return redirect(route('auth.user'));
+    }
+
+    /**
+     * Get access token user information
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function getUserInfo(Request $request)
+    {
+        $payload = decrypt($request->session()->pull('oauth_payload'));
+        $token = $payload['access_token'];
+
+        $http = new \GuzzleHttp\Client();
+        $response = $http->get(config('passport.server') . '/api/user', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => "Bearer $token"
+            ]
+        ]);
+
+        $user = json_decode((string)$response->getBody(), true);
+
+        if ($user) {
+            if ($user = Auth::loginUsingId($user['id'])) {
+                session()->put('access_token', $token);
+            }
         }
 
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
-        $this->incrementLoginAttempts($request);
-
-        return $this->sendFailedLoginResponse($request);
+        return redirect('/home');
     }
 
     /**
-     * Send the response after the user was authenticated.
+     * Logged out user ta all session
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    protected function sendLoginResponse(Request $request)
-    {
-        $request->session()->regenerate();
-
-        $this->clearLoginAttempts($request);
-
-        return $this->authenticated($request, $this->guard()->user())
-            ?: redirect()->intended($this->redirectPath());
-    }
-
-    /**
-     * Log the user out of the application.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function logout(Request $request)
     {
+        Auth::logoutOtherDevices(Str::random());
         $this->guard()->logout();
 
         $request->session()->invalidate();
 
+        $request->session()->regenerateToken();
+
         return $this->loggedOut($request) ?: redirect('/');
     }
 
-    protected function authenticated(Request $request, $user)
+    /**
+     * Redirect to OAuth Server to log out
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function loggedOut()
     {
-        if ($user->id_number == '' || $user->type == '') {
-            \Auth::logout();
-            return $this->sendNoIDNumberResponse($request);
+        return redirect(config('passport.server') . "/client/logout?redirect_uri=" . config('app.url') . "/logout/callback");
+    }
+
+    /**
+     * Logged out callback handler
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
+    public function loggedOutCallback()
+    {
+        if (Auth::check()) {
+            return redirect('/');
         }
-
-        $access_token = $user->createToken('My Access Token')->accessToken;
-        session()->put('access_token', $access_token);
-
-        return redirect(route('home'));
-    }
-
-    public function sendNoIDNumberResponse(Request $request)
-    {
-        throw ValidationException::withMessages([
-            'no_id' => 'No ID found! Please call ITRO local 114.',
-        ])->redirectTo('/login');
-    }
-
-    protected function loggedOut(Request $request)
-    {
-
+        return view('logged-out-callback');
     }
 }

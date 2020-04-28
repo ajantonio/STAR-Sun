@@ -3,39 +3,48 @@
 return [
     'admin' => [
         'name' => 'Sun',
-        'url' => 'sun.star.apc.edu.ph'
+        'url' => 'sun.apc.edu.ph',
+        'dev_url' => 'sun.star.apc.edu.ph',
     ],
     'admission' => [
         'name' => 'Alphard',
-        'url' => 'alphard.star.apc.edu.ph'
+        'url' => 'alphard.apc.edu.ph',
+        'dev_url' => 'alphard.star.apc.edu.ph',
     ],
     'human_resource' => [
         'name' => 'Betelgeuse',
-        'url' => 'betelgeuse.star.apc.edu.ph'
+        'url' => 'betelgeuse.apc.edu.ph',
+        'dev_url' => 'betelgeuse.star.apc.edu.ph'
     ],
     'accounting' => [
         'name' => 'Bellatrix',
-        'url' => 'bellatrix.star.apc.edu.ph'
+        'url' => 'bellatrix.apc.edu.ph',
+        'dev_url' => 'bellatrix.star.apc.edu.ph'
     ],
     'library' => [
         'name' => 'Pollux',
-        'url' => 'pollux.star.apc.edu.ph'
+        'url' => 'pollux.apc.edu.ph',
+        'dev_url' => 'pollux.star.apc.edu.ph',
     ],
     'payroll' => [
         'name' => 'Castor',
-        'url' => 'castor.star.apc.edu.ph'
+        'url' => 'castor.apc.edu.ph',
+        'dev_url' => 'castor.star.apc.edu.ph',
     ],
     'student_records' => [
         'name' => 'Vega',
-        'url' => 'vega.star.apc.edu.ph'
+        'url' => 'vega.apc.edu.ph',
+        'dev_url' => 'vega.star.apc.edu.ph',
     ],
     'student_services' => [
         'name' => 'Altair',
-        'url' => 'altair.star.apc.edu.ph'
+        'url' => 'altair.apc.edu.ph',
+        'dev_url' => 'altair.star.apc.edu.ph',
     ],
     'external_relations' => [
         'name' => 'Rigel',
-        'url' => 'rigel.star.apc.edu.ph'
+        'url' => 'rigel.apc.edu.ph',
+        'dev_url' => 'rigel.star.apc.edu.ph',
     ],
     'teacher_services' => [
         'name' => 'Sirius',
@@ -43,22 +52,27 @@ return [
     ],
     'logistics' => [
         'name' => 'Capella',
-        'url' => 'capella.star.apc.edu.ph'
+        'url' => 'capella.apc.edu.ph',
+        'dev_url' => 'capella.star.apc.edu.ph',
     ],
     'building_admin' => [
         'name' => 'Mizar',
-        'url' => 'mizar.star.apc.edu.ph'
+        'url' => 'mizar.apc.edu.ph',
+        'dev_url' => 'mizar.star.apc.edu.ph',
     ],
     'service_desk' => [
         'name' => 'Algol',
-        'url' => 'algol.star.apc.edu.apc.edu.ph'
+        'url' => 'algol.apc.edu.ph',
+        'dev_url' => 'algol.star.apc.edu.ph',
     ],
     'events' => [
         'name' => 'Antares',
-        'url' => 'antares.star.apc.edu.ph'
+        'url' => 'antares.apc.edu.ph',
+        'dev_url' => 'antares.star.apc.edu.ph',
     ],
     'general' => [
         'name' => 'Canopus',
-        'url' => 'canopus.star.apc.edu.ph'
+        'url' => 'canopus.apc.edu.ph',
+        'dev_url' => 'canopus.star.apc.edu.ph',
     ]
 ];

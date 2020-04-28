@@ -11,13 +11,11 @@
 |
 */
 
-use Modules\Application\Actions\ShowApplicationDashboardPage;
-
-Auth::routes([
-    'register'=>false
-]);
-
-Route::middleware('auth')->group(function (){
-    Route::get('/', 'HomeController@index');
-    Route::get('/home', 'HomeController@index')->name('home');
-});
+/**
+ * Auth routes
+ */
+Route::get('/redirect', 'Auth\LoginController@redirect')->name('login');
+Route::get('/auth/callback', 'Auth\LoginController@callback')->name('auth.callback');
+Route::get('/auth/user', 'Auth\LoginController@getUserInfo')->name('auth.user');
+Route::get('/logout/callback', 'Auth\LoginController@loggedOutCallback')->name('logout.callback');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
