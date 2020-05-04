@@ -5,6 +5,7 @@ namespace Modules\APIProxy\Actions;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Str;
 use Lorisleiva\Actions\Action;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -30,12 +31,16 @@ class HandleRequest extends Action
 
     public function handle()
     {
+        if (Str::startsWith($this->path, '/')) {
+            return response(['message' => "Invalid path. Path parameter should start with '/'."], 500);
+        }
+
         $service = config("applications.$this->service");
 
         if (config('app.env') == 'production') {
-            $url = $service['url'] . "/" . $this->path;
+            $url = $service['url'] . $this->path;
         } else {
-            $url = $service['dev_url'] . "/" . $this->path;
+            $url = $service['dev_url'] . $this->path;
         }
 
         if (empty($service)) {
