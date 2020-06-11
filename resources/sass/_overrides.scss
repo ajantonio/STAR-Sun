@@ -1,0 +1,36 @@
+.brand-link .brand-image-xs {
+    max-height: 60px;
+}
+
+.layout-fixed .brand-link {    
+    height: 85px;
+}
+
+.navbar {
+    border-bottom: 5px solid $apc_gold;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: $apc_gold;
+    color: #fff;
+}
+
+.main-footer {
+    background-color: $apc_blue;
+}
+
+.text-apc-gold {
+    color: $apc_gold !important;
+}
+
+.text-apc-blue {
+    color: $apc_blue !important;
+}
+
+.bg-apc-gold {
+    background-color: $apc_gold !important;
+}
+
+.bg-apc-blue {
+    background-color: $apc_blue !important;
+}

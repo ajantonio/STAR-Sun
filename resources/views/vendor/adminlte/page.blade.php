@@ -190,12 +190,26 @@
             @endif
         </div>
 
-        @hasSection('footer')
+        {{-- @hasSection('footer')
         <footer class="main-footer">
 
             @yield('footer')
         </footer>
-        @endif
+        @endif --}}
+
+        <footer class="main-footer text-light">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                <div class="icon-bar mr-5" style="font-size: 22px">
+                    <a href="https://www.facebook.com/asiapacificcollege.edu/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://twitter.com/apcrams" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                    <a href="https://www.instagram.com/apcrams" target="_blank"><i class="fab fa-instagram-square"></i></a>
+                    <a href="https://www.linkedin.com/school/asiapacificcollege/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2020 <a href="https://www.apc.edu.ph" target="_blank">Asia Pacific College</a>.</strong> All rights reserved.
+        </footer>
 
         @if(config('adminlte.right_sidebar'))
             <aside class="control-sidebar control-sidebar-{{config('adminlte.right_sidebar_theme')}}">
