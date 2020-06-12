@@ -177,7 +177,7 @@ return [
         [
             'text' => 'search',
             'search' => false,
-            'topnav' => true,
+            'topnav' => false,
         ],
     ],
 
