@@ -174,11 +174,11 @@ return [
     */
 
     'menu' => [
-        [
+        /* [
             'text' => 'search',
             'search' => false,
             'topnav' => false,
-        ],
+        ], */
     ],
 
     /*

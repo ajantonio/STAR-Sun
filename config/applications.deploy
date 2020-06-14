@@ -3,76 +3,76 @@
 return [
     'admin' => [
         'name' => 'Sun',
-        'url' => 'sun.apc.edu.ph',
-        'dev_url' => 'sun-dev.apc.edu.ph',
+        'url' => 'https://sun.apc.edu.ph',
+        'dev_url' => 'https://sun-dev.apc.edu.ph',
     ],
     'admission' => [
         'name' => 'Alphard',
-        'url' => 'alphard.apc.edu.ph',
-        'dev_url' => 'alphard-dev.apc.edu.ph',
+        'url' => 'https://alphard.apc.edu.ph',
+        'dev_url' => 'https://alphard-dev.apc.edu.ph',
     ],
     'human_resource' => [
         'name' => 'Betelgeuse',
-        'url' => 'betelgeuse.apc.edu.ph',
-        'dev_url' => 'betelgeuse-dev.apc.edu.ph'
+        'url' => 'https://betelgeuse.apc.edu.ph',
+        'dev_url' => 'https://betelgeuse-dev.apc.edu.ph'
     ],
     'accounting' => [
         'name' => 'Bellatrix',
-        'url' => 'bellatrix.apc.edu.ph',
-        'dev_url' => 'bellatrix-dev.apc.edu.ph'
+        'url' => 'https://bellatrix.apc.edu.ph',
+        'dev_url' => 'https://bellatrix-dev.apc.edu.ph'
     ],
     'library' => [
         'name' => 'Pollux',
-        'url' => 'pollux.apc.edu.ph',
-        'dev_url' => 'pollux-dev.apc.edu.ph',
+        'url' => 'https://pollux.apc.edu.ph',
+        'dev_url' => 'https://pollux-dev.apc.edu.ph',
     ],
     'payroll' => [
         'name' => 'Castor',
-        'url' => 'castor.apc.edu.ph',
-        'dev_url' => 'castor-dev.apc.edu.ph',
+        'url' => 'https://castor.apc.edu.ph',
+        'dev_url' => 'https://castor-dev.apc.edu.ph',
     ],
     'student_records' => [
         'name' => 'Vega',
-        'url' => 'vega.apc.edu.ph',
-        'dev_url' => 'vega-dev.apc.edu.ph',
+        'url' => 'https://vega.apc.edu.ph',
+        'dev_url' => 'https://vega-dev.apc.edu.ph',
     ],
     'student_services' => [
         'name' => 'Altair',
-        'url' => 'altair.apc.edu.ph',
-        'dev_url' => 'altair-dev.apc.edu.ph',
+        'url' => 'https://altair.apc.edu.ph',
+        'dev_url' => 'https://altair-dev.apc.edu.ph',
     ],
     'external_relations' => [
         'name' => 'Rigel',
-        'url' => 'rigel.apc.edu.ph',
-        'dev_url' => 'rigel-dev.apc.edu.ph',
+        'url' => 'https://rigel.apc.edu.ph',
+        'dev_url' => 'https://rigel-dev.apc.edu.ph',
     ],
     'teacher_services' => [
         'name' => 'Sirius',
-        'url' => 'sirius-dev.apc.edu.ph'
+        'url' => 'https://sirius-dev.apc.edu.ph'
     ],
     'logistics' => [
         'name' => 'Capella',
-        'url' => 'capella.apc.edu.ph',
-        'dev_url' => 'capella-dev.apc.edu.ph',
+        'url' => 'https://capella.apc.edu.ph',
+        'dev_url' => 'https://capella-dev.apc.edu.ph',
     ],
     'building_admin' => [
         'name' => 'Mizar',
-        'url' => 'mizar.apc.edu.ph',
-        'dev_url' => 'mizar-dev.apc.edu.ph',
+        'url' => 'https://mizar.apc.edu.ph',
+        'dev_url' => 'https://mizar-dev.apc.edu.ph',
     ],
     'service_desk' => [
         'name' => 'Algol',
-        'url' => 'algol.apc.edu.ph',
-        'dev_url' => 'algol-dev.apc.edu.ph',
+        'url' => 'https://algol.apc.edu.ph',
+        'dev_url' => 'https://algol-dev.apc.edu.ph',
     ],
     'events' => [
         'name' => 'Antares',
-        'url' => 'antares.apc.edu.ph',
-        'dev_url' => 'antares-dev.apc.edu.ph',
+        'url' => 'https://antares.apc.edu.ph',
+        'dev_url' => 'https://antares-dev.apc.edu.ph',
     ],
     'general' => [
         'name' => 'Canopus',
-        'url' => 'canopus.apc.edu.ph',
-        'dev_url' => 'canopus-dev.apc.edu.ph',
+        'url' => 'https://canopus.apc.edu.ph',
+        'dev_url' => 'https://canopus-dev.apc.edu.ph',
     ]
 ];
