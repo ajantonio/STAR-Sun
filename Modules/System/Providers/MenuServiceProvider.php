@@ -46,6 +46,7 @@ class MenuServiceProvider extends ServiceProvider
             //Get all links with sub menus and permission
             $all_links = Link::with(['permission', 'submenus'])
                 ->where([
+                    'application_id' => $application,
                     'status' => 'On',
                     'parent_link_id' => null
                 ])
@@ -64,16 +65,12 @@ class MenuServiceProvider extends ServiceProvider
                     if ($link->submenus->count() < 1) {
 
                         return $link->permission != null ? $user->can($link->permission->name) : true;
-
                     } else {
                         //has submenus or it is a menu header
-                        $sub_links = $link->submenus->filter(function ($sub_menus, $key) use ($user, &$link) {
+                        return $link->submenus->filter(function ($sub_menus, $key) use ($user, &$link) {
 
                             return $sub_menus->permission != null ? $user->can($sub_menus->permission->name) : true;
-
                         });
-
-                        return $sub_links->count();
                     }
                 });
                 if ($filtered_links->count()) {
