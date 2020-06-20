@@ -32,16 +32,17 @@ class UpdateRole extends Action
         $role->load('permissions');
 
         $old_permissions = $role->permissions;
+        $new_permissions = Permission::whereIn('id', $this->permissions)->get()->pluck('name');
 
         $role->name = $this->name;
         $role->description = $this->description;
         $role->save();
-        $role->permissions()->sync($this->permissions);
-        $role->forgetCachedPermissions();
+
+        $role->syncPermissions($new_permissions);
 
         $log_data = [
             'old' => $old_permissions->pluck('name'),
-            'new' => Permission::whereIn('id', $this->permissions)->get()->pluck('name')
+            'new' => $new_permissions
         ];
 
         activity()->withProperties($log_data)
