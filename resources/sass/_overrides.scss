@@ -10,6 +10,11 @@
     border-bottom: 5px solid $apc_gold;
 }
 
+[class*=sidebar-dark] .nav-header {
+    color: $apc_gold;
+    font-weight: bold;
+}
+
 .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
     background-color: $apc_gold;
     color: #fff;
