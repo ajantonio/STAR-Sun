@@ -31,9 +31,10 @@ return [
     */
 
     'logo' => env('APP_NAME'),
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'logo/mini-logo-xs.png',
     'logo_img_class' => 'brand-image-xl',
-    'logo_img_xl' => null,
+    'logo_img_xl' => 'logo/mini-logo.png',
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
 
@@ -173,11 +174,11 @@ return [
     */
 
     'menu' => [
-        [
+        /* [
             'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
+            'search' => false,
+            'topnav' => false,
+        ], */
     ],
 
     /*

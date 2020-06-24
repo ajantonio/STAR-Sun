@@ -17,9 +17,10 @@ use Modules\ContactType\Actions\FindContactType;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('contacttype')->group(function(){
+
+Route::middleware('auth:api')->prefix('contacttype')->group(function () {
     Route::post('/', StoreNewContactType::class)->name('api.contacttype.store');
-    Route::get('/', GetAllContactType::class)->name('api.contacttype.store');
+    Route::get('/', GetAllContactType::class)->name('api.contacttype.all');
     Route::get('/{contacttype}', FindContactType::class)->name('api.contacttype.find');
     Route::put('/{contacttype}', UpdateContactType::class)->name('api.contacttype.update');
     Route::delete('/{contacttype}', DeleteContactType::class)->name('api.contacttype.destroy');
