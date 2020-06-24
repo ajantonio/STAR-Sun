@@ -6,6 +6,7 @@ use Modules\Country\Actions\UpdateCountry;
 use Modules\Country\Actions\FindCountry;
 use Modules\Country\Actions\GetAllCountries;
 use Modules\Country\Actions\GetCountryDetails;
+use Modules\Country\Actions\GetAllProvinces;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,10 @@ Route::middleware('auth:api')->prefix('country')->group(function(){
     Route::put('/{country}', UpdateCountry::class)->name('api.country.update');
     Route::delete('/{country}', DeleteCountry::class)->name('api.country.destroy');    
     Route::get('/{country}/show', GetCountryDetails::class)->name('api.country.show');
+});
+
+Route::middleware('auth:api')->prefix('province')->group(function() {
+    Route::get('/', GetAllProvinces::class)->name('api.province.index');
+    //Route::get('/{province}/municipalities', GetCityMunicipalities::class)->name('api.municipality.select');
+    //Route::get('/citymunicipality/{citymunicipality}/barangays', GetBarangays::class)->name('api.barangay.select');
 });
