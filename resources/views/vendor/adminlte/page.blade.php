@@ -148,7 +148,7 @@ config('adminlte.sidebar_scrollbar_theme') : '') . ' ' . (config('adminlte.sideb
         </a>
         @endif
         <div class="sidebar">
-            <nav class="mt-2">
+            <nav class="mt-5">
                 <ul class="nav nav-pills nav-sidebar flex-column {{config('adminlte.classes_sidebar_nav', '')}}" data-widget="treeview" role="menu" @if(config('adminlte.sidebar_nav_animation_speed') !=300) data-animation-speed="{{config('adminlte.sidebar_nav_animation_speed')}}" @endif @if(!config('adminlte.sidebar_nav_accordion')) data-accordion="false" @endif>
                     @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
                 </ul>

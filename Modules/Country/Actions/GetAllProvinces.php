@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\SchoolLevel\Actions;
+namespace Modules\Country\Actions;
 
 use Lorisleiva\Actions\Action;
-use Modules\SchoolLevel\Entities\SchoolLevel;
+use Modules\Country\Entities\PhilProvince;
 
-class GetSchoolLevelDetail extends Action
+class GetAllProvinces extends Action
 {
     /**
      * Determine if the user is authorized to make this action.
@@ -14,8 +14,7 @@ class GetSchoolLevelDetail extends Action
      */
     public function authorize()
     {
-        // return $this->user()->can('get-schoo-level-detail');
-        return true;
+        return $this->user()->can('get-all-provinces');
     }
 
     /**
@@ -33,9 +32,10 @@ class GetSchoolLevelDetail extends Action
      *
      * @return mixed
      */
-    public function handle()
+
+        public function handle()
     {
-        return SchoolLevel::find($this->schoollevel);
-    }    
+        return PhilProvince::orderBy('name')->get();
+    }
 
 }

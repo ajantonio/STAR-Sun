@@ -14,7 +14,8 @@ class GetAllSchoolLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-school-level');
+        // return $this->user()->can('get-all-school-level');
+        return true;
     }
 
     /**
