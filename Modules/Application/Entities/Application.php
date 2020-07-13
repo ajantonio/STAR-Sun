@@ -11,6 +11,9 @@ class Application extends Model
     protected $keyType = 'string';
 
     protected $fillable = [];
+    protected $casts = [
+        'on_dashboard'=>'boolean'
+    ];
 
     public function resource_groups()
     {

@@ -5,7 +5,7 @@ namespace Modules\School\Entities;
 use Modules\System\Entities\Model;
 use Modules\Country\Entities\Country;
 
-class school extends Model
+class School extends Model
 {
     protected $connection = 'sm_commondb_con';
     protected $table = 'schools';
