@@ -27,8 +27,8 @@ class DatatableOfApplication extends Action
 
         $builder->addColumn(['data' => 'name']);
         $builder->addColumn(['data' => 'description']);
-        $builder->addColumn(['data' => 'icon']);
         $builder->addColumn(['data' => 'url']);
+        $builder->addColumn(['data' => 'on_dashboard']);
 
 
         $builder->addActionColumn();

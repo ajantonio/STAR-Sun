@@ -32,8 +32,17 @@
                                 <el-input v-model="form.icon"></el-input>
                             </el-form-item>
 
+                            <el-form-item label="Show On Dashboard">
+                                <el-switch
+                                        v-model="form.on_dashboard"
+                                        active-text="Yes"
+                                        inactive-text="No">
+                                </el-switch>
+                            </el-form-item>
+
                             <el-form-item class="text-right">
-                                <el-button type="primary" @click="submitForm('createForm')" icon="el-icon-check"> Save</el-button>
+                                <el-button type="primary" @click="submitForm('createForm')" icon="el-icon-check"> Save
+                                </el-button>
                                 <a href="{{route('application.index')}}">
                                     <el-button type="default" icon="el-icon-close">Cancel</el-button>
                                 </a>
@@ -56,6 +65,7 @@
                         name: null,
                         description: null,
                         url: null,
+                        on_dashboard: true,
                         icon: 'fa fa-list'
                     },
                     rules: {
