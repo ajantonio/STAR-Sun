@@ -20,21 +20,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Favicon
-    |--------------------------------------------------------------------------
-    |
-    | Here you can activate the favicon.
-    |
-    | For more detailed instructions you can look here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/#62-favicon
-    |
-    */
-
-    'use_ico_only' => false,
-    'use_full_favicon' => false,
-
-    /*
-    |--------------------------------------------------------------------------
     | Logo
     |--------------------------------------------------------------------------
     |
@@ -52,25 +37,6 @@ return [
     'logo_img_xl' => 'logo/mini-logo.png',
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
-
-    /*
-    |--------------------------------------------------------------------------
-    | User Menu
-    |--------------------------------------------------------------------------
-    |
-    | Here you can activate and change the user menu.
-    |
-    | For more detailed instructions you can look here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/#64-user-menu
-    |
-    */
-
-    'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -105,6 +71,7 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
+    'classes_content_wrapper' => '',
     'classes_content_header' => 'container-fluid border-bottom',
     'classes_content' => 'container-fluid',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
@@ -181,6 +148,8 @@ return [
 
     'password_email_url' => '',
 
+    'profile_url' => false,
+
     /*
     |--------------------------------------------------------------------------
     | Laravel Mix
@@ -210,11 +179,7 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => 'search',
-            'search' => false,
-            'topnav' => false,
-        ],
+        
     ],
 
     /*
