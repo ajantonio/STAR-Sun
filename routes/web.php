@@ -22,7 +22,3 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/auth/token', 'TokenController@accessToken')->name('token.access_token');
-});
