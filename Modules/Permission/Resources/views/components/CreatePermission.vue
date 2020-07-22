@@ -160,18 +160,18 @@
             },
 
             applicationChange() {
-                this.groups = null;
-                this.parent_permissions = null;
-                this.form.group = null;
+                        this.groups = null;
+                        this.parent_permissions = null;
+                        this.form.group = null;
 
-                if (this.form.application) {
-                    axios.get('/api/application/' + this.form.application.id + '/resources')
-                        .then(res => {
-                            this.groups = res.data;
-                        })
-                        .catch(err => {
-                            new ErrorHandler().handle(err.response);
-                        });
+                        if (this.form.application) {
+                            axios.get('/api/application/' + this.form.application.id + '/resources')
+                                .then(res => {
+                                    this.groups = res.data;
+                                })
+                                .catch(err => {
+                                    new ErrorHandler().handle(err.response);
+                                });
                 }
             },
 

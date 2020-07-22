@@ -29,6 +29,7 @@ class StoreNewApplication extends Action
         $application->description = $this->description;
         $application->url = $this->url;
         $application->icon = $this->icon;
+        $application->on_dashboard = $this->on_dashboard;
         $application->save();
 
         return $application;

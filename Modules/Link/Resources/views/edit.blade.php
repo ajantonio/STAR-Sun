@@ -66,6 +66,8 @@
                 axios.get('/api/link/{{$id}}/show')
                     .then(res => {
                         let data = res.data;
+                        console.log(res.data);
+                        
                         this.form.id = data.id;
                         this.form.title = data.title;
                         this.form.application = data.resource_group.application;

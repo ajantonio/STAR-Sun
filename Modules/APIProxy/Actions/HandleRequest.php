@@ -31,7 +31,7 @@ class HandleRequest extends Action
 
     public function handle()
     {
-        if (Str::startsWith($this->path, '/')) {
+        if (!Str::startsWith($this->path, '/')) {
             return response(['message' => "Invalid path. Path parameter should start with '/'."], 500);
         }
 

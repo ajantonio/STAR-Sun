@@ -29,7 +29,7 @@ class StoreNewPermission extends Action
         $permission->id = Str::orderedUuid()->toString();
         $permission->application_id = $this->application['id'];
         $permission->resource_group_id = $this->group['id'];
-        $permission->parent_permission_id = $this->parent_permission['id'];
+        $permission->parent_permission_id = $this->parent_permission['id'] ?? null;
         $permission->name = $this->name;
         $permission->title = $this->title;
         $permission->description = $this->description;
