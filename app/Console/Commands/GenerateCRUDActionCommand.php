@@ -20,7 +20,7 @@ class GenerateCRUDActionCommand extends ModuleMakeCommand
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(): int
     {
         $names = $this->argument('name');
         $this->call('module:make', ['name' => $names, '--force' => true]);
