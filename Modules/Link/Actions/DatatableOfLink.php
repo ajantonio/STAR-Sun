@@ -21,15 +21,12 @@ class DatatableOfLink extends Action
     public function handle(DatatableBuilder $html)
     {
         if (request()->ajax()) {
-            return datatables()->eloquent(Link::with(['resource_group.application', 'permission']))
-                ->addColumn('application', function ($link) {
-                    return $link->resource_group->application->name;
-                })
+            return datatables()->of(Link::with(['resource_group', 'permission', 'application'])->get())
                 ->editColumn('title', function ($link) {
                     $path = $link->resource_group->application->url . $link->url;
                     return "<a target='_blank' href='{$path}'>{$link->title}</a>";
                 })
-                ->addColumn('permission', function ($link) {
+                ->editColumn('permission.name', function ($link) {
                     return $link->permission->name ?? '';
                 })
                 ->editColumn('action', function ($link) {
@@ -39,9 +36,9 @@ class DatatableOfLink extends Action
                 ->toJson();
         }
 
-        $html->addColumn(['data' => 'application']);
+        $html->addColumn(['data' => 'application.name', 'title'=>'Application']);
         $html->addColumn(['data' => 'title']);
-        $html->addColumn(['data' => 'permission']);
+        $html->addColumn(['data' => 'permission.name', 'title'=>'Permission']);
         $html->addColumn(['data' => 'status']);
         $html->addActionColumn();
         $html->setTableId('links');
