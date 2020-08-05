@@ -21,7 +21,7 @@ class DatatableOfLink extends Action
     public function handle(DatatableBuilder $html)
     {
         if (request()->ajax()) {
-            return datatables()->eloquent(Link::with(['resource_group', 'permission', 'application']))
+            return datatables()->of(Link::with(['resource_group', 'permission', 'application'])->get())
                 ->editColumn('title', function ($link) {
                     $path = $link->resource_group->application->url . $link->url;
                     return "<a target='_blank' href='{$path}'>{$link->title}</a>";
