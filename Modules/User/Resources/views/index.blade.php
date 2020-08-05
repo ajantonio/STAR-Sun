@@ -11,6 +11,6 @@
 @push('js')
     {!! $builder->scripts() !!}
     <script>
-        applyHeaderSearch('users');
+        new DataTableHelpers('users').withAction().notSearchable([2,4]).addHeaderSearch();
     </script>
 @endpush
