@@ -90,6 +90,7 @@
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 <script src="{{ asset('js/bravo.js') }}"></script>
 <script src="{{ asset('js/ErrorHandler.js') }}"></script>
+<script src="{{ asset('js/DataTableHelpers.js') }}"></script>
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
