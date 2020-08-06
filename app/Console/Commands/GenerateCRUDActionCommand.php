@@ -56,6 +56,8 @@ class GenerateCRUDActionCommand extends ModuleMakeCommand
             //Find data
             $this->call("module:make-action", ['action' => "Find$module", 'module' => $module]);
         }
+
+        return 0;
     }
 
 }
