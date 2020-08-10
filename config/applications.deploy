@@ -38,7 +38,7 @@ return [
     ],
     'student_services' => [
         'name' => 'Altair',
-        'url' => 'https://altair.apc.edu.ph',
+        'url' => 'https://rams.apc.edu.ph',
         'dev_url' => 'https://altair-dev.apc.edu.ph',
     ],
     'external_relations' => [
