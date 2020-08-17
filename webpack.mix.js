@@ -19,6 +19,10 @@ mix.mergeManifest();
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
+if (mix.inProduction()) {
+    mix.version();
+}
+
 let webpackConfig = {
     plugins: [
         new webpack.NormalModuleReplacementPlugin(/element-ui[\/\\]lib[\/\\]locale[\/\\]lang[\/\\]zh-CN/, 'element-ui/lib/locale/lang/en')
