@@ -38,6 +38,7 @@ class UpdateLink extends Action
         $link->active_pattern = $this->active_pattern;
         $link->order = $this->order;
         $link->permission_id = $this->permission['id'] ?? null;
+        $link->status = $this->status;
         $link->save();
 
         return $link;

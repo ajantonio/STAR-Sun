@@ -29,7 +29,8 @@
                         url: null,
                         icon: 'fa fa-list',
                         active_pattern: null,
-                        order: 0
+                        order: 0,
+                        status: 'On'
 
                     },
                     applications: null,

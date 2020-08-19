@@ -61,6 +61,14 @@
                             </el-col>
                         </el-row>
 
+                        <el-row :gutter="10">
+                            <el-col :md="12">
+                                <el-form-item label="Active">
+                                    <el-switch v-model="form.active" inactive-value="No" active-value="Yes" active-text="Yes" inactive-text="No"></el-switch>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+
                         <el-row :gutter="10" class="pb-2">
                             <el-card>
                                 <template slot="header">
@@ -101,6 +109,7 @@
                         name: null,
                         title: null,
                         description: null,
+                        active:null,
                         roles: [],
                     },
                     applications: null,
