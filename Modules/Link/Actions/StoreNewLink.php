@@ -54,7 +54,7 @@ class StoreNewLink extends Action
         $link->icon = $this->icon;
         $link->active_pattern = $this->active_pattern;
         $link->order = $this->order;
-        $link->status = 'On';
+        $link->status = $this->status;
         $link->permission_id = $this->permission['id'] ?? null;
         $link->save();
         return $link;

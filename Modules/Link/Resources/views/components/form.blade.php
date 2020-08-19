@@ -109,6 +109,15 @@
         </el-col>
     </el-row>
 
+    <el-row :gutter="10">
+        {{--Status--}}
+        <el-col :md="12">
+            <el-form-item label="Status">
+                <el-switch v-model="form.status" inactive-value="Off" active-value="On" inactive-text="Off" active-text="On"></el-switch>
+            </el-form-item>
+        </el-col>
+    </el-row>
+
     <el-form-item class="text-right">
         <el-button type="primary" @click="submitForm('link_form')" icon="el-icon-check"> Save</el-button>
         <a href="{{ route('link.index') }}">
