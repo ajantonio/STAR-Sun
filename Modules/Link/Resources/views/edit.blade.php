@@ -82,6 +82,7 @@
                         this.form.icon = data.icon;
                         this.form.active_pattern = data.active_pattern;
                         this.form.order = data.order;
+                        this.form.status = data.status;
                     })
                     .catch(err => {
                         new ErrorHandler().handle(err.response);

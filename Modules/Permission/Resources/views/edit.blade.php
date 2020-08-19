@@ -135,6 +135,7 @@
                         this.form.title = data.title;
                         this.form.group = data.resource_group;
                         this.form.description = data.description;
+                        this.form.active = data.active;
                         this.form.parent_permission = data.parent_permission;
 
                         if (data.roles) {
