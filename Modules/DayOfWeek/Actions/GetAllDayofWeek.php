@@ -35,6 +35,6 @@ class GetAllDayofWeek extends Action
     public function handle()
     {
         // Execute the action.
-        return DayOfWeek::orderBy('day_string')->get();
+        return DayOfWeek::orderBy('id')->get();
     }
 }

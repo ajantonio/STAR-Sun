@@ -25,6 +25,6 @@ class GetAllSchoolLevel extends Action
      */
     public function handle()
     {
-        return SchoolLevel::orderBy('name')->get();
+        return SchoolLevel::where('is_active', 'Yes')->orderBy('id')->get();
     }
 }
