@@ -37,10 +37,15 @@ class DatatableOfLink extends Action
         }
 
         $html->addColumn(['data' => 'application.name', 'title'=>'Application']);
+        $html->addColumn(['data' => 'resource_group.name', 'title'=>'Group']);
         $html->addColumn(['data' => 'title']);
         $html->addColumn(['data' => 'permission.name', 'title'=>'Permission']);
         $html->addColumn(['data' => 'status']);
         $html->addActionColumn();
+        $html->orders([
+            [1, 'asc'],
+            [2, 'asc']
+        ]);
         $html->setTableId('links');
 
         return view('link::index', compact('html'));

@@ -16,7 +16,7 @@ class UpdateLink extends Action
     public function rules()
     {
         return [
-            'title' => 'required|' . Rule::unique('links')->ignore($this->id),
+            'title' => 'required|' . Rule::unique('links')->ignore($this->id)->where('application_id', $this->application['id']),
             'application' => 'required',
             'resource_group' => 'required',
             'url' => 'required',

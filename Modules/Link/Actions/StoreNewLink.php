@@ -26,7 +26,7 @@ class StoreNewLink extends Action
     public function rules()
     {
         return [
-            'title' => 'required|unique:links,title',
+            'title' => 'required',
             'application' => 'required',
             'resource_group' => 'required',
             'url' => 'required',
@@ -58,5 +58,12 @@ class StoreNewLink extends Action
         $link->permission_id = $this->permission['id'] ?? null;
         $link->save();
         return $link;
+    }
+
+    public function afterValidator($validator)
+    {
+        if (Link::whereTitle($this->title)->whereApplicationId($this->application['id'])->count()) {
+            $validator->errors()->add('title', 'The title has already been taken.');
+        }
     }
 }
