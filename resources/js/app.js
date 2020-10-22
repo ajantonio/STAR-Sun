@@ -112,6 +112,7 @@ axios.interceptors.request.use(function (config) {
     });
     return config;
 }, function (error) {
+    numberOfAjaxCAllPending--;
     loadingInstance.close();
     return Promise.reject(error);
 });
@@ -125,6 +126,7 @@ axios.interceptors.response.use(function (response) {
     }
     return response;
 }, function (error) {
+    numberOfAjaxCAllPending--;
     loadingInstance.close();
     return Promise.reject(error);
 });
