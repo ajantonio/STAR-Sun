@@ -61,16 +61,18 @@
             },
             methods: {
                 applicationChange() {
-                    this.form.parent_link = null;
-                    this.form.resource_group = null;
-                    this.resource_groups = null;
-                    this.parent_links = null;
+                    let app = this;
+                    app.form.parent_link = null;
+                    app.form.resource_group = null;
+                    app.resource_groups = [];
+                    app.parent_links = [];
+                    app.permissions = [];
+                    app.form.permission = null;
 
-                    if (this.form.application) {
-
-                        axios.get('/api/application/' + this.form.application.id + '/resources')
+                    if (app.form.application) {
+                        axios.get('/api/application/' + app.form.application.id + '/resources')
                             .then(res => {
-                                this.resource_groups = res.data;
+                                app.resource_groups = res.data;
                             })
                             .catch(err => {
                                 new ErrorHandler().handle(err.response);
@@ -79,18 +81,19 @@
                 },
 
                 resourceGroupChange() {
-                    this.form.parent_link = null;
-                    this.form.permission = null;
-                    this.parent_links = null;
+                    let app = this;
+                    app.form.parent_link = null;
+                    app.form.permission = null;
+                    app.parent_links = null;
 
-                    if (this.form.resource_group) {
-                        axios.get('/api/link/parent/' + this.form.application.id)
+                    if (app.form.resource_group) {
+                        axios.get('/api/link/parent/' + app.form.application.id)
                             .then(res => {
-                                this.parent_links = res.data;
+                                app.parent_links = res.data;
                             })
                             .catch(err => new ErrorHandler().handle(err.response));
-                        this.parent_links = this.form.resource_group.links;
-                        this.permissions = this.form.resource_group.permissions;
+                        app.parent_links = app.form.resource_group.links;
+                        app.permissions = app.form.resource_group.permissions;
                     }
                 },
 
