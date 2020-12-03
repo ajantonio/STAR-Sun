@@ -9,6 +9,6 @@ class GetLinkDetails extends Action
 {
     public function handle()
     {
-        return Link::with(['resource_group.application', 'resource_group.permissions', 'permission'])->find($this->link);
+        return Link::with(['resource_group.application', 'resource_group.permissions', 'permission', 'parent_link'])->find($this->link);
     }
 }
