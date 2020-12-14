@@ -65,28 +65,11 @@ class MenuServiceProvider extends ServiceProvider
 
                     //if no submenus or it is standard menu
                     if ($link->submenus->count() < 1) {
-
-                        if ($link->permission) {
-                            if ($link->permission->active != 'Yes') return false;
-                        } else {
-                            return true;
-                        }
-
-                        return $user->can($link->permission->name);
+                        return $link->permission != null ? $user->can($link->permission->name) : true;
                     } else {
                         //has submenus or it is a menu header
                         $submenus = $link->submenus->filter(function ($sub_menus, $key) use ($user) {
-
-                            if ($sub_menus->permission) {
-                                if ($sub_menus->permission->active == 'No') {
-                                    return false;
-                                }
-                            } else {
-                                return true;
-                            }
-
-
-                            return $user->can($sub_menus->permission->name);
+                            return $sub_menus->permission != null ? $user->can($sub_menus->permission->name) : true;
                         });
 
                         return $link->submenus = $submenus;

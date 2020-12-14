@@ -28,15 +28,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+
         Gate::before(function ($user, $ability) {
 
+            //Allow access to all resource if has Super Admin role
             if ($user->hasRole('Super Admin')) {
                 return true;
-            } else {
-                $permission = Permission::whereName($ability)->active()->first();
-                if (!$permission) {
-                    return false;
-                }
             }
 
         });

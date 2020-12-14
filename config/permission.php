@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => \Modules\Permission\Entities\Permission::class,
+        'permission' => \Modules\Permission\Entities\PermissionLoader::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -124,6 +124,6 @@ return [
          * file. Using 'default' here means to use the `default` set in cache.php.
          */
 
-        'store' => 'default',
+        'store' => 'array',
     ],
 ];
