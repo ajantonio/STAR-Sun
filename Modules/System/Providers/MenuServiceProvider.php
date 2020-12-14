@@ -44,7 +44,9 @@ class MenuServiceProvider extends ServiceProvider
             $main_menu = collect();
 
             //Get all links with sub menus and permission
-            $all_links = Link::with(['permission', 'submenus'])
+            $all_links = Link::with(['permission', 'submenus' => function ($query) {
+                return $query->whereStatus('On');
+            }])
                 ->where([
                     'application_id' => $application,
                     'status' => 'On',
@@ -64,13 +66,30 @@ class MenuServiceProvider extends ServiceProvider
                     //if no submenus or it is standard menu
                     if ($link->submenus->count() < 1) {
 
-                        return $link->permission != null ? $user->can($link->permission->name) : true;
+                        if ($link->permission) {
+                            if ($link->permission->active != 'Yes') return false;
+                        } else {
+                            return true;
+                        }
+
+                        return $user->can($link->permission->name);
                     } else {
                         //has submenus or it is a menu header
-                        return $link->submenus->filter(function ($sub_menus, $key) use ($user, &$link) {
+                        $submenus = $link->submenus->filter(function ($sub_menus, $key) use ($user) {
 
-                            return $sub_menus->permission != null ? $user->can($sub_menus->permission->name) : true;
+                            if ($sub_menus->permission) {
+                                if ($sub_menus->permission->active == 'No') {
+                                    return false;
+                                }
+                            } else {
+                                return true;
+                            }
+
+
+                            return $user->can($sub_menus->permission->name);
                         });
+
+                        return $link->submenus = $submenus;
                     }
                 });
                 if ($filtered_links->count()) {
@@ -99,13 +118,14 @@ class MenuServiceProvider extends ServiceProvider
                                 'submenu' => $sub_menus->all()
                             ]);
                         } else {
-
-                            $main_menu->push([
-                                'text' => $link->title,
-                                'url' => $link->url,
-                                'icon' => $link->icon,
-                                'active' => [$link->active_pattern]
-                            ]);
+                            if ($link->url != '#') {
+                                $main_menu->push([
+                                    'text' => $link->title,
+                                    'url' => $link->url,
+                                    'icon' => $link->icon,
+                                    'active' => [$link->active_pattern]
+                                ]);
+                            }
                         }
                     }
                 }

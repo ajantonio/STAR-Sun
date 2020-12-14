@@ -5,6 +5,7 @@ namespace Modules\Link\Actions;
 use Illuminate\Validation\Rule;
 use Lorisleiva\Actions\Action;
 use Modules\Link\Entities\Link;
+use Modules\Permission\Entities\Permission;
 
 class UpdateLink extends Action
 {
@@ -40,6 +41,18 @@ class UpdateLink extends Action
         $link->permission_id = $this->permission['id'] ?? null;
         $link->status = $this->status;
         $link->save();
+
+        if ($link->permission) {
+            if ($link->status == 'Off') {
+                Permission::find($link->permission_id)->update([
+                    'active' => 'No'
+                ]);
+            }else{
+                Permission::find($link->permission_id)->update([
+                    'active' => 'Yes'
+                ]);
+            }
+        }
 
         return $link;
     }
