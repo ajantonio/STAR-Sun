@@ -37,6 +37,7 @@ class UpdatePermission extends Action
         $permission->name = $this->name;
         $permission->title = $this->title;
         $permission->description = $this->description;
+        $permission->active = $this->active;
         $permission->save();
 
         $permission->roles()->sync($this->roles);
