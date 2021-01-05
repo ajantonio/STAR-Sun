@@ -26,8 +26,8 @@ class PermissionLoader extends BasePermission
             $builder->where('active', '=', 'Yes');
         });
 
-        //static::addGlobalScope('application', function (Builder $builder) {
-         //   $builder->where('application_id', '=', config('app.id'));
-        //});
+        static::addGlobalScope('application', function (Builder $builder) {
+            $builder->where('application_id', '=', config('app.id'));
+        });
     }
 }
