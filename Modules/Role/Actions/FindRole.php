@@ -9,6 +9,10 @@ class FindRole extends Action
 {
     public function handle($role)
     {
-        return Role::with('permissions')->find($role);
+        return Role::with([
+            'permissions' => function ($query) {
+                return $query->withoutGlobalScopes();
+            }
+        ])->find($role);
     }
 }
