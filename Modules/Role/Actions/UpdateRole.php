@@ -38,7 +38,10 @@ class UpdateRole extends Action
         $role->description = $this->description;
         $role->save();
 
-        $role->syncPermissions($new_permissions);
+        $role->permissions()->sync($this->permissions);
+        $role->forgetCachedPermissions();
+
+        //$role->syncPermissions($new_permissions);
 
         $log_data = [
             'old' => $old_permissions->pluck('name'),

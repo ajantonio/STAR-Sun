@@ -44,7 +44,7 @@ class StoreNewRole extends Action
         $role->guard_name = 'web';
         $role->save();
 
-        $role->permissions()->attach($this->permissions);;
+        $role->permissions()->withoutGlobalScopes()->attach($this->permissions);
         $role->forgetCachedPermissions();
 
         activity()->withProperties($role->permissions)
