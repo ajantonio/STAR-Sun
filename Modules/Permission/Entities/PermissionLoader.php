@@ -17,6 +17,11 @@ class PermissionLoader extends BasePermission
 
     protected static function booted()
     {
+
+        /**
+         * Apply global scopes
+         */
+
         static::addGlobalScope('active', function (Builder $builder) {
             $builder->where('active', '=', 'Yes');
         });
