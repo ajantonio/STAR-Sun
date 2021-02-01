@@ -14,7 +14,7 @@ class ShowEditCivilStatusForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-civil-status-form');
+        return true;
     }
 
     /**

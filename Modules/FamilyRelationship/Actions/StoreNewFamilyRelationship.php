@@ -14,7 +14,7 @@ class StoreNewFamilyRelationship extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-family-relationship');
+        return true;
     }
 
     /**

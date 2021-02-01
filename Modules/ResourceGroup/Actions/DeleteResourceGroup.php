@@ -9,7 +9,7 @@ class DeleteResourceGroup extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('delete-resource-group');
+        return true;
     }
 
     public function handle(ResourceGroup $resourcegroup)

@@ -13,7 +13,7 @@ class ShowCreateCampusForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-campus-form');
+        return true;
     }
 
     /**

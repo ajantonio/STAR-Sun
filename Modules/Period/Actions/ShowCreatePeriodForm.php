@@ -13,7 +13,7 @@ class ShowCreatePeriodForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-period-form');
+        return true;
     }
 
     /**

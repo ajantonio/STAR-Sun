@@ -12,7 +12,7 @@ class DataTableOfPermission extends Action
 
     public function authorize()
     {
-        return $this->user()->can('view-any-permission');
+        return true;
     }
 
 

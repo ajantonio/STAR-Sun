@@ -18,7 +18,7 @@ class User extends Authenticatable implements Auditable
     protected $keyType = 'string';
 
     protected $guard_name = 'web';
-    protected $guarded = ['password'];
+    protected $guarded = [];
     protected $hidden = ['password'];
     protected $dates = ['deleted_at', 'created_at', 'updated_at'];
 

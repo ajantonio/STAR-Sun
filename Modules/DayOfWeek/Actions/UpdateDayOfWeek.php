@@ -14,7 +14,7 @@ class UpdateDayOfWeek extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-day-of-week');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class StoreNewTermEventDetail extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-term-event-detail');
+        return true;
     }
 
     /**

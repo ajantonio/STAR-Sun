@@ -10,7 +10,7 @@ class StoreNewPermission extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('create-permission');
+        return true;
     }
 
     public function rules()

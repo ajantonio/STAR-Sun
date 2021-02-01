@@ -14,7 +14,7 @@ class GetAllCountries extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-any-country');
+        return true;
     }
 
     /**

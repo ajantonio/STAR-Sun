@@ -14,7 +14,7 @@ class StoreNewContactType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-contact-type');
+        return true;
     }
 
     /**

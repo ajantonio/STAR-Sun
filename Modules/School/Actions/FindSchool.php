@@ -14,7 +14,7 @@ class FindSchool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('findschool');
+        return true;
     }
 
     /**

@@ -10,7 +10,7 @@ class DatatableOfApplication extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('view-any-application') && config('app.admin_app');
+        return true;
     }
 
     public function handle(DatatableBuilder $builder)

@@ -13,7 +13,7 @@ class ShowCreateIndigenousForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-indigenous-form');
+        return true;
     }
 
     /**

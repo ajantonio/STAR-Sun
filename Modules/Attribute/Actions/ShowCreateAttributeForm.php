@@ -13,7 +13,7 @@ class ShowCreateAttributeForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-attribute-form');
+        return true;
     }
 
     /**

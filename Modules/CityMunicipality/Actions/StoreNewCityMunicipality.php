@@ -14,7 +14,7 @@ class StoreNewCityMunicipality extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-city-municipality');
+        return true;
     }
 
     /**

@@ -10,7 +10,7 @@ class ShowEditPermissionForm extends Action
 
     public function authorize()
     {
-        return $this->user()->can('edit-permission');
+        return true;
     }
 
     public function handle()

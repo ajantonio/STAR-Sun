@@ -13,7 +13,7 @@ class ViewGradeLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-grade-level');
+        return true;
     }
 
     /**

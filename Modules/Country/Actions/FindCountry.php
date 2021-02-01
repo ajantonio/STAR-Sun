@@ -14,7 +14,7 @@ class FindCountry extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-country');
+        return true;
     }
 
     /**

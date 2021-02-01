@@ -14,7 +14,7 @@ class DeleteCountry extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-country');
+        return true;
     }
 
     /**

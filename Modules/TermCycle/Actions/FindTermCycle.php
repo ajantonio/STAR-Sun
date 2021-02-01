@@ -14,7 +14,7 @@ class FindTermCycle extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-term-cycle');
+        return true;
     }
 
     /**

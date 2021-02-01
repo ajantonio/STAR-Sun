@@ -14,7 +14,7 @@ class ShowEditContactTypeForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-contact-type-form');
+        return true;
     }
 
     /**

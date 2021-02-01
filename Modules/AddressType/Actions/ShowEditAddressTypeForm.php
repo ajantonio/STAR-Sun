@@ -14,7 +14,7 @@ class ShowEditAddressTypeForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-address-type-form');
+        return true;
     }
 
     /**

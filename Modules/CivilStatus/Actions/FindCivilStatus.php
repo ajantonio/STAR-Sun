@@ -14,7 +14,7 @@ class FindCivilStatus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-civil-status');
+        return true;
     }
 
     /**

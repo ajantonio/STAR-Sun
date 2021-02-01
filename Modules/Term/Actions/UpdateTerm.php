@@ -16,7 +16,7 @@ class UpdateTerm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-term');
+        return true;
     }
 
     /**

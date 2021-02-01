@@ -14,7 +14,7 @@ class GetPeriodDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-period-details');
+        return true;
     }
 
     /**

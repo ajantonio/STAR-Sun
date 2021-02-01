@@ -13,7 +13,7 @@ class ShowCreateTermForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-term-form');
+        return true;
     }
 
     /**

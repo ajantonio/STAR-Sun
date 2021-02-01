@@ -14,7 +14,7 @@ class GetCivilStatusDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-civil-status-details');
+        return true;
     }
 
     /**

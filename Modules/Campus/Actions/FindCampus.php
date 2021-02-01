@@ -14,7 +14,7 @@ class FindCampus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-campus');
+        return true;
     }
 
     /**

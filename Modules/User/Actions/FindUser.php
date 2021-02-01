@@ -13,7 +13,7 @@ class FindUser extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-user');
+        return true;
     }
 
     /**

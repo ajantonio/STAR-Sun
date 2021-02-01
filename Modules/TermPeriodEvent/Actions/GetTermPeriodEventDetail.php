@@ -14,7 +14,7 @@ class GetTermPeriodEventDetail extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-term-period-event-detail');
+        return true;
     }
 
     /**

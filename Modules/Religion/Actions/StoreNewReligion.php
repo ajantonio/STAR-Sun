@@ -14,7 +14,7 @@ class StoreNewReligion extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-religion');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class ShowEditTermEventDetailForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-term-event-detail-form');
+        return true;
     }
 
     /**

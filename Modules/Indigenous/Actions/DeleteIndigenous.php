@@ -14,7 +14,7 @@ class DeleteIndigenous extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-indigenous');
+        return true;
     }
 
     /**

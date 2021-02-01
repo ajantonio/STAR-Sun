@@ -14,7 +14,7 @@ class UpdateCampus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-campus');
+        return true;
     }
 
     /**

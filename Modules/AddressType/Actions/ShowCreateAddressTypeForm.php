@@ -13,7 +13,7 @@ class ShowCreateAddressTypeForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-address-type-form');
+        return true;
     }
 
     /**

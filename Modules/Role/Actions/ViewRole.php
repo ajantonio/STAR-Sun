@@ -8,7 +8,7 @@ class ViewRole extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('view-role');
+        return true;
     }
 
     public function handle($role)

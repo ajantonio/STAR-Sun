@@ -14,7 +14,7 @@ class FindAddressType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-address-type');
+        return true;
     }
 
     /**

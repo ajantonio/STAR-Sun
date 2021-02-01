@@ -14,7 +14,7 @@ class GetCountryDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-country');
+        return true;
     }
 
     /**

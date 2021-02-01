@@ -14,7 +14,7 @@ class GetAllProvinces extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-provinces');
+        return true;
     }
 
     /**

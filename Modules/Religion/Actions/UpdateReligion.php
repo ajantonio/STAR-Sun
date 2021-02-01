@@ -14,7 +14,7 @@ class UpdateReligion extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-religion');
+        return true;
     }
 
     /**

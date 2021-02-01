@@ -14,7 +14,7 @@ class ShowEditAttributeForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-attribute-form');
+        return true;
     }
 
     /**

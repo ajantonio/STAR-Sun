@@ -13,7 +13,7 @@ class ShowCreateParentalMaritalStatusForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-parental-marital-status-form');
+        return true;
     }
 
     /**

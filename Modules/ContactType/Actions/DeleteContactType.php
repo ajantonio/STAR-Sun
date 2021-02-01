@@ -15,7 +15,7 @@ class DeleteContactType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-contact-type');
+        return true;
     }
 
     /**

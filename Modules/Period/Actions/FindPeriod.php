@@ -14,7 +14,7 @@ class FindPeriod extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-period');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class ShowEditReligionForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-religion-form');
+        return true;
     }
 
     /**

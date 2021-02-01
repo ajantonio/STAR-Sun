@@ -13,7 +13,7 @@ class ShowCreateDayOfWeekForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-day-of-week-form');
+        return true;
     }
 
     /**

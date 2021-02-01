@@ -14,7 +14,7 @@ class UpdateTermCycle extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-term-cycle');
+        return true;
     }
 
     /**

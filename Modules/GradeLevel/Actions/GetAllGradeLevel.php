@@ -14,7 +14,7 @@ class GetAllGradeLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-grade-level');
+        return true;
     }
 
     /**

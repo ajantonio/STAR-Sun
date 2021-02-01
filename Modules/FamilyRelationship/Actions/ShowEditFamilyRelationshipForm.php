@@ -14,7 +14,7 @@ class ShowEditFamilyRelationshipForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-family-relationship-form');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class GetTermCycleDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-term-cycle-details');
+        return true;
     }
 
     /**

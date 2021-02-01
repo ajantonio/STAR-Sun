@@ -13,7 +13,7 @@ class ShowCreateCivilStatusForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-civil-status-form');
+        return true;
     }
 
     /**

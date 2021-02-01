@@ -14,7 +14,7 @@ class DeleteAttribute extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-attribute');
+        return true;
     }
 
     /**

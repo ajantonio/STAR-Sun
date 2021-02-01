@@ -14,7 +14,7 @@ class ViewAddressType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-address-type');
+        return true;
     }
 
     /**

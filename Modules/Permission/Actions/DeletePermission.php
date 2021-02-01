@@ -9,7 +9,7 @@ class DeletePermission extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('delete-permission');
+        return true;
     }
 
     public function handle(Permission $permission)

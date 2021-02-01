@@ -14,7 +14,7 @@ class GetAllPeriod extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-period');
+        return true;
     }
 
     /**

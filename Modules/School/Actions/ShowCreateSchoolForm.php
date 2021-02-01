@@ -13,7 +13,7 @@ class ShowCreateSchoolForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-createschool-form');
+        return true;
     }
 
     /**

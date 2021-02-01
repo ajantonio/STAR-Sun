@@ -14,7 +14,7 @@ class GetIndigenousDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-indigenous');
+        return true;
     }
 
     /**

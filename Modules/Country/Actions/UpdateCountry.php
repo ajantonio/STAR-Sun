@@ -14,7 +14,7 @@ class UpdateCountry extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-country');
+        return true;
     }
 
     /**

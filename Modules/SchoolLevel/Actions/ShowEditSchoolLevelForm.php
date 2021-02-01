@@ -14,7 +14,7 @@ class ShowEditSchoolLevelForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-school-level-form');
+        return true;
     }
 
     /**

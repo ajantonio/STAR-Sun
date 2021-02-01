@@ -9,7 +9,7 @@ class DeleteRole extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('delete-role');
+        return true;
     }
 
     public function handle(Role $role)

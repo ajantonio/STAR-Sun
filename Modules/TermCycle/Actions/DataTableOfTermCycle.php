@@ -15,7 +15,7 @@ class DataTableOfTermCycle extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-termcycle');
+        return true;
     }
 
     /**

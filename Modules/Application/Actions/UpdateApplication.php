@@ -11,7 +11,7 @@ class UpdateApplication extends Action
 
     public function authorize()
     {
-        return $this->user()->can('edit-application') && config('app.admin_app');
+        return true;
     }
 
     public function rules()

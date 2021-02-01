@@ -13,7 +13,7 @@ class ShowCreateCountryForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-country-form');
+        return true;
     }
 
     /**

@@ -12,7 +12,7 @@ class ShowAssignUserRoleForm extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('assign-user-roles');
+        return true;
     }
 
     public function handle($user)

@@ -13,7 +13,7 @@ class ViewEducationLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-education-level');
+        return true;
     }
 
     /**

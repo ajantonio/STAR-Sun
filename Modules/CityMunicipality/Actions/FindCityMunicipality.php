@@ -14,7 +14,7 @@ class FindCityMunicipality extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-city-municipality');
+        return true;
     }
 
     /**

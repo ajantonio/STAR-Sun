@@ -14,7 +14,7 @@ class DeleteCivilStatus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-civil-status');
+        return true;
     }
 
     /**

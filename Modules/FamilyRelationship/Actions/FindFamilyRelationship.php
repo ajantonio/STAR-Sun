@@ -14,7 +14,7 @@ class FindFamilyRelationship extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-family-relationship');
+        return true;
     }
 
     /**

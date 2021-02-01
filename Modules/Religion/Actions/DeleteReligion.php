@@ -14,7 +14,7 @@ class DeleteReligion extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-religion');
+        return true;
     }
 
     /**

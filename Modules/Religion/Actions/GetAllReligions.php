@@ -14,7 +14,7 @@ class GetAllReligions extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-religions');
+        return true;
     }
 
     /**

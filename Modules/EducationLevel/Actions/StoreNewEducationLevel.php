@@ -14,7 +14,7 @@ class StoreNewEducationLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-educationlevel');
+        return true;
     }
 
     /**

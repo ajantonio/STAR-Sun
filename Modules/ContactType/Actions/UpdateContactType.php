@@ -14,7 +14,7 @@ class UpdateContactType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-contact-type');
+        return true;
     }
 
     /**

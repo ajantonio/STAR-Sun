@@ -14,7 +14,7 @@ class FindIndigenous extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-indigenous');
+        return true;
     }
 
     /**

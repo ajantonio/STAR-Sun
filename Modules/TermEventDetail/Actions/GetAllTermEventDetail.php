@@ -14,7 +14,7 @@ class GetAllTermEventDetail extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-term-event-detail');
+        return true;
     }
 
     /**

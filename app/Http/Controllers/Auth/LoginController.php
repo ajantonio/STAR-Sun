@@ -51,22 +51,25 @@ class LoginController extends Controller
      */
     public function redirect(Request $request)
     {
+        
 
         if (Auth::check()) {
-            return redirect('/');
+            return redirect('/home');
         }
 
-        $request->session()->put('state', $state = Str::random(128));
+        return redirect('/login');
 
-        $query = http_build_query([
-            'state' => $state,
-            'client_id' => config('passport.client_id'),
-            'redirect_uri' => config('passport.redirect_uri'),
-            'response_type' => 'code',
-            'scope' => '',
-        ]);
+        // $request->session()->put('state', $state = Str::random(128));
 
-        return redirect(config('passport.server') . '/oauth/authorize?' . $query);
+        // $query = http_build_query([
+        //     'state' => $state,
+        //     'client_id' => config('passport.client_id'),
+        //     'redirect_uri' => config('passport.redirect_uri'),
+        //     'response_type' => 'code',
+        //     'scope' => '',
+        // ]);
+
+        // return redirect(config('passport.server') . '/oauth/authorize?' . $query);
     }
 
     /**
@@ -143,14 +146,18 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        Auth::logoutOtherDevices(Str::random());
-        $this->guard()->logout();
+        // Auth::logoutOtherDevices(Str::random());
+        // $this->guard()->logout();
 
-        $request->session()->invalidate();
+        // $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+        // $request->session()->regenerateToken();
 
-        return $this->loggedOut($request) ?: redirect('/');
+        // return $this->loggedOut($request) ?: redirect('/');
+
+        Auth::logout();
+
+        return redirect('/');
     }
 
     /**

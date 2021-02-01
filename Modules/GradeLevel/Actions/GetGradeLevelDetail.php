@@ -13,7 +13,7 @@ class GetGradeLevelDetail extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-grade-level-detail');
+        return true;
     }
 
     /**

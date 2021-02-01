@@ -14,7 +14,7 @@ class FindReligion extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-religion');
+        return true;
     }
 
     /**

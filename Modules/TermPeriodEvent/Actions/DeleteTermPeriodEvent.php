@@ -14,7 +14,7 @@ class DeleteTermPeriodEvent extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-term-period-event');
+        return true;
     }
 
     /**

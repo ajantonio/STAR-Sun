@@ -15,7 +15,7 @@ class DataTableOfGradeLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-gradelevel');
+        return true;
     }
 
     /**

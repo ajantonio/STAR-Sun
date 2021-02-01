@@ -14,7 +14,7 @@ class UpdateFamilyRelationship extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-family-relationship');
+        return true;
     }
 
     /**

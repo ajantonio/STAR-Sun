@@ -14,7 +14,7 @@ class ShowViewSchool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-viewschool');
+        return true;
     }
 
     /**

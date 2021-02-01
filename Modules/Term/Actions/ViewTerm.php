@@ -14,7 +14,7 @@ class ViewTerm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-term');
+        return true;
     }
 
     /**

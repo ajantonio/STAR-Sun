@@ -10,7 +10,7 @@ class UpdatePermission extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('update-permission');
+        return true;
     }
 
     public function rules()

@@ -14,7 +14,7 @@ class ShowEditGradeLevelForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-grade-level-form');
+        return true;
     }
 
     /**

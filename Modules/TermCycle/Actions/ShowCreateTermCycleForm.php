@@ -13,7 +13,7 @@ class ShowCreateTermCycleForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-term-cycle-form');
+        return true;
     }
 
     /**

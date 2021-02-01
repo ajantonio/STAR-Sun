@@ -14,7 +14,7 @@ class UpdateAttribute extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-attribute');
+        return true;
     }
 
     /**

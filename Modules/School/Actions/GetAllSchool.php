@@ -14,7 +14,7 @@ class GetAllSchool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-any-school');
+        return true;
     }
 
     /**

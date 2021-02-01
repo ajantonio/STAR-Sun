@@ -15,7 +15,7 @@ class DataTableOfSchool extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-school');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class GetDayofWeekDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-dayof-week-details');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class FindTermEvent extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-term-event');
+        return true;
     }
 
     /**

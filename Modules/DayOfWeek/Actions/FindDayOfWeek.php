@@ -14,7 +14,7 @@ class FindDayOfWeek extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-day-of-week');
+        return true;
     }
 
     /**

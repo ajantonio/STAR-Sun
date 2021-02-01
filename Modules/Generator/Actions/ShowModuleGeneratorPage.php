@@ -10,7 +10,7 @@ class ShowModuleGeneratorPage extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('generate-module');
+        return true;
     }
 
     public function handle()

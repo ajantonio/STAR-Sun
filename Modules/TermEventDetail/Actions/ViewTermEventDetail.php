@@ -13,7 +13,7 @@ class ViewTermEventDetail extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-term-event-detail');
+        return true;
     }
 
     /**

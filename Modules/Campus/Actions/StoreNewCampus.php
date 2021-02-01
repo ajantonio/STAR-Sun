@@ -15,7 +15,7 @@ class StoreNewCampus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-campus');
+        return true;
     }
 
     /**

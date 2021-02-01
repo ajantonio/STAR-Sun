@@ -13,7 +13,7 @@ class ShowCreateGradeLevelForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-grade-level-form');
+        return true;
     }
 
     /**

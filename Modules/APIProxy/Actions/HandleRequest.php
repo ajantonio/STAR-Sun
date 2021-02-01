@@ -13,10 +13,6 @@ class HandleRequest extends Action
 {
     public function authorize()
     {
-        if ($this->runningAs('controller')) {
-            return $this->request->wantsJson();
-        }
-
         return true;
     }
 

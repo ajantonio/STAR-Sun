@@ -14,7 +14,7 @@ class GetFamilyRelationshipDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-family-relationship');
+        return true;
     }
 
     /**

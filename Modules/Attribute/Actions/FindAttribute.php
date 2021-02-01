@@ -14,7 +14,7 @@ class FindAttribute extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-attribute');
+        return true;
     }
 
     /**

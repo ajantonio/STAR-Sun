@@ -15,15 +15,25 @@ class DatatableOfLink extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-any-link');
+        // return $this->user()->can('view-any-link');
+        return true;
     }
 
     public function handle(DatatableBuilder $html)
     {
+        // $links = Link::with(['resource_group', 'permission', 'application'])
+        //         ->get();
+        //     foreach ($links as $link) {
+        //         print_r($link->resource_group->application->url . $link->url);
+        //     }
+        //     dd();
         if (request()->ajax()) {
-            return datatables()->of(Link::with(['resource_group', 'permission', 'application'])->get())
+            $links = Link::with(['resource_group', 'permission', 'application'])
+                ->get();
+            return datatables()->of($links)
                 ->editColumn('title', function ($link) {
-                    $path = $link->resource_group->application->url . $link->url;
+
+                    $path = ($link->resource_group->application->url ?? "") . $link->url;
                     return "<a target='_blank' href='{$path}'>{$link->title}</a>";
                 })
                 ->editColumn('permission.name', function ($link) {

@@ -13,7 +13,7 @@ class ShowCreateReligionForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-religion-form');
+        return true;
     }
 
     /**

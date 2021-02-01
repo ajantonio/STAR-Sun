@@ -14,7 +14,7 @@ class DeleteTermEventDetail extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-term-event-detail');
+        return true;
     }
 
     /**

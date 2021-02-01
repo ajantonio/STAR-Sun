@@ -14,7 +14,7 @@ class FindParentalMaritalStatus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-parental-marital-status');
+        return true;
     }
 
     /**

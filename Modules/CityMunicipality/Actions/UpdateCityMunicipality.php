@@ -14,7 +14,7 @@ class UpdateCityMunicipality extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-city-municipality');
+        return true;
     }
 
     /**

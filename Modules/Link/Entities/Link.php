@@ -14,7 +14,7 @@ class Link extends Model
 
     public function application()
     {
-        return $this->belongsTo(Application::class);
+        return $this->hasOne(Application::class, 'id', 'application_id');
     }
     public function resource_group()
     {

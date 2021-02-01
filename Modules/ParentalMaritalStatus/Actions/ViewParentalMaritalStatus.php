@@ -13,7 +13,7 @@ class ViewParentalMaritalStatus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-parental-marital-status');
+        return true;
     }
 
     /**

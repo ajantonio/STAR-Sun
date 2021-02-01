@@ -14,7 +14,7 @@ class ShowEditPeriodForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-period-form');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class FindGradeLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-grade-level');
+        return true;
     }
 
     /**

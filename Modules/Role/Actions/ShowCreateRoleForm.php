@@ -13,7 +13,7 @@ class ShowCreateRoleForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('create-role');
+        return true;
     }
 
     /**

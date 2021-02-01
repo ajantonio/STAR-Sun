@@ -15,7 +15,7 @@ class DataTableOfTermPeriodEvent extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-termperiodevent');
+        return true;
     }
 
     /**

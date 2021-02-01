@@ -14,7 +14,7 @@ class UpdateAddressType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-address-type');
+        return true;
     }
 
     /**

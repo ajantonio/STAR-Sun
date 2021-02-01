@@ -14,7 +14,7 @@ class ShowEditCampusForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-campus-form');
+        return true;
     }
 
     /**

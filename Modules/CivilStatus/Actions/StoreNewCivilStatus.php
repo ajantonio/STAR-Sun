@@ -14,7 +14,7 @@ class StoreNewCivilStatus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-civil-status');
+        return true;
     }
 
     /**

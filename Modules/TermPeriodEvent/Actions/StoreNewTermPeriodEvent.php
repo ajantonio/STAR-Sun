@@ -14,7 +14,7 @@ class StoreNewTermPeriodEvent extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-term-period-event');
+        return true;
     }
 
     /**

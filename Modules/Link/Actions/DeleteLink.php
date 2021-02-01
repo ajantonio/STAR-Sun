@@ -14,7 +14,8 @@ class DeleteLink extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-link');
+        // return $this->user()->can('delete-link');
+        return true;
     }
 
     public function handle(Link $link)

@@ -14,7 +14,7 @@ class ShowEditTermCycleForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-term-cycle-form');
+        return true;
     }
 
     /**

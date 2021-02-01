@@ -13,7 +13,7 @@ class ShowCreateTermEventDetailForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-term-event-detail-form');
+        return true;
     }
 
     /**

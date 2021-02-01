@@ -14,7 +14,7 @@ class FindSchoolLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-school-level');
+        return true;
     }
 
     /**

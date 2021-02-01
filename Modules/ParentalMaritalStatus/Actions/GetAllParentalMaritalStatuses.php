@@ -14,7 +14,7 @@ class GetAllParentalMaritalStatuses extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-any-family-relationship');
+        return true;
     }
 
     /**

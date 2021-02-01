@@ -14,7 +14,7 @@ class DeleteTerm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('delete-term');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class ShowEditCountryForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-country-form');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class FindContactType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('find-contact-type');
+        return true;
     }
 
     /**

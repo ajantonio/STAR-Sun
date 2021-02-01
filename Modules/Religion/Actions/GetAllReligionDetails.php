@@ -14,7 +14,7 @@ class GetAllReligionDetails extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('get-all-religion-details');
+        return true;
     }
 
     /**

@@ -10,7 +10,7 @@ class IndexPage extends Action
 {
     public function authorize()
     {
-        return $this->user()->can('access-audit-log') && config('app.admin_app');
+        return true;
     }
 
     public function handle()

@@ -14,7 +14,7 @@ class ViewCityMunicipality extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-city-municipality');
+        return true;
     }
 
     /**

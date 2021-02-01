@@ -13,7 +13,7 @@ class ShowCreateFamilyRelationshipForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-family-relationship-form');
+        return true;
     }
 
     /**

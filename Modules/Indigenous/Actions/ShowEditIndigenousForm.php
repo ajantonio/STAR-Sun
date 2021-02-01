@@ -14,7 +14,7 @@ class ShowEditIndigenousForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-edit-indigenous-form');
+        return true;
     }
 
     /**

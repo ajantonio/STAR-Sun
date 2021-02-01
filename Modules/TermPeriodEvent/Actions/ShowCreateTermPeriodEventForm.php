@@ -13,7 +13,7 @@ class ShowCreateTermPeriodEventForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-term-period-event-form');
+        return true;
     }
 
     /**

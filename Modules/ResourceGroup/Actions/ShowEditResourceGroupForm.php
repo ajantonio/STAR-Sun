@@ -13,7 +13,7 @@ class ShowEditResourceGroupForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('edit-resource-group');
+        return true;
     }
 
     public function handle($resourcegroup)

@@ -14,7 +14,7 @@ class StoreNewAddressType extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('store-new-address-type');
+        return true;
     }
 
     /**

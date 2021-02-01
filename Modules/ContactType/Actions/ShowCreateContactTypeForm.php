@@ -14,7 +14,7 @@ class ShowCreateContactTypeForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-contact-type-form');
+        return true;
     }
 
     /**

@@ -14,7 +14,7 @@ class GetAllEducationLevel extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('view-any-education-level');
+        return true;
     }
 
     /**

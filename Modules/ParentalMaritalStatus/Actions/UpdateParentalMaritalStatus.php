@@ -14,7 +14,7 @@ class UpdateParentalMaritalStatus extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('update-parental-marital-status');
+        return true;
     }
 
     /**

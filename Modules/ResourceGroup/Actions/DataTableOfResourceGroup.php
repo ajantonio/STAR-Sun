@@ -11,7 +11,7 @@ class DataTableOfResourceGroup extends Action
 
     public function authorize()
     {
-        return $this->user()->can('view-any-resource-group');
+        return true;
     }
 
     /**

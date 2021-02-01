@@ -14,7 +14,7 @@ class ShowCreateCityMunicipalityForm extends Action
      */
     public function authorize()
     {
-        return $this->user()->can('show-create-city-municipality-form');
+        return true;
     }
 
     /**
