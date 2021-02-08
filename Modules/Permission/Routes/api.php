@@ -16,7 +16,7 @@ use Modules\Permission\Actions\FindPermission;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('permission')->group(function () {
+Route::middleware('api')->prefix('permission')->group(function () {
     Route::post('/', StoreNewPermission::class)->name('api.permission.store');
     Route::get('/{permission}', FindPermission::class)->name('api.permission.find');
     Route::put('/{permission}', UpdatePermission::class)->name('api.permission.update');

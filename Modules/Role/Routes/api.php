@@ -16,7 +16,7 @@ use Modules\Role\Actions\FindRole;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('role')->group(function () {
+Route::middleware('api')->prefix('role')->group(function () {
     Route::get('/', GetAllRoles::class)->name('api.role.index');
     Route::post('/', StoreNewRole::class)->name('api.role.store');
     Route::get('/{role}', FindRole::class)->name('api.role.find');

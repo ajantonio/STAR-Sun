@@ -15,7 +15,7 @@ use Modules\ResourceGroup\Actions\FindResourceGroup;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('resourcegroup')->group(function(){
+Route::middleware('api')->prefix('resourcegroup')->group(function(){
     Route::post('/', StoreNewResourceGroup::class)->name('api.resourcegroup.store');
     Route::get('/{resourcegroup}', FindResourceGroup::class)->name('api.resourcegroup.find');
     Route::put('/{resourcegroup}', UpdateResourceGroup::class)->name('api.resourcegroup.update');

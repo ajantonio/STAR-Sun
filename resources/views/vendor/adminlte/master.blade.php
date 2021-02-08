@@ -62,6 +62,16 @@
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
 
+    <style>
+        .login-page {
+            background: url(/images/apc-building.png);
+                background-repeat: repeat;
+                background-size: auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>

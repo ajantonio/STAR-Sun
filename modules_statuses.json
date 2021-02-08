@@ -32,5 +32,6 @@
     "TermEventDetail": true,
     "Period": true,
     "GradeLevel": true,
-    "TermPeriodEvent": true
+    "TermPeriodEvent": true,
+    "ViewRooms": true
 }

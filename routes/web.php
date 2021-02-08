@@ -26,8 +26,12 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/login', 'HomeController@login')->name('home.login');
 Route::post('/login', 'HomeController@auth')->name('home.auth');
 Route::get('/logout', 'HomeController@logout')->name('home.logout');
+
+//Create dummy users
 Route::get('/create/dummy/user', 'HomeController@dummyUser');
 Route::get('/create/dummy/admin', 'HomeController@dummyAdmin');
+Route::get('/create/dummy/faculty', 'HomeController@dummyFaculty');
+Route::get('/create/dummy/studOrg', 'HomeController@dummyStudOrg');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');

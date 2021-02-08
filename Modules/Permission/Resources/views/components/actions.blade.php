@@ -1,16 +1,11 @@
-@can('view-permission')
-    <a href="{{route('permission.show', $permission)}}" class="btn btn-xs btn-outline-info"><i
-            class="fas fa-eye"></i></a>
-@endcan
+<a href="{{route('permission.show', $permission)}}" class="btn btn-xs btn-outline-info"><i
+        class="fas fa-eye"></i>
+</a>
 
-@can('edit-permission')
-    <a href="{{ route('permission.edit', $permission->id) }}" class="btn btn-xs btn-outline-primary">
-        <i class="fa fa-pencil-alt"></i>
-    </a>
-@endcan()
+<a href="{{ route('permission.edit', $permission->id) }}" class="btn btn-xs btn-outline-primary">
+    <i class="fa fa-pencil-alt"></i>
+</a>
 
-@can('delete-permission')
-    <button class="btn btn-xs btn-outline-danger"
-            onclick="deletePermission('{{$permission->id}}', '{{$permission->name}}')"><i class="fa fa-trash"></i>
-    </button>
-@endcan
+<button class="btn btn-xs btn-outline-danger"
+        onclick="deletePermission('{{$permission->id}}', '{{$permission->name}}')"><i class="fa fa-trash"></i>
+</button>

@@ -36,6 +36,9 @@ class DatatableOfLink extends Action
                     $path = ($link->resource_group->application->url ?? "") . $link->url;
                     return "<a target='_blank' href='{$path}'>{$link->title}</a>";
                 })
+                ->editColumn('resource_group.name', function ($link) {
+                    return $link->resource_group->name ?? '';
+                })
                 ->editColumn('permission.name', function ($link) {
                     return $link->permission->name ?? '';
                 })

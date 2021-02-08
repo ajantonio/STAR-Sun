@@ -13,7 +13,7 @@ use Modules\User\Actions\FindUser;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('user')->group(function () {
+Route::middleware('api')->prefix('user')->group(function () {
     Route::get('/{user}', FindUser::class)->name('api.user.find');
     Route::put('/{user}/roles', SetUserRole::class)->name('api.user.assign.roles');
 });

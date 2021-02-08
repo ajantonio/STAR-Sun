@@ -20,7 +20,7 @@ use Modules\Link\Http\Controllers\StoreLinkController;
 |
 */
 
-Route::middleware('auth:api')->prefix('link')->group(function () {
+Route::middleware('api')->prefix('link')->group(function () {
     Route::post('/create', StoreNewLink::class)->name('api.link.store');
     Route::get('/{link}/show', GetLinkDetails::class)->name('api.link.show');
     Route::put('/{link}', UpdateLink::class)->name('api.link.update');
